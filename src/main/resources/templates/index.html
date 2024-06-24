@@ -10,9 +10,9 @@
     <header class="header">
       <img src="/assets/Logo4.png" alt="Logo" th:src="@{/assets/Logo4.png}" />
       <nav class="nav-links">
-        <a href="#register">Register</a>
-        <a href="#sign-in-student">Sign In as Student</a>
-        <a href="#sign-in-admin">Sign In as Admin</a>
+        <a th:href="@{/register}">Register</a>
+        <a th:href="@{/login}">Sign In as Student</a>
+        <a th:href="@{/login}">Sign In as Admin</a>
       </nav>
     </header>
 
@@ -27,7 +27,7 @@
           intuitive platform.
         </p>
         <div class="gsbtn">
-          <a href="#" class="btn register"
+          <a th:href="@{/register}" class="btn register"
             ><span class="gs">Get Started</span
             ><ion-icon name="arrow-forward"></ion-icon
           ></a>
