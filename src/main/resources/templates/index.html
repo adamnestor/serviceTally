@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ServiceTally</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-  </head>
-  <body>
-    <header class="header">
-      <img src="/assets/Logo4.png" alt="Logo" th:src="@{/assets/Logo4.png}" />
-      <nav class="nav-links">
-        <a th:href="@{/register}">Register</a>
-        <a th:href="@{/login}">Sign In as Student</a>
-        <a th:href="@{/login}">Sign In as Admin</a>
-      </nav>
-    </header>
 
-    <section class="main">
-      <div class="hero-content">
-        <h1>
-          Bringing <span class="underline">Clarity</span> to Service Hour
-          Tracking
-        </h1>
-        <p>
-          Easily track, manage, and approve student service hours with our
-          intuitive platform.
-        </p>
-        <div class="gsbtn">
-          <a th:href="@{/register}" class="btn register"
-            ><span class="gs">Get Started</span
-            ><ion-icon name="arrow-forward"></ion-icon
-          ></a>
-        </div>
-      </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ServiceTally</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
 
-      <img
-        class="teen-img"
-        src="/assets/foodbank teens.webp"
-        alt="Students Volunteering"
-        th:src="@{/assets/foodbank teens.webp}"
-      />
+<body>
+	<header class="header">
+		<img src="/assets/Logo4.png" alt="Logo" th:src="@{/assets/Logo4.png}" />
+		<nav class="nav-links">
+			<a th:href="@{/register}">Register</a>
+			<a th:href="@{/login}">Sign In as Student</a>
+			<a th:href="@{/login}">Sign In as Admin</a>
+		</nav>
+	</header>
 
-      <div class="custom-shape-divider-bottom-1718998116">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
-    </section>
-    <section class="two">
-      <div>
-        <h1>Section 2</h1>
-      </div>
-    </section>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-  </body>
+	<section class="main">
+		<div class="hero-content">
+			<h1>
+				Bringing <span class="underline">Clarity</span> to Service Hour
+				Tracking
+			</h1>
+			<p>
+				Easily track, manage, and approve student service hours with our
+				intuitive platform.
+			</p>
+			<div class="gsbtn">
+				<a th:href="@{/register}" class="btn register"><span class="gs">Get Started</span><ion-icon
+						name="arrow-forward"></ion-icon></a>
+			</div>
+		</div>
+
+		<img class="teen-img" src="/assets/foodbank teens.webp" alt="Students Volunteering"
+			th:src="@{/assets/foodbank teens.webp}" />
+
+		<div class="custom-shape-divider-bottom-1718998116">
+			<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+				preserveAspectRatio="none">
+				<path
+					d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+					class="shape-fill"></path>
+			</svg>
+		</div>
+	</section>
+	<section class="two">
+		<div>
+			<h1>Section 2</h1>
+		</div>
+	</section>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</body>
+
 </html>
