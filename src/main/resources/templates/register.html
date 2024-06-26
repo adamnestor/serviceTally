@@ -16,6 +16,11 @@
 		<div class="container">
 			<form class="registration-form" th:action="@{/register/new}" th:object="${user}" method="post">
 				<h2>Registration Form</h2>
+				<!-- Error message display-->
+				<div th:if="${error}" class="alert alert-danger" role="alert">
+					<p th:text="${error}"></p>
+				</div>
+				<!-- End of error message display-->
 				<div class="form-group">
 					<input placeholder="Email" name="email" th:field="*{email}" type="email" id="email" required />
 				</div>

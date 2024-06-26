@@ -1,5 +1,7 @@
 package com.coderscampus.servicetally.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.coderscampus.servicetally.domain.Users;
@@ -16,5 +18,9 @@ public class UsersService {
 
 	public Users addNew(Users users) {
 		return usersRepo.save(users);
+	}
+	
+	public Optional<Users> getUserByEmail(String email){
+		return usersRepo.findByEmail(email);
 	}
 }

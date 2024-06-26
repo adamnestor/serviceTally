@@ -1,6 +1,7 @@
 package com.coderscampus.servicetally.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,18 @@ public class UsersController {
 
 	// Create user and send to db
 	@PostMapping("/register/new")
-	public String userRegistration(@Valid Users users) {
+	public String userRegistration(@Valid Users users, Model model) {
+
+		Optional<Users> optionalUsers = usersService.getUserByEmail(users.getEmail());
+
+		if(optionalUsers.isPresent()) {
+			model.addAttribute("error", "Email already registered, try to login or register with another email.");
+			List<UsersType> usersTypes = usersTypeService.getAll();
+			model.addAttribute("getAllTypes", usersTypes);
+			model.addAttribute("user", new Users());
+			return "register";
+		}
+		
 		usersService.addNew(users);
 		return "dashboard";
 	}
