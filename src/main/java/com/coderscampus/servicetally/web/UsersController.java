@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.domain.UsersType;
+import com.coderscampus.servicetally.service.UsersService;
 import com.coderscampus.servicetally.service.UsersTypeService;
 
 import jakarta.validation.Valid;
@@ -18,10 +19,12 @@ import jakarta.validation.Valid;
 public class UsersController {
 
 	private final UsersTypeService usersTypeService;
+	private final UsersService usersService;
 
 	@Autowired
-	public UsersController(UsersTypeService usersTypeService) {
+	public UsersController(UsersTypeService usersTypeService, UsersService usersService) {
 		this.usersTypeService = usersTypeService;
+		this.usersService = usersService;
 	}
 
 	// Show user registration form
@@ -36,7 +39,7 @@ public class UsersController {
 	// Create user and send to db
 	@PostMapping("/register/new")
 	public String userRegistration(@Valid Users users) {
-		System.out.println("User:: " + users);
+		usersService.addNew(users);
 		return "dashboard";
 	}
 
