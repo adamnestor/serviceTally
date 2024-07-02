@@ -1,16 +1,15 @@
 package com.coderscampus.servicetally.domain;
 
-import jakarta.persistence.CascadeType;
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "school")
 public class School {
 
 	@Id
@@ -21,19 +20,17 @@ public class School {
 	private String city;
 	private String state;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "admin_profile")
-	private AdminProfile adminProfile;
+	@OneToMany(mappedBy = "school")
+	private Set<AdminProfile> adminProfile = new HashSet<>();
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "student_profile")
-	private StudentProfile studentProfile;
+	@OneToMany(mappedBy = "school")
+	private Set<StudentProfile> studentProfile = new HashSet<>();
 
 	public School() {
 	}
 
-	public School(int schoolId, String schoolName, String city, String state, AdminProfile adminProfile,
-			StudentProfile studentProfile) {
+	public School(int schoolId, String schoolName, String city, String state, Set<AdminProfile> adminProfile,
+			Set<StudentProfile> studentProfile) {
 		this.schoolId = schoolId;
 		this.schoolName = schoolName;
 		this.city = city;
@@ -74,19 +71,19 @@ public class School {
 		this.state = state;
 	}
 
-	public AdminProfile getAdminProfile() {
+	public Set<AdminProfile> getAdminProfile() {
 		return adminProfile;
 	}
 
-	public void setAdminProfile(AdminProfile adminProfile) {
+	public void setAdminProfile(Set<AdminProfile> adminProfile) {
 		this.adminProfile = adminProfile;
 	}
 
-	public StudentProfile getStudentProfile() {
+	public Set<StudentProfile> getStudentProfile() {
 		return studentProfile;
 	}
 
-	public void setStudentProfile(StudentProfile studentProfile) {
+	public void setStudentProfile(Set<StudentProfile> studentProfile) {
 		this.studentProfile = studentProfile;
 	}
 
@@ -95,6 +92,8 @@ public class School {
 		return "School [schoolId=" + schoolId + ", schoolName=" + schoolName + ", city=" + city + ", state=" + state
 				+ ", adminProfile=" + adminProfile + ", studentProfile=" + studentProfile + "]";
 	}
+
+	
 	
 	
 }

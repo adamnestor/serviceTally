@@ -31,8 +31,8 @@ public class StudentProfile {
 	private String profilePhoto;
 
 	@ManyToOne
-	@JoinColumn(name = "school_id", referencedColumnName = "school_id")
-	private School schoolId;
+	@JoinColumn(name = "school_id")
+	private School school;
 
 	public StudentProfile() {
 	}
@@ -47,7 +47,7 @@ public class StudentProfile {
 		this.state = state;
 		this.graduationYear = graduationYear;
 		this.profilePhoto = profilePhoto;
-		this.schoolId = schoolId;
+		this.school = schoolId;
 	}
 
 	public StudentProfile(Users users) {
@@ -119,18 +119,18 @@ public class StudentProfile {
 	}
 
 	public School getSchoolId() {
-		return schoolId;
+		return school;
 	}
 
 	public void setSchoolId(School schoolId) {
-		this.schoolId = schoolId;
+		this.school = schoolId;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentProfile [studentId=" + studentId + ", userId=" + userId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", graduationYear="
-				+ graduationYear + ", profilePhoto=" + profilePhoto + ", schoolId=" + schoolId + "]";
+				+ graduationYear + ", profilePhoto=" + profilePhoto + ", schoolId=" + school + "]";
 	}
 
 }
