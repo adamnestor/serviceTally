@@ -48,6 +48,10 @@ public class AdminProfile {
 		this.profilePhoto = profilePhoto;
 	}
 
+	public AdminProfile(Users users) {
+		this.userId=users;
+	}
+
 	public int getAdminId() {
 		return adminId;
 	}

@@ -50,6 +50,10 @@ public class StudentProfile {
 		this.schoolId = schoolId;
 	}
 
+	public StudentProfile(Users users) {
+		this.userId=users;
+	}
+
 	public int getStudentId() {
 		return studentId;
 	}
