@@ -28,6 +28,17 @@ body {
   margin-bottom: 3.2rem;
 }
 
+.heading-secondary {
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 2.4rem;
+}
+
+.small-text {
+  font-size: 1.8rem;
+}
+
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -136,4 +147,66 @@ body {
 .hero-img {
   width: 80%;
   justify-self: center;
+}
+
+/**************************/
+/* LOGIN */
+/**************************/
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
+.section-form {
+  width: 100%;
+  max-width: 50rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.auth-form input, 
+.auth-form select {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid #f18814;
+  border-radius: 5px;
+}
+
+.auth-form .formbtn {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #f18814;
+  color: #fff;
+  border: none;
+  border-radius: 150px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.auth-form .formbtn:hover {
+  background-color: #d97a12;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
 }

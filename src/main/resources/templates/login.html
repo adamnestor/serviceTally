@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ServiceTally</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/st-edits/style2.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Register Account</title>
-	<link rel="stylesheet" href="/css/reglogin.css" />
-</head>
+  <body>
+    <header class="header">
+      <img class="logo" src="/Logo5.png" alt="ServiceTally Logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="#">Sign-In Student</a></li>
+          <li><a class="main-nav-link" href="#">Sign-In Admin</a></li>
+          <li><a class="main-nav-link nav-cta" href="#">Register</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-	<div class="logo">
-		<img src="/images/Logo4.png" alt="Logo" />
-	</div>
-	<section class="main">
-		<div class="container">
-			<form class="registration-form" th:action="@{/login}" th:object="${user}" method="post">
-				<h2>Login</h2>
-				<div class="form-group">
-					<input placeholder="Email" name="email" field="{email}" type="email" id="email" required />
-				</div>
-				<div class="form-group">
-					<input placeholder="Password" name="password" field="{password}" type="password" id="password"
-						required />
-				</div>
-				<button class="regbtn" type="submit">Log In</button>
-				<p class="text-center">
-					Are you a new User?
-					<a th:href="@{/register}"> Register Now </a>
-				</p>
-			</form>
-		</div>
-	</section>
-</body>
-
+    <main class="center-items">
+      <section class="section-form">
+        <div>
+          <form
+            class="auth-form"
+            th:action="@{/login}"
+            th:object="${user}"
+            method="post"
+          >
+            <h2 class="heading-secondary text-center">Login</h2>
+            <div class="form-group">
+              <input
+                placeholder="Email"
+                name="email"
+                field="{email}"
+                type="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                placeholder="Password"
+                name="password"
+                field="{password}"
+                type="password"
+                id="password"
+                required
+              />
+            </div>
+            <button class="formbtn" type="submit">Log In</button>
+            <p class="small-text text-center">
+              Are you a new User?
+              <a th:href="@{/register}"> Register Now </a>
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
