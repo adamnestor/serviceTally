@@ -52,7 +52,7 @@ public class StudentProfile {
 	}
 
 	public StudentProfile(Users users) {
-		this.userId=users;
+		this.userId = users;
 	}
 
 	public int getStudentId() {

@@ -15,14 +15,14 @@ public class School {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int schoolId;
-	
+
 	private String schoolName;
 	private String city;
 	private String state;
-	
+
 	@OneToMany(mappedBy = "school")
 	private Set<AdminProfile> adminProfile = new HashSet<>();
-	
+
 	@OneToMany(mappedBy = "school")
 	private Set<StudentProfile> studentProfile = new HashSet<>();
 
@@ -93,7 +93,4 @@ public class School {
 				+ ", adminProfile=" + adminProfile + ", studentProfile=" + studentProfile + "]";
 	}
 
-	
-	
-	
 }

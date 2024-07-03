@@ -50,7 +50,7 @@ public class AdminProfile {
 	}
 
 	public AdminProfile(Users users) {
-		this.userId=users;
+		this.userId = users;
 	}
 
 	public int getAdminId() {
@@ -123,7 +123,5 @@ public class AdminProfile {
 				+ lastName + ", city=" + city + ", state=" + state + ", schoolId=" + school + ", profilePhoto="
 				+ profilePhoto + "]";
 	}
-	
-	
 
 }
