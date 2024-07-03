@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,7 +18,7 @@ public class AdminProfile {
 	private int adminId;
 
 	@OneToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "admin_id")
 	@MapsId
 	private Users userId;
 
@@ -26,8 +27,8 @@ public class AdminProfile {
 	private String city;
 	private String state;
 
-	@ManyToOne
-	@JoinColumn(name = "school_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "school")
 	private School school;
 
 	@Column(nullable = true, length = 64)
