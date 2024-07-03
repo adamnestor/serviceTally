@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,7 +18,7 @@ public class AdminProfile {
 	private int adminId;
 
 	@OneToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "admin_id")
 	@MapsId
 	private Users userId;
 
@@ -26,9 +27,9 @@ public class AdminProfile {
 	private String city;
 	private String state;
 
-	@ManyToOne
-	@JoinColumn(name = "school_id", referencedColumnName = "school_id")
-	private School schoolId;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "school")
+	private School school;
 
 	@Column(nullable = true, length = 64)
 	private String profilePhoto;
@@ -44,8 +45,12 @@ public class AdminProfile {
 		this.lastName = lastName;
 		this.city = city;
 		this.state = state;
-		this.schoolId = schoolId;
+		this.school = schoolId;
 		this.profilePhoto = profilePhoto;
+	}
+
+	public AdminProfile(Users users) {
+		this.userId = users;
 	}
 
 	public int getAdminId() {
@@ -97,11 +102,11 @@ public class AdminProfile {
 	}
 
 	public School getSchoolId() {
-		return schoolId;
+		return school;
 	}
 
 	public void setSchoolId(School schoolId) {
-		this.schoolId = schoolId;
+		this.school = schoolId;
 	}
 
 	public String getProfilePhoto() {
@@ -115,10 +120,8 @@ public class AdminProfile {
 	@Override
 	public String toString() {
 		return "AdminProfile [adminId=" + adminId + ", userId=" + userId + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", city=" + city + ", state=" + state + ", schoolId=" + schoolId + ", profilePhoto="
+				+ lastName + ", city=" + city + ", state=" + state + ", schoolId=" + school + ", profilePhoto="
 				+ profilePhoto + "]";
 	}
-	
-	
 
 }
