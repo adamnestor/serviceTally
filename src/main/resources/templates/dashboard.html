@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/st-edits/dashboard.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <img class="img-logo" src="/Logo5.png" alt="Logo" />
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">New Service</li>
+          <li class="nav-item">Edit Profile</li>
+        </ul>
+      </div>
+      <div>
+        <label class="display-name">First & Last Name</label>
+        <a href="#" class="logout">Logout</a>
+      </div>
+    </header>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>ServiceTally</title>
-</head>
+    <section class="sidebar"></section>
 
-<body>
-	<h1>Welcome to the Dashboard!</h1>
-</body>
+    <div class="welcome-message">
+      <h1 class="primary-title">Student Dashboard</h1>
+    </div>
 
+    <main class="main-content">
+      <label class="secondary-title main-secondary-title">My Service Hours</label>
+      <th:block th:each="jobPost : ${jobPost}">
+        <a
+          th:href="@{/job-details-apply/{id}(id=${jobPost.jobPostId})}"
+          class="service-link"
+        >
+          <div
+            class="service-row"
+            onclick="window.location='/job-details-apply/{id}(id=${jobPost.jobPostId})'"
+          >
+            <div class="service-info">
+              <label class="job-title"
+                >[[${jobPost.jobTitle}]] Thymeleaf Service Title</label
+              >
+            </div>
+            <div class="service-info service-date">
+              <label
+                th:text="${jobPost.jobLocationId.city + ', ' + jobPost.jobLocationId.state}"
+                >Date</label
+              >
+            </div>
+            <div class="service-info service-status">
+              <label th:text="@{${jobPost.jobCompanyId.name}}"
+                >Event Status</label
+              >
+            </div>
+          </div>
+        </a>
+      </th:block>
+    </main>
+  </body>
 </html>
