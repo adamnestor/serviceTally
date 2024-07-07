@@ -34,6 +34,8 @@ public class WebSecurityConfig {
 			auth.requestMatchers(publicUrl).permitAll();
 			auth.anyRequest().authenticated();
 		});
+		
+		http.formLogin(form->form.loginPage("/login").permitAll().successHandler(null));
 
 		return http.build();
 	}
