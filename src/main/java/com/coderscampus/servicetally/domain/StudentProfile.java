@@ -32,7 +32,7 @@ public class StudentProfile {
 	private String profilePhoto;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "school")
+	@JoinColumn(name = "school_id")
 	private School school;
 
 	public StudentProfile() {

@@ -28,7 +28,7 @@ public class AdminProfile {
 	private String state;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "school")
+	@JoinColumn(name = "school_id")
 	private School school;
 
 	@Column(nullable = true, length = 64)
