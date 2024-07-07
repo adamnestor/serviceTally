@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,6 +17,7 @@ public class WebSecurityConfig {
 	
 	private final CustomUserDetailsService customUserDetailsService;
 	
+	@Autowired
 	public WebSecurityConfig(CustomUserDetailsService customUserDetailsService) {
 		this.customUserDetailsService = customUserDetailsService;
 	}
@@ -42,7 +44,7 @@ public class WebSecurityConfig {
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setPasswordEncoder(passwordEncoder());
 		authenticationProvider.setUserDetailsService(customUserDetailsService);
-		return authenticationProvider();
+		return authenticationProvider;
 	}
 	
 	@Bean
