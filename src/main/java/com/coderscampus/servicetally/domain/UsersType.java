@@ -18,7 +18,7 @@ public class UsersType {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userTypeId;
 
-	private String typeName;
+	private String userTypeName;
 
 	@OneToMany(targetEntity = Users.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
 	private List<Users> users;
@@ -26,9 +26,9 @@ public class UsersType {
 	public UsersType() {
 	}
 
-	public UsersType(int userTypeId, String typeName, List<Users> users) {
+	public UsersType(int userTypeId, String userTypeName, List<Users> users) {
 		this.userTypeId = userTypeId;
-		this.typeName = typeName;
+		this.userTypeName = userTypeName;
 		this.users = users;
 	}
 
@@ -40,12 +40,12 @@ public class UsersType {
 		this.userTypeId = userTypeId;
 	}
 
-	public String getTypeName() {
-		return typeName;
+	public String getUserTypeName() {
+		return userTypeName;
 	}
 
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
+	public void setUserTypeName(String userTypeName) {
+		this.userTypeName = userTypeName;
 	}
 
 	public List<Users> getUsers() {
@@ -58,7 +58,7 @@ public class UsersType {
 
 	@Override
 	public String toString() {
-		return "UsersType [userTypeId=" + userTypeId + ", typeName=" + typeName + "]";
+		return "UsersType [userTypeId=" + userTypeId + ", userTypeName=" + userTypeName + "]";
 	}
 
 	

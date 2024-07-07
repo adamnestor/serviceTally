@@ -15,10 +15,10 @@ import jakarta.persistence.Table;
 public class AdminProfile {
 
 	@Id
-	private int adminId;
+	private int userAccountId;
 
 	@OneToOne
-	@JoinColumn(name = "admin_id")
+	@JoinColumn(name = "user_account_id")
 	@MapsId
 	private Users userId;
 
@@ -37,9 +37,9 @@ public class AdminProfile {
 	public AdminProfile() {
 	}
 
-	public AdminProfile(int adminId, Users userId, String firstName, String lastName, String city, String state,
+	public AdminProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
 			School schoolId, String profilePhoto) {
-		this.adminId = adminId;
+		this.userAccountId = userAccountId;
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,12 +53,12 @@ public class AdminProfile {
 		this.userId = users;
 	}
 
-	public int getAdminId() {
-		return adminId;
+	public int getUserAccountId() {
+		return userAccountId;
 	}
 
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
+	public void setUserAccountId(int userAccountId) {
+		this.userAccountId = userAccountId;
 	}
 
 	public Users getUserId() {
@@ -119,7 +119,7 @@ public class AdminProfile {
 
 	@Override
 	public String toString() {
-		return "AdminProfile [adminId=" + adminId + ", userId=" + userId + ", firstName=" + firstName + ", lastName="
+		return "AdminProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", city=" + city + ", state=" + state + ", schoolId=" + school + ", profilePhoto="
 				+ profilePhoto + "]";
 	}

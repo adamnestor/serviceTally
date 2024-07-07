@@ -70,12 +70,12 @@ public class EntityTest {
         studentProfileRepository.save(studentProfile);
 
         // Retrieve and assert AdminProfile
-        Optional<AdminProfile> retrievedAdminProfile = adminProfileRepository.findById(adminProfile.getAdminId());
+        Optional<AdminProfile> retrievedAdminProfile = adminProfileRepository.findById(adminProfile.getUserAccountId());
         assertThat(retrievedAdminProfile).isPresent();
         assertThat(retrievedAdminProfile.get().getFirstName()).isEqualTo("Admin");
 
         // Retrieve and assert StudentProfile
-        Optional<StudentProfile> retrievedStudentProfile = studentProfileRepository.findById(studentProfile.getStudentId());
+        Optional<StudentProfile> retrievedStudentProfile = studentProfileRepository.findById(studentProfile.getUserAccountId());
         assertThat(retrievedStudentProfile).isPresent();
         assertThat(retrievedStudentProfile.get().getFirstName()).isEqualTo("Student");
 
