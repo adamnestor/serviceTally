@@ -15,10 +15,10 @@ import jakarta.persistence.Table;
 public class StudentProfile {
 
 	@Id
-	private int studentId;
+	private int userAccountId;
 
 	@OneToOne
-	@JoinColumn(name = "student_id")
+	@JoinColumn(name = "user_account_id")
 	@MapsId
 	private Users userId;
 
@@ -32,15 +32,15 @@ public class StudentProfile {
 	private String profilePhoto;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "school")
+	@JoinColumn(name = "school_id")
 	private School school;
 
 	public StudentProfile() {
 	}
 
-	public StudentProfile(int studentId, Users userId, String firstName, String lastName, String city, String state,
+	public StudentProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
 			String graduationYear, String profilePhoto, School schoolId) {
-		this.studentId = studentId;
+		this.userAccountId = userAccountId;
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -55,12 +55,12 @@ public class StudentProfile {
 		this.userId = users;
 	}
 
-	public int getStudentId() {
-		return studentId;
+	public int getUserAccountId() {
+		return userAccountId;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setUserAccountId(int userAccountId) {
+		this.userAccountId = userAccountId;
 	}
 
 	public Users getUserId() {
@@ -129,7 +129,7 @@ public class StudentProfile {
 
 	@Override
 	public String toString() {
-		return "StudentProfile [studentId=" + studentId + ", userId=" + userId + ", firstName=" + firstName
+		return "StudentProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", graduationYear="
 				+ graduationYear + ", profilePhoto=" + profilePhoto + ", schoolId=" + school + "]";
 	}
