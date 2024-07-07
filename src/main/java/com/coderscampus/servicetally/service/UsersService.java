@@ -29,18 +29,17 @@ public class UsersService {
 	}
 
 	public Users addNew(Users users) {
-		
+
 		users.setPassword(passwordEncoder.encode(users.getPassword()));
 		Users savedUser = usersRepo.save(users);
-		
+
 		int userTypeId = users.getUserTypeId().getUserTypeId();
-		if(userTypeId == 1) {
+		if (userTypeId == 1) {
 			adminProfileRepo.save(new AdminProfile(savedUser));
 		} else {
 			studentProfileRepo.save(new StudentProfile(savedUser));
 		}
-		
-		
+
 		return savedUser;
 	}
 
