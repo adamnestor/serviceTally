@@ -2,6 +2,11 @@ package com.coderscampus.servicetally.service;
 
 import java.util.Optional;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +50,25 @@ public class UsersService {
 
 	public Optional<Users> getUserByEmail(String email) {
 		return usersRepo.findByEmail(email);
+	}
+
+	public Object getCurrentUserProfile() {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String username = authentication.getName();
+			Users user = usersRepo.findByEmail(username)
+					.orElseThrow(() -> new UsernameNotFoundException("Could not find user"));
+			int userId = user.getUserId();
+			if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
+				AdminProfile adminProfile = adminProfileRepo.findById(userId).orElse(new AdminProfile());
+				return adminProfile;
+			} else {
+				StudentProfile studentProfile = studentProfileRepo.findById(userId).orElse(new StudentProfile());
+				return studentProfile;
+			}
+		}
+		return null;
 	}
 }
