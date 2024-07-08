@@ -20,7 +20,7 @@ public class ServiceEventActivityController {
 		this.usersService = usersService;
 	}
 
-	@GetMapping("/dashboard")
+	@GetMapping("/dashboard/")
 	public String searchServiceEvents(Model model) {
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
