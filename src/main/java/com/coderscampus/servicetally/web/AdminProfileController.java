@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,8 +22,6 @@ import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
 import com.coderscampus.servicetally.util.FileUploadUtil;
-
-import ch.qos.logback.core.util.StringUtil;
 
 @Controller
 @RequestMapping("/admin-profile")
@@ -56,6 +55,7 @@ public class AdminProfileController {
 		return "admin_profile";
 	}
 
+	@PostMapping("/addNew")
 	public String addNew(AdminProfile adminProfile, @RequestParam("image") MultipartFile multipartFile, Model model) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
