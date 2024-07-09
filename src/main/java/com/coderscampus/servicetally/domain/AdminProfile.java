@@ -126,9 +126,9 @@ public class AdminProfile {
 
 	@Override
 	public String toString() {
-		return "AdminProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", city=" + city + ", state=" + state + ", school=" + school + ", profilePhoto="
-				+ profilePhoto + "]";
+		return "AdminProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", school=" + school
+				+ ", profilePhoto=" + profilePhoto + "]";
 	}
 
 }
