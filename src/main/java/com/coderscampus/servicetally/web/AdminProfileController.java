@@ -72,6 +72,8 @@ public class AdminProfileController {
 			adminProfile.setProfilePhoto(fileName);
 		}
 		AdminProfile savedUser = adminProfileService.addNew(adminProfile);
+		
+		String uploadDir = "photos/admin/" + savedUser.getUserAccountId();
 
 		return "redirect:/dashboard/";
 	}
