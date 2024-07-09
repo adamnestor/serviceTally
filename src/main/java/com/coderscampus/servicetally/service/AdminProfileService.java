@@ -21,7 +21,10 @@ public class AdminProfileService {
 	public Optional<AdminProfile> getOne(Integer id){
 		return adminProfileRepo.findById(id);
 	}
-	
-	
+
+	public AdminProfile addNew(AdminProfile adminProfile) {
+		return adminProfileRepo.save(adminProfile);
+	}
+
 
 }
