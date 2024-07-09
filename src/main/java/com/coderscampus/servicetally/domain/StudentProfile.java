@@ -39,7 +39,7 @@ public class StudentProfile {
 	}
 
 	public StudentProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
-			String graduationYear, String profilePhoto, School schoolId) {
+			String graduationYear, String profilePhoto, School school) {
 		this.userAccountId = userAccountId;
 		this.userId = userId;
 		this.firstName = firstName;
@@ -48,7 +48,7 @@ public class StudentProfile {
 		this.state = state;
 		this.graduationYear = graduationYear;
 		this.profilePhoto = profilePhoto;
-		this.school = schoolId;
+		this.school = school;
 	}
 
 	public StudentProfile(Users users) {
@@ -119,12 +119,12 @@ public class StudentProfile {
 		this.profilePhoto = profilePhoto;
 	}
 
-	public School getSchoolId() {
+	public School getSchool() {
 		return school;
 	}
 
-	public void setSchoolId(School schoolId) {
-		this.school = schoolId;
+	public void setSchool(School school) {
+		this.school = school;
 	}
 
 	@Override

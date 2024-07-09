@@ -55,7 +55,7 @@ public class EntityTest {
         adminProfile.setLastName("User");
         adminProfile.setCity("Admin City");
         adminProfile.setState("Admin State");
-        adminProfile.setSchoolId(school);
+        adminProfile.setSchool(school);
         adminProfileRepository.save(adminProfile);
 
         // Create StudentProfile
@@ -66,7 +66,7 @@ public class EntityTest {
         studentProfile.setCity("Student City");
         studentProfile.setState("Student State");
         studentProfile.setGraduationYear("2024");
-        studentProfile.setSchoolId(school);
+        studentProfile.setSchool(school);
         studentProfileRepository.save(studentProfile);
 
         // Retrieve and assert AdminProfile
