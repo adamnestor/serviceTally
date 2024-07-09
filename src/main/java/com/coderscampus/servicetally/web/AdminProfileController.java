@@ -20,6 +20,7 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
+import com.coderscampus.servicetally.util.FileUploadUtil;
 
 import ch.qos.logback.core.util.StringUtil;
 
@@ -74,6 +75,11 @@ public class AdminProfileController {
 		AdminProfile savedUser = adminProfileService.addNew(adminProfile);
 		
 		String uploadDir = "photos/admin/" + savedUser.getUserAccountId();
+		try {
+			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
 		return "redirect:/dashboard/";
 	}
