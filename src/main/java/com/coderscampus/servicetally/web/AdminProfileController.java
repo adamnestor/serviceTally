@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.web;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,8 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
+
+import ch.qos.logback.core.util.StringUtil;
 
 @Controller
 @RequestMapping("/admin-profile")
@@ -62,6 +66,12 @@ public class AdminProfileController {
 			adminProfile.setUserAccountId(user.getUserId());
 		}
 		model.addAttribute("profile", adminProfile);
+		String fileName = "";
+		if (!multipartFile.getOriginalFilename().equals("")) {
+			fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+			adminProfile.setProfilePhoto(fileName);
+		}
+		AdminProfile savedUser = adminProfileService.addNew(adminProfile);
 
 		return "redirect:/dashboard/";
 	}
