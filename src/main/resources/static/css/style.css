@@ -71,7 +71,7 @@ body {
   padding: 0 4.8rem;
 }
 
-.logo {
+.img-logo {
   height: 7rem;
 }
 
@@ -174,7 +174,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.auth-form input, 
+.auth-form input,
 .auth-form select {
   width: 100%;
   padding: 1rem;
@@ -209,4 +209,97 @@ body {
 
 .text-center a:hover {
   text-decoration: underline;
+}
+
+/**************************/
+/* PROFILE GENERAL*/
+/**************************/
+.grid-profile {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 1rem;
+  margin: 0;
+  height: 100vh;
+}
+
+/**************************/
+/* PROFILE SIDE */
+/**************************/
+.picture-background {
+  background-color: #f18814;
+}
+
+.picture-background .img-logo {
+  margin-top: 2.4rem;
+  margin-left: 4.8rem;
+}
+
+/**************************/
+/* PROFILE FORM */
+/**************************/
+
+.profile {
+  width: 100%;
+  max-width: 120rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.profile-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2.4rem;
+  border: 1px solid #f18814;
+  border-radius: 5px;
+  height: 6rem;
+}
+
+.profile-form .formbtn {
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  background-color: #f18814;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 150px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+.profile-form .formbtn:hover {
+  background-color: #d97a12;
+}
+
+.form-heading {
+  padding-bottom: 3.2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-field {
+  flex: 1;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-field:last-child {
+  margin-right: 0;
 }
