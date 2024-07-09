@@ -33,6 +33,7 @@
 			</ul>
 		</div>
 		<div>
+			<img class="rounded-circle" th:if="${user.photosImagePath!=null}" th:src="@{${user?.photosImagePath}}" />
 			<label th:if="${user.firstName != null && user.lastName != null}"
 				th:text="${user.firstName+' '+user.lastName}" class="display-name">
 			</label>
