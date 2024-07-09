@@ -2,6 +2,7 @@ package com.coderscampus.servicetally.web;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
+import com.coderscampus.servicetally.service.AdminProfileService;
 
 @Controller
 @RequestMapping("/admin-profile")
@@ -22,6 +24,7 @@ public class AdminProfileController {
 	private final UsersRepository usersRepo;
 	private final AdminProfileService adminProfileService;
 
+	@Autowired
 	public AdminProfileController(UsersRepository usersRepo, AdminProfileService adminProfileService) {
 		this.usersRepo = usersRepo;
 		this.adminProfileService = adminProfileService;
@@ -38,7 +41,7 @@ public class AdminProfileController {
 			Optional<AdminProfile> adminProfile = adminProfileService.getOne(user.getUserId());
 			
 			if(!adminProfile.isEmpty())
-				model.addAttribute("profile", adminProfile.get())
+				model.addAttribute("profile", adminProfile.get());
 			
 		}
 		
