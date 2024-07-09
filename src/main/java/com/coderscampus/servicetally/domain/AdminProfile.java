@@ -101,12 +101,12 @@ public class AdminProfile {
 		this.state = state;
 	}
 
-	public School getSchoolId() {
+	public School getSchool() {
 		return school;
 	}
 
-	public void setSchoolId(School schoolId) {
-		this.school = schoolId;
+	public void setSchool(School school) {
+		this.school = school;
 	}
 
 	public String getProfilePhoto() {
@@ -120,7 +120,7 @@ public class AdminProfile {
 	@Override
 	public String toString() {
 		return "AdminProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", city=" + city + ", state=" + state + ", schoolId=" + school + ", profilePhoto="
+				+ lastName + ", city=" + city + ", state=" + state + ", school=" + school + ", profilePhoto="
 				+ profilePhoto + "]";
 	}
 
