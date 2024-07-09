@@ -48,7 +48,7 @@ public class AdminProfileController {
 			Optional<AdminProfile> adminProfile = adminProfileService.getOne(user.getUserId());
 
 			if (!adminProfile.isEmpty())
-				model.addAttribute("profile", adminProfile.get());
+				model.addAttribute("adminProfile", adminProfile.get());
 
 		}
 
