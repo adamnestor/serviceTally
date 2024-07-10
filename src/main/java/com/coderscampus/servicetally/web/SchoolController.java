@@ -72,8 +72,6 @@ public class SchoolController {
 
 		Users user = usersService.getCurrentUser();
 		if (user != null) {
-	
-			
 			school.addAdminProfile(user)
 		}
 		model.addAttribute("school", school);
