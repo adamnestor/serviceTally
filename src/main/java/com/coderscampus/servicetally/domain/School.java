@@ -90,8 +90,4 @@ public class School {
 				+ ", city=" + city + ", state=" + state + ", hoursRequired=" + hoursRequired + "]";
 	}
 
-	
-
-	
-
 }

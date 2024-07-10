@@ -43,7 +43,7 @@ public class SchoolController {
 	public String createSchool(@ModelAttribute School school) {
 		Users loggedInUser = usersService.getCurrentUser();
 		if (loggedInUser != null) {
-			school.setSchoolAdminId(loggedInUser); //setSchoolAdmin or ..AdminId?
+			school.setSchoolAdminId(loggedInUser);
 			schoolService.createOrUpdateSchool(school);
 		} else {
 			return "redirect:/login";
