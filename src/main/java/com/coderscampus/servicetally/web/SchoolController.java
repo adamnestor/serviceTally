@@ -67,16 +67,16 @@ public class SchoolController {
 		return "school-create";
 	}
 
-	@PostMapping("/create")
+	@PostMapping("/createNew")
 	public String createSchool(School school, Model model) {
-		
+
 		Users user = usersService.getCurrentUser();
 		if (user != null) {
-			school.setPostedById(user);
-			model.addAttribute("school", school);
-			School savedSchool = schoolService.createOrUpdateSchool(school);
-			return "redirect:/school/";
+			school.setAdminProfile(user);
 		}
+		model.addAttribute("school", school);
+		School savedSchool = schoolService.createOrUpdateSchool(school);
+		return "redirect:/school/";
 	}
 
 	@PostMapping("/edit/{id}")
@@ -84,6 +84,7 @@ public class SchoolController {
 		School school = schoolService.getOne(id);
 		model.addAttribute("school", school);
 		model.addAttribute("user", usersService.getCurrentUserProfile());
+		return "school-create";
 	}
 
 }

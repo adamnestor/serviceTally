@@ -23,8 +23,8 @@ public class SchoolService {
 		return schoolRepo.findAll();
 	}
 	
-	public Optional<School> getOne(Integer id){
-		return schoolRepo.findById(id);
+	public School getOne(Integer id){
+		return schoolRepo.findById(id).orElseThrow(()-> new RuntimeException("School not found"));
 	}
 	
 	public School createOrUpdateSchool(School school) {
