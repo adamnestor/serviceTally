@@ -20,18 +20,21 @@ import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
 import com.coderscampus.servicetally.service.SchoolService;
+import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
 @RequestMapping("/school")
 public class SchoolController {
 
 	private final SchoolService schoolService;
+	private final UsersService usersService;
 	private final AdminProfileService adminProfileService;
 	private final UsersRepository usersRepo;
 
-	public SchoolController(SchoolService schoolService, AdminProfileService adminProfileService,
-			UsersRepository usersRepo) {
+	public SchoolController(SchoolService schoolService, UsersService usersService,
+			AdminProfileService adminProfileService, UsersRepository usersRepo) {
 		this.schoolService = schoolService;
+		this.usersService = usersService;
 		this.adminProfileService = adminProfileService;
 		this.usersRepo = usersRepo;
 	}
@@ -60,27 +63,27 @@ public class SchoolController {
 	@GetMapping("/create")
 	public String showCreateForm(Model model) {
 		model.addAttribute("school", new School());
+		model.addAttribute("user", usersService.getCurrentUserProfile());
 		return "school-create";
 	}
 
 	@PostMapping("/create")
-	public String createSchool(@ModelAttribute("school") School school) {
-		School savedSchool = schoolService.createOrUpdateSchool(school);
-		return "redirect:/school/";
-	}
-
-	@GetMapping("/edit/{id}")
-	public String showEditForm(@PathVariable("id") Integer id, Model model) {
-		Optional<School> school = schoolService.getOne(id);
-		school.ifPresent(model::addAttribute);
-		return "school-edit";
+	public String createSchool(School school, Model model) {
+		
+		Users user = usersService.getCurrentUser();
+		if (user != null) {
+			school.setPostedById(user);
+			model.addAttribute("school", school);
+			School savedSchool = schoolService.createOrUpdateSchool(school);
+			return "redirect:/school/";
+		}
 	}
 
 	@PostMapping("/edit/{id}")
-	public String updateSchool(@PathVariable("id") Integer id, @ModelAttribute("school") School school) {
-		school.setSchoolId(id);
-		School updatedSchool = schoolService.createOrUpdateSchool(school);
-		return "redirect:/school/";
+	public String editSchool(@PathVariable("id") Integer id, Model model) {
+		School school = schoolService.getOne(id);
+		model.addAttribute("school", school);
+		model.addAttribute("user", usersService.getCurrentUserProfile());
 	}
 
 }
