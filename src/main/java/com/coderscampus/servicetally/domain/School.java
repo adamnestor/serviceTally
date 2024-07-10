@@ -99,12 +99,12 @@ public class School {
 	}
 	
 	public void addAdminProfile(AdminProfile adminProfile) {
-		adminProfile.add(adminProfile);
+		this.adminProfile.add(adminProfile);
 		adminProfile.setSchool(this);
 	}
 	
 	public void removeAdminProfile(AdminProfile adminProfile) {
-		adminProfile.remove(adminProfile);
+		this.adminProfile.remove(adminProfile);
 		adminProfile.setSchool(null);
 	}
 

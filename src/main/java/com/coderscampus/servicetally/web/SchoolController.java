@@ -72,7 +72,9 @@ public class SchoolController {
 
 		Users user = usersService.getCurrentUser();
 		if (user != null) {
-			school.setAdminProfile(user);
+	
+			
+			school.addAdminProfile(user)
 		}
 		model.addAttribute("school", school);
 		School savedSchool = schoolService.createOrUpdateSchool(school);
