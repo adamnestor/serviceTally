@@ -19,6 +19,7 @@ public class School {
 	private String schoolName;
 	private String city;
 	private String state;
+	private float hoursRequired;
 
 	@OneToMany(mappedBy = "school")
 	private Set<AdminProfile> adminProfile = new HashSet<>();
@@ -29,12 +30,13 @@ public class School {
 	public School() {
 	}
 
-	public School(int schoolId, String schoolName, String city, String state, Set<AdminProfile> adminProfile,
-			Set<StudentProfile> studentProfile) {
+	public School(int schoolId, String schoolName, String city, String state, float hoursRequired,
+			Set<AdminProfile> adminProfile, Set<StudentProfile> studentProfile) {
 		this.schoolId = schoolId;
 		this.schoolName = schoolName;
 		this.city = city;
 		this.state = state;
+		this.hoursRequired = hoursRequired;
 		this.adminProfile = adminProfile;
 		this.studentProfile = studentProfile;
 	}
@@ -71,6 +73,14 @@ public class School {
 		this.state = state;
 	}
 
+	public float getHoursRequired() {
+		return hoursRequired;
+	}
+
+	public void setHoursRequired(float hoursRequired) {
+		this.hoursRequired = hoursRequired;
+	}
+
 	public Set<AdminProfile> getAdminProfile() {
 		return adminProfile;
 	}
@@ -90,7 +100,10 @@ public class School {
 	@Override
 	public String toString() {
 		return "School [schoolId=" + schoolId + ", schoolName=" + schoolName + ", city=" + city + ", state=" + state
-				+ ", adminProfile=" + adminProfile + ", studentProfile=" + studentProfile + "]";
+				+ ", hoursRequired=" + hoursRequired + ", adminProfile=" + adminProfile + ", studentProfile="
+				+ studentProfile + "]";
 	}
+
+	
 
 }
