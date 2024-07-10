@@ -3,8 +3,6 @@ package com.coderscampus.servicetally.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.luv2code.jobportal.entity.Users;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
