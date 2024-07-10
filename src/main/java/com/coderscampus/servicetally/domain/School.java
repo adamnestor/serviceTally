@@ -3,6 +3,7 @@ package com.coderscampus.servicetally.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +22,7 @@ public class School {
 	private String state;
 	private float hoursRequired;
 
-	@OneToMany(mappedBy = "school")
+	@OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
 	private Set<AdminProfile> adminProfile = new HashSet<>();
 
 	@OneToMany(mappedBy = "school")
@@ -95,6 +96,16 @@ public class School {
 
 	public void setStudentProfile(Set<StudentProfile> studentProfile) {
 		this.studentProfile = studentProfile;
+	}
+	
+	public void addAdminProfile(AdminProfile adminProfile) {
+		adminProfile.add(adminProfile);
+		adminProfile.setSchool(this);
+	}
+	
+	public void removeAdminProfile(AdminProfile adminProfile) {
+		adminProfile.remove(adminProfile);
+		adminProfile.setSchool(null);
 	}
 
 	@Override
