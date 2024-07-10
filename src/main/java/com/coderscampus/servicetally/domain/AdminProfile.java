@@ -3,6 +3,8 @@ package com.coderscampus.servicetally.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.luv2code.jobportal.entity.Users;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,6 +40,10 @@ public class AdminProfile {
 	private String profilePhoto;
 
 	public AdminProfile() {
+	}
+	
+	public AdminProfile(Users users) {
+		this.userId = users;
 	}
 
 	public AdminProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
