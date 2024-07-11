@@ -35,8 +35,9 @@ public class SchoolService {
 		return schoolRepo.findById(id).orElseThrow(() -> new RuntimeException("School not found"));
 	}
 
-	public List<School> getSchoolsByAdmin(Users admin) {
-		return schoolRepo.findBySchoolAdminId(admin);
+	public List<School> getSchoolsByAdmin(AdminProfile adminProfile) {
+		String userAccountId = String.valueOf(adminProfile.getUserAccountId());
+		return schoolRepo.findByUserAccountId(userAccountId);
 	}
 
 	@Transactional
