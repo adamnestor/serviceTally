@@ -19,6 +19,7 @@ import jakarta.persistence.Transient;
 public class AdminProfile {
 
 	@Id
+	@Column(name="user_account_id")
 	private int userAccountId;
 
 	@OneToOne
@@ -31,7 +32,7 @@ public class AdminProfile {
 	private String city;
 	private String state;
 
-	@OneToMany(mappedBy = "schoolAdmin", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "schoolAdminId", cascade = CascadeType.ALL)
 	private List<School> schoolsManaged = new ArrayList<>();
 
 	@Column(nullable = true, length = 64)
@@ -133,7 +134,5 @@ public class AdminProfile {
 				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", schoolsManaged="
 				+ schoolsManaged + ", profilePhoto=" + profilePhoto + "]";
 	}
-
-	
 
 }

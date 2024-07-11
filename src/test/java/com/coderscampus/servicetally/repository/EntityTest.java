@@ -41,21 +41,23 @@ public class EntityTest {
         user.setPassword("password");
         usersRepository.save(user);
 
+        // Create AdminProfile
+        AdminProfile adminProfile = new AdminProfile(user);
+        adminProfile.setFirstName("Admin");
+        adminProfile.setLastName("User");
+        adminProfile.setCity("Admin City");
+        adminProfile.setState("Admin State");
+        adminProfileRepository.save(adminProfile);
+        
         // Create School
         School school = new School();
         school.setSchoolName("Test School");
         school.setCity("Test City");
         school.setState("Test State");
+        school.setSchoolAdminId(adminProfile);
         schoolRepository.save(school);
 
-        // Create AdminProfile
-        AdminProfile adminProfile = new AdminProfile();
-        adminProfile.setUserId(user);
-        adminProfile.setFirstName("Admin");
-        adminProfile.setLastName("User");
-        adminProfile.setCity("Admin City");
-        adminProfile.setState("Admin State");
-        adminProfile.setSchool(school);
+        adminProfile.getSchoolsManaged().add(school);
         adminProfileRepository.save(adminProfile);
 
         // Create StudentProfile
@@ -73,6 +75,7 @@ public class EntityTest {
         Optional<AdminProfile> retrievedAdminProfile = adminProfileRepository.findById(adminProfile.getUserAccountId());
         assertThat(retrievedAdminProfile).isPresent();
         assertThat(retrievedAdminProfile.get().getFirstName()).isEqualTo("Admin");
+        assertThat(retrievedAdminProfile.get().getSchoolsManaged()).contains(school);
 
         // Retrieve and assert StudentProfile
         Optional<StudentProfile> retrievedStudentProfile = studentProfileRepository.findById(studentProfile.getUserAccountId());
@@ -83,6 +86,7 @@ public class EntityTest {
         Optional<School> retrievedSchool = schoolRepository.findById(school.getSchoolId());
         assertThat(retrievedSchool).isPresent();
         assertThat(retrievedSchool.get().getSchoolName()).isEqualTo("Test School");
+        assertThat(retrievedSchool.get().getSchoolAdminId()).isEqualTo(user);
     }
 }
 

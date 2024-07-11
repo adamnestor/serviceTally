@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.repository.AdminProfileRepository;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.UsersService;
 
@@ -39,17 +41,18 @@ public class SchoolController {
 		return "school-dash";
 	}
 	
-	@PostMapping("/schools")
-	public String createSchool(@ModelAttribute School school) {
-		Users loggedInUser = usersService.getCurrentUser();
-		if (loggedInUser != null) {
-			school.setSchoolAdminId(loggedInUser);
-			schoolService.createOrUpdateSchool(school);
-		} else {
-			return "redirect:/login";
-		}
-		return "redirect:/schools";
-	}
+//	@PostMapping("/schools")
+//	public String createSchool(@ModelAttribute School school) {
+//		Users loggedInUser = usersService.getCurrentUser();
+//		if (loggedInUser != null) {
+//			AdminProfile adminProfile = AdminProfileRepository.f
+//			school.setSchoolAdminId(loggedInUser);
+//			schoolService.createOrUpdateSchool(school);
+//		} else {
+//			return "redirect:/login";
+//		}
+//		return "redirect:/schools";
+//	}
 	
 	@GetMapping("/schools/{id}")
 	public String showSchoolDetails(@PathVariable Integer id, Model model) {
