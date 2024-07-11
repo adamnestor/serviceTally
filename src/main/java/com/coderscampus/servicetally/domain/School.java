@@ -1,13 +1,11 @@
 package com.coderscampus.servicetally.domain;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class School {
@@ -15,28 +13,27 @@ public class School {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int schoolId;
+	
+	@ManyToOne
+	@JoinColumn(name = "schoolAdminId", referencedColumnName = "userId")
+	private Users schoolAdminId;
 
 	private String schoolName;
 	private String city;
 	private String state;
-
-	@OneToMany(mappedBy = "school")
-	private Set<AdminProfile> adminProfile = new HashSet<>();
-
-	@OneToMany(mappedBy = "school")
-	private Set<StudentProfile> studentProfile = new HashSet<>();
+	private float hoursRequired;
 
 	public School() {
 	}
 
-	public School(int schoolId, String schoolName, String city, String state, Set<AdminProfile> adminProfile,
-			Set<StudentProfile> studentProfile) {
+	public School(int schoolId, Users schoolAdminId, String schoolName, String city, String state,
+			float hoursRequired) {
 		this.schoolId = schoolId;
+		this.schoolAdminId = schoolAdminId;
 		this.schoolName = schoolName;
 		this.city = city;
 		this.state = state;
-		this.adminProfile = adminProfile;
-		this.studentProfile = studentProfile;
+		this.hoursRequired = hoursRequired;
 	}
 
 	public int getSchoolId() {
@@ -45,6 +42,14 @@ public class School {
 
 	public void setSchoolId(int schoolId) {
 		this.schoolId = schoolId;
+	}
+
+	public Users getSchoolAdminId() {
+		return schoolAdminId;
+	}
+
+	public void setSchoolAdminId(Users schoolAdminId) {
+		this.schoolAdminId = schoolAdminId;
 	}
 
 	public String getSchoolName() {
@@ -71,26 +76,18 @@ public class School {
 		this.state = state;
 	}
 
-	public Set<AdminProfile> getAdminProfile() {
-		return adminProfile;
+	public float getHoursRequired() {
+		return hoursRequired;
 	}
 
-	public void setAdminProfile(Set<AdminProfile> adminProfile) {
-		this.adminProfile = adminProfile;
-	}
-
-	public Set<StudentProfile> getStudentProfile() {
-		return studentProfile;
-	}
-
-	public void setStudentProfile(Set<StudentProfile> studentProfile) {
-		this.studentProfile = studentProfile;
+	public void setHoursRequired(float hoursRequired) {
+		this.hoursRequired = hoursRequired;
 	}
 
 	@Override
 	public String toString() {
-		return "School [schoolId=" + schoolId + ", schoolName=" + schoolName + ", city=" + city + ", state=" + state
-				+ ", adminProfile=" + adminProfile + ", studentProfile=" + studentProfile + "]";
+		return "School [schoolId=" + schoolId + ", schoolAdminId=" + schoolAdminId + ", schoolName=" + schoolName
+				+ ", city=" + city + ", state=" + state + ", hoursRequired=" + hoursRequired + "]";
 	}
 
 }

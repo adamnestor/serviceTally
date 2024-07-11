@@ -1,12 +1,15 @@
 package com.coderscampus.servicetally.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -28,30 +31,29 @@ public class AdminProfile {
 	private String city;
 	private String state;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "school_id")
-	private School school;
+	@OneToMany(mappedBy = "schoolAdmin", cascade = CascadeType.ALL)
+	private List<School> schoolsManaged = new ArrayList<>();
 
 	@Column(nullable = true, length = 64)
 	private String profilePhoto;
 
 	public AdminProfile() {
 	}
+	
+	public AdminProfile(Users users) {
+		this.userId = users;
+	}
 
 	public AdminProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
-			School schoolId, String profilePhoto) {
+			List<School> schoolsManaged, String profilePhoto) {
 		this.userAccountId = userAccountId;
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.city = city;
 		this.state = state;
-		this.school = schoolId;
+		this.schoolsManaged = schoolsManaged;
 		this.profilePhoto = profilePhoto;
-	}
-
-	public AdminProfile(Users users) {
-		this.userId = users;
 	}
 
 	public int getUserAccountId() {
@@ -102,12 +104,12 @@ public class AdminProfile {
 		this.state = state;
 	}
 
-	public School getSchool() {
-		return school;
+	public List<School> getSchoolsManaged() {
+		return schoolsManaged;
 	}
 
-	public void setSchool(School school) {
-		this.school = school;
+	public void setSchoolsManaged(List<School> schoolsManaged) {
+		this.schoolsManaged = schoolsManaged;
 	}
 
 	public String getProfilePhoto() {
@@ -117,18 +119,21 @@ public class AdminProfile {
 	public void setProfilePhoto(String profilePhoto) {
 		this.profilePhoto = profilePhoto;
 	}
-	
+
 	@Transient
 	public String getPhotosImagePath() {
-		if(profilePhoto == null) return null;
+		if (profilePhoto == null)
+			return null;
 		return "/photos/admin/" + userAccountId + "/" + profilePhoto;
 	}
 
 	@Override
 	public String toString() {
 		return "AdminProfile [userAccountId=" + userAccountId + ", userId=" + userId + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", school=" + school
-				+ ", profilePhoto=" + profilePhoto + "]";
+				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", schoolsManaged="
+				+ schoolsManaged + ", profilePhoto=" + profilePhoto + "]";
 	}
+
+	
 
 }
