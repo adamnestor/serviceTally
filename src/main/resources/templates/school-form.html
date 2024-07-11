@@ -6,6 +6,7 @@
     <title>ServiceTally</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   </head>
+  
   <body class="grid-profile">
     <div class="picture-background">
       <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
@@ -16,7 +17,7 @@
         class="profile-form"
         th:object="${school}"
         method="post"
-        action="@{/school/}"
+        action="@{/schools/new}"
       >
         <div>
           <h1 class="heading-primary text-center">School</h1>
@@ -65,7 +66,7 @@
         </div>
         <div class="center-items">
           <button class="formbtn" type="submit" name="submit">
-            Save Profile
+            Save School
           </button>
         </div>
       </form>
