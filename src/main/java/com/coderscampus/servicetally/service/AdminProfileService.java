@@ -26,5 +26,10 @@ public class AdminProfileService {
 		return adminProfileRepo.save(adminProfile);
 	}
 
+	public AdminProfile getByUserId(int userId) {
+		Optional<AdminProfile> adminProfile = adminProfileRepo.findByUserId(userId);
+		return adminProfile.orElse(null);
+	}
+
 
 }
