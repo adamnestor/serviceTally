@@ -81,7 +81,7 @@ public class SchoolController {
 	public String createSchool(School school, RedirectAttributes redirectAttributes) {
 		schoolService.createSchoolForCurrentUser(school);
 		redirectAttributes.addFlashAttribute("successMessage", "school created successfully!");
-		return "redirect:/schools";
+		return "redirect:/schools/";
 	}
 
 	@GetMapping("/{id}")
