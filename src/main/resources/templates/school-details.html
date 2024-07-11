@@ -76,15 +76,15 @@
         </div>
         <div class="">
           <form
-            th:action="@{/dashboard/edit/{id}(id=${school.schoolId})}"
-            method="post"
+            th:action="@{/schools/edit/{id}(id=${school.schoolId})}"
+            method="get"
           >
             <button class="" type="submit">Edit School</button>
           </form>
         </div>
         <div class="">
           <form
-            th:action="@{/dashboard/deleteSchool/{id}(id=${school.schoolId})}"
+            th:action="@{/schools/delete/{id}(id=${school.schoolId})}"
             method="post"
           >
             <button class="" type="submit">Delete Job</button>
