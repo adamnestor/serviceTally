@@ -26,9 +26,9 @@ public class AdminProfileService {
 		return adminProfileRepo.save(adminProfile);
 	}
 
-	public AdminProfile getByUserId(int userId) {
-		Optional<AdminProfile> adminProfile = adminProfileRepo.findByUserId(userId);
-		return adminProfile.orElse(null);
+	public AdminProfile getByEmail(String email) {
+		Optional<AdminProfile> adminProfileOptional = adminProfileRepo.findByUserIdEmail(email);
+		return adminProfileOptional.orElseThrow(()-> new RuntimeException("Admin profile not found for email: " + email));
 	}
 
 

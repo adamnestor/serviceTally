@@ -8,6 +8,6 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 
 public interface AdminProfileRepository extends JpaRepository<AdminProfile, Integer>{
 
-	Optional<AdminProfile> findByUserId(int userId);
+	Optional<AdminProfile> findByUserIdEmail(String email);
 
 }

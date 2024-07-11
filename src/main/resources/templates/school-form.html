@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ServiceTally</title>
-    <link rel="stylesheet" href="/st-edits/style.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   </head>
   <body class="grid-profile">
     <div class="picture-background">
-      <img class="img-logo" src="/Logo5.png" alt="logo" />
+      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
     </div>
 
     <div class="profile center-items">

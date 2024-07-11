@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.repository.AdminProfileRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.UsersService;
@@ -73,11 +74,8 @@ public class SchoolController {
 
 	@PostMapping("/new")
 	public String createSchool(School school, RedirectAttributes redirectAttributes) {
-		Users currentUser = usersService.getCurrentUser();
-		AdminProfile adminProfile = adminProfileService.getByUserId(currentUser.getUserId());
-		school.setSchoolAdminId(adminProfile);
-		schoolService.createOrUpdateSchool(school);
-		redirectAttributes.addFlashAttribute("successMessage", "School created successfully!");
+		schoolService.createSchoolForCurrentUser(school);
+		redirectAttributes.addFlashAttribute("successMessage", "school created successfully!");
 		return "redirect:/schools";
 	}
 
