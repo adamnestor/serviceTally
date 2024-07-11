@@ -9,6 +9,6 @@ import com.coderscampus.servicetally.domain.School;
 
 public interface SchoolRepository extends JpaRepository<School, Integer> {
 
-	List<School> findByUserAccountId(String userAccountId);
+	List<School> findBySchoolAdminId_UserAccountId(int userAccountId);
 
 }

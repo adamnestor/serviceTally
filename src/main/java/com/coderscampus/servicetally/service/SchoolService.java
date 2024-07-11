@@ -36,8 +36,7 @@ public class SchoolService {
 	}
 
 	public List<School> getSchoolsByAdmin(AdminProfile adminProfile) {
-		String userAccountId = String.valueOf(adminProfile.getUserAccountId());
-		return schoolRepo.findByUserAccountId(userAccountId);
+		return schoolRepo.findBySchoolAdminId_UserAccountId(adminProfile.getUserAccountId());
 	}
 
 	@Transactional

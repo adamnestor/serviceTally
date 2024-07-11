@@ -35,9 +35,13 @@ public class SchoolController {
 
 	@GetMapping("/")
 	public String manageSchools(Model model) {
+		Users currentUser = usersService.getCurrentUser();
 		String currentUserEmail = usersService.getCurrentUser().getEmail();
 		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUserEmail);
 		List<School> schools = schoolService.getSchoolsByAdmin(adminProfile);
+		
+		model.addAttribute("user", currentUser);
+		model.addAttribute("adminProfile", adminProfile);
 		model.addAttribute("schools", schools);
 		return "school-dash";
 	}
