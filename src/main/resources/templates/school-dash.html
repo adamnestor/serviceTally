@@ -55,8 +55,8 @@
 			<a th:href="@{/schools/new}" class="btn btn-primary">Create New School</a>
 		</div>
 		<th:block th:each="school : ${schools}">
-			<a th:href="@{/schools/${schoolId}(schoolId=${school.schoolId})}" class="service-link">
-				<div class="service-row" onclick="window.location='/schools/${school.schoolId}'">
+			<a th:href="@{/schools/{schoolId}(schoolId=${school.schoolId})}" class="service-link">
+				<div class="service-row" onclick="window.location.href='/schools/${school.schoolId}'">
 					<div class="service-info">
 						<label class="job-title">[[${school.schoolName}]]</label>
 					</div>

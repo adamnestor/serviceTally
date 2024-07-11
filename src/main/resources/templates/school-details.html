@@ -39,7 +39,7 @@
         </ul>
       </div>
       <div>
-        <img
+        <!--<img
           class="rounded-circle"
           th:if="${user.photosImagePath!=null}"
           th:src="@{${user?.photosImagePath}}"
@@ -54,7 +54,7 @@
           th:unless="${user.firstName != null && user.lastName != null}"
           th:text="${username}"
           class="display-name"
-        ></label>
+        ></label>-->
         <a class="logout" onclick="window.location.href='/logout'">Logout</a>
       </div>
     </header>
