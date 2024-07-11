@@ -24,7 +24,11 @@
 				</li>
 
 				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/school/}">Manage School</a>
+					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/schools/}">Manage School</a>
+				</li>
+				<li class="nav-item">
+					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/dashboard/}">View Service
+						Events</a>
 				</li>
 				<li class="nav-item">
 					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/admin-profile/}">Edit
