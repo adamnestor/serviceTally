@@ -24,50 +24,53 @@ public class SchoolController {
 	private final SchoolService schoolService;
 	private final AdminProfileService adminProfileService;
 	private final UsersService usersService;
-	
+
 	public SchoolController(SchoolService schoolService, AdminProfileService adminProfileService,
 			UsersService usersService) {
 		this.schoolService = schoolService;
 		this.adminProfileService = adminProfileService;
 		this.usersService = usersService;
 	}
-	
+
 	@GetMapping("/")
 	public String manageSchools(Model model) {
 		Users currentUser = usersService.getCurrentUser();
 		List<School> schools = schoolService.getSchoolsByAdmin(currentUser);
 		model.addAttribute("schools", schools);
-		return "/manage_schools";
+		return "school-dash";
 	}
-	
+
 	@GetMapping("/edit/{id}")
 	public String editSchool(@PathVariable("id") Integer id, Model model) {
 		School school = schoolService.getSchoolById(id);
+		if (school == null) {
+			return "redirect:/schools";
+		}
 		model.addAttribute("school", school);
-		return "/edit_school";
+		return "school-form";
 	}
-	
+
 	@PostMapping("/edit/{id}")
 	public String editSchool(@PathVariable("id") Integer id, School school, RedirectAttributes redirectAttributes) {
 		school.setSchoolId(id);
 		schoolService.createOrUpdateSchool(school);
 		redirectAttributes.addFlashAttribute("successMessage", "School updated successfully!");
-		return "redirect:/manage";
+		return "redirect:/schools";
 	}
-	
+
 	@GetMapping("/delete/{id}")
 	public String deleteSchool(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		schoolService.deleteSchool(id);
 		redirectAttributes.addFlashAttribute("successMessage", "School deleted successfully!");
-		return "redirect:/manage";
+		return "redirect:/schools";
 	}
-	
+
 	@GetMapping("/new")
 	public String createSchoolForm(Model model) {
 		model.addAttribute("school", new School());
-		return "/new-school";
+		return "school-form";
 	}
-	
+
 	@PostMapping("/new")
 	public String createSchool(School school, RedirectAttributes redirectAttributes) {
 		Users currentUser = usersService.getCurrentUser();
@@ -75,6 +78,16 @@ public class SchoolController {
 		school.setSchoolAdminId(adminProfile);
 		schoolService.createOrUpdateSchool(school);
 		redirectAttributes.addFlashAttribute("successMessage", "School created successfully!");
-		return "redirect:/manage";
+		return "redirect:/schools";
+	}
+
+	@GetMapping("/{id}")
+	public String viewSchoolDetails(@PathVariable("id") Integer id, Model model) {
+		School school = schoolService.getSchoolById(id);
+		if (school == null) {
+			return "redirect:/schools";
+		}
+		model.addAttribute("school", school);
+		return "school-details";
 	}
 }
