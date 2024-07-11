@@ -89,7 +89,4 @@ public class School {
 		return "School [schoolId=" + schoolId + ", schoolAdminId=" + schoolAdminId + ", schoolName=" + schoolName
 				+ ", city=" + city + ", state=" + state + ", hoursRequired=" + hoursRequired + "]";
 	}
-
-	
-
 }
