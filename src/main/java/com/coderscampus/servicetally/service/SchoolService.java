@@ -30,7 +30,7 @@ public class SchoolService {
 	}
 
 	public List<School> getSchoolsByAdmin(Users admin) {
-		return schoolRepo.findBySchoolAdmin(admin);
+		return schoolRepo.findBySchoolAdminId(admin);
 	}
 
 	@Transactional

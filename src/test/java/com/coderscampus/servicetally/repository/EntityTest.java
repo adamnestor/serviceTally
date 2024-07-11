@@ -4,6 +4,7 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.domain.UsersType;
 import com.coderscampus.servicetally.repository.AdminProfileRepository;
 import com.coderscampus.servicetally.repository.SchoolRepository;
 import com.coderscampus.servicetally.repository.StudentProfileRepository;
@@ -31,14 +32,22 @@ public class EntityTest {
 
     @Autowired
     private UsersRepository usersRepository;
+    
+    @Autowired
+    private UsersTypeRepository usersTypeRepository;
 
     @Test
     @Transactional
     public void testCreateAndRetrieveEntities() {
+    	
+    	UsersType adminUserType = usersTypeRepository.
+    	
+    	
         // Create User
         Users user = new Users();
         user.setEmail("adminUser@email.com");
         user.setPassword("password");
+        user.setUserTypeId(UsersType);
         usersRepository.save(user);
 
         // Create AdminProfile

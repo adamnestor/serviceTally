@@ -19,7 +19,6 @@ import jakarta.persistence.Transient;
 public class AdminProfile {
 
 	@Id
-	@Column(name="user_account_id")
 	private int userAccountId;
 
 	@OneToOne
@@ -43,6 +42,7 @@ public class AdminProfile {
 	
 	public AdminProfile(Users users) {
 		this.userId = users;
+		this.userAccountId = users.getUserId();
 	}
 
 	public AdminProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,

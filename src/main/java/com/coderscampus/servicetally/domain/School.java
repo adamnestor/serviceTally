@@ -15,7 +15,7 @@ public class School {
 	private int schoolId;
 	
 	@ManyToOne
-	@JoinColumn(name = "schoolAdminId", referencedColumnName = "userAccountId")
+	@JoinColumn(name = "school_admin_id", referencedColumnName = "user_account_id")
 	private AdminProfile schoolAdminId;
 
 	private String schoolName;
