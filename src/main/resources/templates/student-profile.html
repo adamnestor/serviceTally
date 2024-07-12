@@ -1,118 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ServiceTally</title>
-    <link rel="stylesheet" href="/st-edits/style.css" />
-  </head>
-  <body class="grid-profile">
-    <div class="picture-background">
-      <img class="img-logo" src="/Logo5.png" alt="logo" />
-    </div>
 
-    <div class="profile center-items">
-      <form
-        class="profile-form"
-        th:object="${studentProfile}"
-        method="post"
-        action="@{/student-profile/addNew}"
-      >
-        <div>
-          <h1 class="heading-primary text-center">Student</h1>
-        </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ServiceTally</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
 
-        <div class="form-heading">
-          <h2 class="heading-secondary text-center">Set up your profile</h2>
-        </div>
+<body class="grid-profile">
+	<div class="picture-background">
+		<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+	</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            placeholder="First Name"
-            id="firstName"
-            th:field="*{firstName}"
-            name="firstName"
-            type="text"
-          />
-          <input
-            class="input-field"
-            placeholder="Last Name"
-            id="lastName"
-            th:field="*{lastName}"
-            name="lastName"
-            type="text"
-          />
-        </div>
+	<div class="profile center-items">
+		<form class="profile-form" th:object="${studentProfile}" method="post" th:action="@{/student-profile/addNew}"
+			enctype="multipart/form-data">
+			<div>
+				<h1 class="heading-primary text-center">Student</h1>
+			</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            placeholder="City"
-            id="city"
-            th:field="*{city}"
-            name="city"
-            type="text"
-          />
-          <input
-            class="input-field"
-            placeholder="State"
-            id="state"
-            th:field="*{state}"
-            name="state"
-            type="text"
-          />
-        </div>
+			<div class="form-heading">
+				<h2 class="heading-secondary text-center">Set up your profile</h2>
+			</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            placeholder="Graduation Year"
-            id="grad-year"
-            th:field="*{graduation_year}"
-            name="grad-year"
-            type="text"
-          />
-          <div class="row input-field">
-            <select
-              class="input-field"
-              id="schoolId"
-              name="schoolId"
-              th:field="*{schoolId}"
-            >
-              <option
-                th:each="school : ${allSchools}"
-                th:value="${school.schoolId}"
-                th:text="${school.schoolName}"
-              >
-                Select a school
-              </option>
-            </select>
-          </div>
-        </div>
+			<div class="row">
+				<input class="input-field" placeholder="First Name" id="firstName" th:field="*{firstName}"
+					name="firstName" type="text" />
+				<input class="input-field" placeholder="Last Name" id="lastName" th:field="*{lastName}" name="lastName"
+					type="text" />
+			</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            type="file"
-            name="image"
-            accept="image/png, image/jpeg"
-          />
-          <input
-            type="text"
-            name="profilePhoto"
-            th:field="*{profilePhoto}"
-            class="input-field"
-            hidden
-          />
-        </div>
+			<div class="row">
+				<input class="input-field" placeholder="City" id="city" th:field="*{city}" name="city" type="text" />
+				<input class="input-field" placeholder="State" id="state" th:field="*{state}" name="state"
+					type="text" />
+			</div>
 
-        <div class="center-items">
-          <button class="formbtn" type="submit" name="submit">
-            Save Profile
-          </button>
-        </div>
-      </form>
-    </div>
-  </body>
+			<div class="row">
+				<input class="input-field" placeholder="Graduation Year" id="grad-year" th:field="*{graduation_year}"
+					name="grad-year" type="text" />
+				<div class="row input-field">
+					<select class="input-field" id="schoolId" name="schoolId" th:field="*{schoolId}">
+						<option value="" disabled selected>Select a school</option>
+						<option th:each="school : ${allSchools}" th:value="${school.schoolId}"
+							th:text="${school.schoolName}">
+						</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<input class="input-field" type="file" name="image" accept="image/png, image/jpeg" />
+				<input type="hidden" th:field="*{profilePhoto}" class="input-field" />
+			</div>
+
+			<div class="center-items">
+				<button class="formbtn" type="submit" name="submit">
+					Save Profile
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+
 </html>
