@@ -39,13 +39,7 @@ public class SchoolService {
 		return schoolRepo.findBySchoolAdminId_UserAccountId(adminProfile.getUserAccountId());
 	}
 
-	@Transactional
 	public School createOrUpdateSchool(School school) {
-
-		if (school.getSchoolName() == null || school.getSchoolName().isEmpty()) {
-			throw new IllegalArgumentException("School name cannot by empty");
-		}
-
 		return schoolRepo.save(school);
 	}
 

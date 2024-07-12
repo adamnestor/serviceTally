@@ -46,31 +46,6 @@ public class SchoolController {
 		return "school-dash";
 	}
 
-	@GetMapping("/edit/{id}")
-	public String editSchool(@PathVariable("id") Integer id, Model model) {
-		School school = schoolService.getSchoolById(id);
-		if (school == null) {
-			return "redirect:/schools";
-		}
-		model.addAttribute("school", school);
-		return "school-form";
-	}
-
-	@PostMapping("/edit/{id}")
-	public String editSchool(@PathVariable("id") Integer id, School school, RedirectAttributes redirectAttributes) {
-		school.setSchoolId(id);
-		schoolService.createOrUpdateSchool(school);
-		redirectAttributes.addFlashAttribute("successMessage", "School updated successfully!");
-		return "redirect:/schools";
-	}
-
-	@GetMapping("/delete/{id}")
-	public String deleteSchool(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-		schoolService.deleteSchool(id);
-		redirectAttributes.addFlashAttribute("successMessage", "School deleted successfully!");
-		return "redirect:/schools";
-	}
-
 	@GetMapping("/new")
 	public String createSchoolForm(Model model) {
 		model.addAttribute("school", new School());
@@ -78,9 +53,9 @@ public class SchoolController {
 	}
 
 	@PostMapping("/new")
-	public String createSchool(School school, RedirectAttributes redirectAttributes) {
+	public String createSchool(School school, Model model) {
+		model.addAttribute("school", school);
 		schoolService.createSchoolForCurrentUser(school);
-		redirectAttributes.addFlashAttribute("successMessage", "school created successfully!");
 		return "redirect:/schools/";
 	}
 
@@ -92,5 +67,25 @@ public class SchoolController {
 		}
 		model.addAttribute("school", school);
 		return "school-details";
+	}
+	
+	@PostMapping("/delete/{id}")
+	public String deleteSchool(@PathVariable("id") Integer id) {
+		schoolService.deleteSchool(id);
+		return "redirect:/schools/";
+	}
+	
+	
+	
+	
+	
+	@PostMapping("/edit/{id}")
+	public String editSchool(@PathVariable("id") Integer id, Model model) {
+		School school = schoolService.getSchoolById(id);
+		if (school == null) {
+			return "redirect:/schools";
+		}
+		model.addAttribute("school", school);
+		return "school-form";
 	}
 }
