@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.web;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.UsersRepository;
+import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.util.FileUploadUtil;
 
@@ -28,10 +31,13 @@ public class StudentProfileController {
 
 	private final UsersRepository usersRepo;
 	private final StudentProfileService studentProfileService;
+	private final SchoolService schoolService;
 
-	public StudentProfileController(UsersRepository usersRepo, StudentProfileService studentProfileService) {
+	public StudentProfileController(UsersRepository usersRepo, StudentProfileService studentProfileService,
+			SchoolService schoolService) {
 		this.usersRepo = usersRepo;
 		this.studentProfileService = studentProfileService;
+		this.schoolService = schoolService;
 	}
 
 	@GetMapping("/")
@@ -47,6 +53,9 @@ public class StudentProfileController {
 
 			if (!studentProfile.isEmpty())
 				model.addAttribute("studentProfile", studentProfile);
+			
+			List<School> schools = schoolService.getAllSchools();
+			model.addAttribute("schools", schools);
 
 		}
 		return "student-profile";
@@ -73,7 +82,7 @@ public class StudentProfileController {
 			studentProfile.setProfilePhoto(fileName);
 		}
 		StudentProfile savedUser = studentProfileService.addNew(studentProfile);
-		
+
 		String uploadDir = "photos/student/" + savedUser.getUserAccountId();
 		try {
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
