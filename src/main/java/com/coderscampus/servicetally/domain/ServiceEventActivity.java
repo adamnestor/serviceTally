@@ -36,7 +36,7 @@ public class ServiceEventActivity {
 	private String state;
 
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date postedDate;
+	private Date dateOfService;
 
 	private Float hoursServed;
 
@@ -47,7 +47,7 @@ public class ServiceEventActivity {
 	}
 
 	public ServiceEventActivity(int eventId, Users postedById, String serviceTitle,
-			@Length(max = 10000) String descriptionOfEvent, String city, String state, Date postedDate,
+			@Length(max = 10000) String descriptionOfEvent, String city, String state, Date dateOfService,
 			Float hoursServed, ServiceEventStatus status) {
 		this.eventId = eventId;
 		this.postedById = postedById;
@@ -55,7 +55,7 @@ public class ServiceEventActivity {
 		this.descriptionOfEvent = descriptionOfEvent;
 		this.city = city;
 		this.state = state;
-		this.postedDate = postedDate;
+		this.dateOfService = dateOfService;
 		this.hoursServed = hoursServed;
 		this.status = status;
 	}
@@ -108,12 +108,12 @@ public class ServiceEventActivity {
 		this.state = state;
 	}
 
-	public Date getPostedDate() {
-		return postedDate;
+	public Date getDateOfService() {
+		return dateOfService;
 	}
 
-	public void setPostedDate(Date postedDate) {
-		this.postedDate = postedDate;
+	public void setDateOfService(Date dateOfService) {
+		this.dateOfService = dateOfService;
 	}
 
 	public Float getHoursServed() {
@@ -136,7 +136,9 @@ public class ServiceEventActivity {
 	public String toString() {
 		return "ServiceEventActivity [eventId=" + eventId + ", postedById=" + postedById + ", serviceTitle="
 				+ serviceTitle + ", descriptionOfEvent=" + descriptionOfEvent + ", city=" + city + ", state=" + state
-				+ ", postedDate=" + postedDate + ", hoursServed=" + hoursServed + ", status=" + status + "]";
+				+ ", dateOfService=" + dateOfService + ", hoursServed=" + hoursServed + ", status=" + status + "]";
 	}
+
+	
 
 }

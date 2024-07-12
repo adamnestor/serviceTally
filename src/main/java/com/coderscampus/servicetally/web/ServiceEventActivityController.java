@@ -49,7 +49,7 @@ public class ServiceEventActivityController {
 	public String addServiceEvents(Model model) {
 		model.addAttribute("serviceEventActivity", new ServiceEventActivity());
 		model.addAttribute("user", usersService.getCurrentUserProfile());
-		return "add-service-events";
+		return "add-service-event";
 	}
 
 	@PostMapping("/dashboard/addNew")
@@ -59,7 +59,6 @@ public class ServiceEventActivityController {
 		if (user != null) {
 			serviceEventActivity.setPostedById(user);
 		}
-		serviceEventActivity.setPostedDate(new Date());
 		model.addAttribute("serviceEventActivity", serviceEventActivity);
 		serviceEventActivityService.addNew(serviceEventActivity);
 		return "redirect:/dashboard/";
