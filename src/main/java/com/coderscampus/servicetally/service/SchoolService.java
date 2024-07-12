@@ -39,19 +39,12 @@ public class SchoolService {
 		return schoolRepo.findBySchoolAdminId_UserAccountId(adminProfile.getUserAccountId());
 	}
 
-	public School createOrUpdateSchool(School school) {
+	public School saveSchool(School school) {
 		return schoolRepo.save(school);
 	}
 
 	public void deleteSchool(Integer id) {
 		schoolRepo.deleteById(id);
-	}
-
-	public void createSchoolForCurrentUser(School school) {
-		Users currentUser = usersService.getCurrentUser();
-		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
-		school.setSchoolAdminId(adminProfile);
-		schoolRepo.save(school);
 	}
 
 }

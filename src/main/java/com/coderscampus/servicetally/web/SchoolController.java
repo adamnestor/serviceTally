@@ -39,7 +39,7 @@ public class SchoolController {
 		String currentUserEmail = usersService.getCurrentUser().getEmail();
 		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUserEmail);
 		List<School> schools = schoolService.getSchoolsByAdmin(adminProfile);
-		
+
 		model.addAttribute("user", currentUser);
 		model.addAttribute("adminProfile", adminProfile);
 		model.addAttribute("schools", schools);
@@ -53,9 +53,11 @@ public class SchoolController {
 	}
 
 	@PostMapping("/new")
-	public String createSchool(School school, Model model) {
-		model.addAttribute("school", school);
-		schoolService.createSchoolForCurrentUser(school);
+	public String createSchool(School school) {
+		Users currentUser = usersService.getCurrentUser();
+		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		school.setSchoolAdminId(adminProfile);
+		schoolService.saveSchool(school);
 		return "redirect:/schools/";
 	}
 
@@ -68,18 +70,14 @@ public class SchoolController {
 		model.addAttribute("school", school);
 		return "school-details";
 	}
-	
+
 	@PostMapping("/delete/{id}")
 	public String deleteSchool(@PathVariable("id") Integer id) {
 		schoolService.deleteSchool(id);
 		return "redirect:/schools/";
 	}
-	
-	
-	
-	
-	
-	@PostMapping("/edit/{id}")
+
+	@GetMapping("/edit/{id}")
 	public String editSchool(@PathVariable("id") Integer id, Model model) {
 		School school = schoolService.getSchoolById(id);
 		if (school == null) {
@@ -88,4 +86,16 @@ public class SchoolController {
 		model.addAttribute("school", school);
 		return "school-form";
 	}
+
+	@PostMapping("/edit/{id}")
+	public String postEditSchool(@PathVariable("id") Integer id, School school) {
+		school.setSchoolId(id);
+		Users currentUser = usersService.getCurrentUser();
+		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		school.setSchoolAdminId(adminProfile);
+		schoolService.saveSchool(school);
+
+		return "redirect:/schools/" + school.getSchoolId();
+	}
+
 }

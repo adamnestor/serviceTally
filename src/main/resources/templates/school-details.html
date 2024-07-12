@@ -16,7 +16,7 @@
             <a
               sec:authorize="hasAuthority('Admin')"
               class="nav-link"
-              th:href="@{/school/}"
+              th:href="@{/schools/}"
               >Manage School</a
             >
           </li>
@@ -77,7 +77,7 @@
         <div class="">
           <form
             th:action="@{/schools/edit/{id}(id=${school.schoolId})}"
-            method="post"
+            method="get"
           >
             <button class="" type="submit">Edit School</button>
           </form>
