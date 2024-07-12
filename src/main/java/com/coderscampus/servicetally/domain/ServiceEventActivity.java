@@ -1,6 +1,6 @@
 package com.coderscampus.servicetally.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,42 +24,38 @@ public class ServiceEventActivity {
 	private int eventId;
 
 	@ManyToOne
-	@JoinColumn(name = "postedById", referencedColumnName = "userId")
+	@JoinColumn(name = "posted_by_id", referencedColumnName = "userId")
 	private Users postedById;
 
 	private String serviceTitle;
 
 	@Length(max = 10000)
 	private String descriptionOfEvent;
-	
+
 	private String city;
 	private String state;
-	
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
-	private Date date;
-	
-	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dateOfService;
+
 	private Float hoursServed;
 
 	@Enumerated(EnumType.STRING)
 	private ServiceEventStatus status;
 
-	
-	
-	
 	public ServiceEventActivity() {
 	}
 
 	public ServiceEventActivity(int eventId, Users postedById, String serviceTitle,
-			@Length(max = 10000) String descriptionOfEvent, String city, String state, Date date, Float hoursServed,
-			ServiceEventStatus status) {
+			@Length(max = 10000) String descriptionOfEvent, String city, String state, Date dateOfService,
+			Float hoursServed, ServiceEventStatus status) {
 		this.eventId = eventId;
 		this.postedById = postedById;
 		this.serviceTitle = serviceTitle;
 		this.descriptionOfEvent = descriptionOfEvent;
 		this.city = city;
 		this.state = state;
-		this.date = date;
+		this.dateOfService = dateOfService;
 		this.hoursServed = hoursServed;
 		this.status = status;
 	}
@@ -112,12 +108,12 @@ public class ServiceEventActivity {
 		this.state = state;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDateOfService() {
+		return dateOfService;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateOfService(Date dateOfService) {
+		this.dateOfService = dateOfService;
 	}
 
 	public Float getHoursServed() {
@@ -140,7 +136,9 @@ public class ServiceEventActivity {
 	public String toString() {
 		return "ServiceEventActivity [eventId=" + eventId + ", postedById=" + postedById + ", serviceTitle="
 				+ serviceTitle + ", descriptionOfEvent=" + descriptionOfEvent + ", city=" + city + ", state=" + state
-				+ ", date=" + date + ", hoursServed=" + hoursServed + ", status=" + status + "]";
+				+ ", dateOfService=" + dateOfService + ", hoursServed=" + hoursServed + ", status=" + status + "]";
 	}
+
+	
 
 }
