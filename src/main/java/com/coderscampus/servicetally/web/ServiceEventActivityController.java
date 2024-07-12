@@ -13,16 +13,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.service.ServiceEventActivityService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
 public class ServiceEventActivityController {
 
 	private final UsersService usersService;
+	private final ServiceEventActivityService serviceEventActivityService;
 
 	@Autowired
-	public ServiceEventActivityController(UsersService usersService) {
+	public ServiceEventActivityController(UsersService usersService,
+			ServiceEventActivityService serviceEventActivityService) {
 		this.usersService = usersService;
+		this.serviceEventActivityService = serviceEventActivityService;
 	}
 
 	@GetMapping("/dashboard/")
@@ -50,14 +54,14 @@ public class ServiceEventActivityController {
 
 	@PostMapping("/dashboard/addNew")
 	public String addNew(ServiceEventActivity serviceEventActivity, Model model) {
-		
+
 		Users user = usersService.getCurrentUser();
 		if (user != null) {
 			serviceEventActivity.setPostedById(user);
 		}
 		serviceEventActivity.setPostedDate(new Date());
 		model.addAttribute("serviceEventActivity", serviceEventActivity);
-		serviceEventActivity.addNew(serviceEventActivity);
+		serviceEventActivityService.addNew(serviceEventActivity);
 		return "redirect:/dashboard/";
 	}
 

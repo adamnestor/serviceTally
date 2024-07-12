@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 
-public interface ServiceEventRepository extends JpaRepository<ServiceEventActivity, Integer>{
+public interface ServiceEventActivityRepository extends JpaRepository<ServiceEventActivity, Integer>{
 
 }
