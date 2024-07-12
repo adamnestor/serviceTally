@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
@@ -34,6 +35,13 @@ public class ServiceEventActivityController {
 		model.addAttribute("user", currentUserProfile);
 		
 		return "dashboard";
+	}
+	
+	@GetMapping("/dashboard/add")
+	public String addServiceEvents(Model model) {
+		model.addAttribute("serviceEventActivity", new ServiceEventActivity());
+		model.addAttribute("user", usersService.getCurrentUserProfile());
+		return "add-service-events";
 	}
 
 }
