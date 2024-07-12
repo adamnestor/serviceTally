@@ -9,6 +9,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "student_profile")
@@ -125,6 +126,13 @@ public class StudentProfile {
 
 	public void setSchool(School school) {
 		this.school = school;
+	}
+	
+	@Transient
+	public String getPhotosImagePath() {
+		if (profilePhoto == null)
+			return null;
+		return "/photos/admin/" + userAccountId + "/" + profilePhoto;
 	}
 
 	@Override
