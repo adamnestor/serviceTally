@@ -52,7 +52,7 @@ public class AdminProfileController {
 
 		}
 
-		return "admin_profile";
+		return "admin-profile";
 	}
 
 	@PostMapping("/addNew")

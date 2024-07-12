@@ -10,15 +10,15 @@ import com.coderscampus.servicetally.repository.AdminProfileRepository;
 
 @Service
 public class AdminProfileService {
-	
+
 	private final AdminProfileRepository adminProfileRepo;
 
 	@Autowired
 	public AdminProfileService(AdminProfileRepository adminProfileRepo) {
 		this.adminProfileRepo = adminProfileRepo;
 	}
-	
-	public Optional<AdminProfile> getOne(Integer id){
+
+	public Optional<AdminProfile> getOne(Integer id) {
 		return adminProfileRepo.findById(id);
 	}
 
@@ -26,5 +26,15 @@ public class AdminProfileService {
 		return adminProfileRepo.save(adminProfile);
 	}
 
+	public AdminProfile getByEmail(String email) {
+		Optional<AdminProfile> adminProfileOptional = adminProfileRepo.findByUserIdEmail(email);
+		return adminProfileOptional
+				.orElseThrow(() -> new RuntimeException("Admin profile not found for email: " + email));
+	}
+
+	public AdminProfile getAdminProfileByUserEmail(String email) {
+		return adminProfileRepo.findByUserIdEmail(email)
+				.orElseThrow(() -> new RuntimeException("Admin profile not found for email: " + email));
+	}
 
 }

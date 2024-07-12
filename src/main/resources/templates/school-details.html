@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              sec:authorize="hasAuthority('Admin')"
+              class="nav-link"
+              th:href="@{/schools/}"
+              >Manage School</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              sec:authorize="hasAuthority('Admin')"
+              class="nav-link"
+              th:href="@{/dashboard/}"
+              >View Service Events</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              sec:authorize="hasAuthority('Admin')"
+              class="nav-link"
+              th:href="@{/admin-profile/}"
+              >Edit Account</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div>
+        <!--<img
+          class="rounded-circle"
+          th:if="${user.photosImagePath!=null}"
+          th:src="@{${user?.photosImagePath}}"
+        />
+        <label
+          th:if="${user.firstName != null && user.lastName != null}"
+          th:text="${user.firstName+' '+user.lastName}"
+          class="display-name"
+        >
+        </label>
+        <label
+          th:unless="${user.firstName != null && user.lastName != null}"
+          th:text="${username}"
+          class="display-name"
+        ></label>-->
+        <a class="logout" onclick="window.location.href='/logout'">Logout</a>
+      </div>
+    </header>
+
+    <section class="sidebar"></section>
+
+    <main class="main-content">
+      <div>
+        <a class="">Back to Search Results </a>
+        <h1>Job Details</h1>
+        <div>
+          <h4 th:text="${school.schoolName}">Somewhere High School</h4>
+          <div>
+            <p th:text="${school.city+', '+ school.state}">Mentor, Ohio</p>
+            <p th:text="${school.hoursRequired} + ' hours required'">
+              40 hours required
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <form
+            th:action="@{/schools/edit/{id}(id=${school.schoolId})}"
+            method="get"
+          >
+            <button class="" type="submit">Edit School</button>
+          </form>
+        </div>
+        <div class="">
+          <form
+            th:action="@{/schools/delete/{id}(id=${school.schoolId})}"
+            method="post"
+          >
+            <button class="" type="submit">Delete School</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

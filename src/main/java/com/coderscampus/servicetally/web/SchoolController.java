@@ -5,82 +5,97 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.repository.AdminProfileRepository;
+import com.coderscampus.servicetally.service.AdminProfileService;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
-@RequestMapping("/school")
+@RequestMapping("/schools")
 public class SchoolController {
 
 	private final SchoolService schoolService;
+	private final AdminProfileService adminProfileService;
 	private final UsersService usersService;
-	
-	public SchoolController(SchoolService schoolService, UsersService usersService) {
+
+	public SchoolController(SchoolService schoolService, AdminProfileService adminProfileService,
+			UsersService usersService) {
 		this.schoolService = schoolService;
+		this.adminProfileService = adminProfileService;
 		this.usersService = usersService;
 	}
-	
-	@GetMapping("/schools")
-	public String showSchools(Model model) {
-		Users loggedInUser = usersService.getCurrentUser();
-		if (loggedInUser != null) {
-			List<School> schools = schoolService.getSchoolsByAdmin(loggedInUser);
-			model.addAttribute("schools", schools);
-		} else {
-			model.addAttribute("error", "User not authenticated");
-		}
+
+	@GetMapping("/")
+	public String manageSchools(Model model) {
+		Users currentUser = usersService.getCurrentUser();
+		String currentUserEmail = usersService.getCurrentUser().getEmail();
+		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUserEmail);
+		List<School> schools = schoolService.getSchoolsByAdmin(adminProfile);
+
+		model.addAttribute("user", currentUser);
+		model.addAttribute("adminProfile", adminProfile);
+		model.addAttribute("schools", schools);
 		return "school-dash";
 	}
-	
-	@PostMapping("/schools")
-	public String createSchool(@ModelAttribute School school) {
-		Users loggedInUser = usersService.getCurrentUser();
-		if (loggedInUser != null) {
-			school.setSchoolAdminId(loggedInUser);
-			schoolService.createOrUpdateSchool(school);
-		} else {
-			return "redirect:/login";
-		}
-		return "redirect:/schools";
+
+	@GetMapping("/new")
+	public String createSchoolForm(Model model) {
+		model.addAttribute("school", new School());
+		return "school-form";
 	}
-	
-	@GetMapping("/schools/{id}")
-	public String showSchoolDetails(@PathVariable Integer id, Model model) {
+
+	@PostMapping("/new")
+	public String createSchool(School school) {
+		Users currentUser = usersService.getCurrentUser();
+		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		school.setSchoolAdminId(adminProfile);
+		schoolService.saveSchool(school);
+		return "redirect:/schools/";
+	}
+
+	@GetMapping("/{id}")
+	public String viewSchoolDetails(@PathVariable("id") Integer id, Model model) {
 		School school = schoolService.getSchoolById(id);
+		if (school == null) {
+			return "redirect:/schools";
+		}
 		model.addAttribute("school", school);
 		return "school-details";
 	}
-	
-	@GetMapping("/schools/{id}/edit")
-	public String showEditSchoolForm(@PathVariable Integer id, Model model) {
+
+	@PostMapping("/delete/{id}")
+	public String deleteSchool(@PathVariable("id") Integer id) {
+		schoolService.deleteSchool(id);
+		return "redirect:/schools/";
+	}
+
+	@GetMapping("/edit/{id}")
+	public String editSchool(@PathVariable("id") Integer id, Model model) {
 		School school = schoolService.getSchoolById(id);
+		if (school == null) {
+			return "redirect:/schools";
+		}
 		model.addAttribute("school", school);
 		return "school-form";
 	}
-	
-	@PostMapping("/schools/{id}/edit")
-	public String updateSchool(@PathVariable Integer id, @ModelAttribute School school) {
+
+	@PostMapping("/edit/{id}")
+	public String postEditSchool(@PathVariable("id") Integer id, School school) {
 		school.setSchoolId(id);
-		schoolService.createOrUpdateSchool(school);
-		return "redirect:/schools";
+		Users currentUser = usersService.getCurrentUser();
+		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		school.setSchoolAdminId(adminProfile);
+		schoolService.saveSchool(school);
+
+		return "redirect:/schools/" + school.getSchoolId();
 	}
-	
-	@PostMapping("schools/{id}/delete")
-	public String deleteSchool(@PathVariable Integer id) {
-		schoolService.deleteSchool(id);
-		return "redirect:/schools";
-	}
-	
-	
-	
-	
-	
-	
+
 }

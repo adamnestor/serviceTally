@@ -31,7 +31,7 @@ public class AdminProfile {
 	private String city;
 	private String state;
 
-	@OneToMany(mappedBy = "schoolAdmin", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "schoolAdminId", cascade = CascadeType.ALL)
 	private List<School> schoolsManaged = new ArrayList<>();
 
 	@Column(nullable = true, length = 64)
@@ -42,6 +42,7 @@ public class AdminProfile {
 	
 	public AdminProfile(Users users) {
 		this.userId = users;
+		this.userAccountId = users.getUserId();
 	}
 
 	public AdminProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state,
@@ -133,7 +134,5 @@ public class AdminProfile {
 				+ ", lastName=" + lastName + ", city=" + city + ", state=" + state + ", schoolsManaged="
 				+ schoolsManaged + ", profilePhoto=" + profilePhoto + "]";
 	}
-
-	
 
 }

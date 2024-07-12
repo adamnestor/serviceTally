@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.SchoolRepository;
@@ -15,10 +16,15 @@ import jakarta.transaction.Transactional;
 public class SchoolService {
 
 	private final SchoolRepository schoolRepo;
+	private final AdminProfileService adminProfileService;
+	private final UsersService usersService;
 
 	@Autowired
-	public SchoolService(SchoolRepository schoolRepo) {
+	public SchoolService(SchoolRepository schoolRepo, AdminProfileService adminProfileService,
+			UsersService usersService) {
 		this.schoolRepo = schoolRepo;
+		this.adminProfileService = adminProfileService;
+		this.usersService = usersService;
 	}
 
 	public List<School> getAllSchools() {
@@ -29,17 +35,11 @@ public class SchoolService {
 		return schoolRepo.findById(id).orElseThrow(() -> new RuntimeException("School not found"));
 	}
 
-	public List<School> getSchoolsByAdmin(Users admin) {
-		return schoolRepo.findBySchoolAdmin(admin);
+	public List<School> getSchoolsByAdmin(AdminProfile adminProfile) {
+		return schoolRepo.findBySchoolAdminId_UserAccountId(adminProfile.getUserAccountId());
 	}
 
-	@Transactional
-	public School createOrUpdateSchool(School school) {
-
-		if (school.getSchoolName() == null || school.getSchoolName().isEmpty()) {
-			throw new IllegalArgumentException("School name cannot by empty");
-		}
-
+	public School saveSchool(School school) {
 		return schoolRepo.save(school);
 	}
 

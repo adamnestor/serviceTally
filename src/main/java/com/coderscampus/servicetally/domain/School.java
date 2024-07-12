@@ -15,8 +15,8 @@ public class School {
 	private int schoolId;
 	
 	@ManyToOne
-	@JoinColumn(name = "schoolAdminId", referencedColumnName = "userId")
-	private Users schoolAdminId;
+	@JoinColumn(name = "school_admin_id", referencedColumnName = "user_account_id")
+	private AdminProfile schoolAdminId;
 
 	private String schoolName;
 	private String city;
@@ -26,7 +26,7 @@ public class School {
 	public School() {
 	}
 
-	public School(int schoolId, Users schoolAdminId, String schoolName, String city, String state,
+	public School(int schoolId, AdminProfile schoolAdminId, String schoolName, String city, String state,
 			float hoursRequired) {
 		this.schoolId = schoolId;
 		this.schoolAdminId = schoolAdminId;
@@ -44,11 +44,11 @@ public class School {
 		this.schoolId = schoolId;
 	}
 
-	public Users getSchoolAdminId() {
+	public AdminProfile getSchoolAdminId() {
 		return schoolAdminId;
 	}
 
-	public void setSchoolAdminId(Users schoolAdminId) {
+	public void setSchoolAdminId(AdminProfile schoolAdminId) {
 		this.schoolAdminId = schoolAdminId;
 	}
 
@@ -89,5 +89,4 @@ public class School {
 		return "School [schoolId=" + schoolId + ", schoolAdminId=" + schoolAdminId + ", schoolName=" + schoolName
 				+ ", city=" + city + ", state=" + state + ", hoursRequired=" + hoursRequired + "]";
 	}
-
 }
