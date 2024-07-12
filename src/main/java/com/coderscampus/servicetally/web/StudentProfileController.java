@@ -53,7 +53,7 @@ public class StudentProfileController {
 
 			if (!studentProfile.isEmpty())
 				model.addAttribute("studentProfile", studentProfile);
-			
+
 			List<School> schools = schoolService.getAllSchools();
 			model.addAttribute("schools", schools);
 
@@ -63,7 +63,7 @@ public class StudentProfileController {
 
 	@PostMapping("/addNew")
 	public String addNew(StudentProfile studentProfile, @RequestParam("image") MultipartFile multipartFile,
-			Model model) {
+			@RequestParam("schoolId") int schoolId, Model model) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -71,9 +71,14 @@ public class StudentProfileController {
 			String currentUsername = authentication.getName();
 			Users user = usersRepo.findByEmail(currentUsername)
 					.orElseThrow(() -> new UsernameNotFoundException("Could not find user"));
+
+			School selectedSchool = schoolService.getSchoolById(schoolId);
+			studentProfile.setSchool(selectedSchool);
+
 			studentProfile.setUserId(user);
 			studentProfile.setUserAccountId(user.getUserId());
 		}
+
 		model.addAttribute("profile", studentProfile);
 
 		String fileName = "";
