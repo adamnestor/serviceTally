@@ -47,8 +47,7 @@
 					name="grad-year" type="text" />
 				<div class="row input-field">
 					<select class="input-field" id="schoolId" name="schoolId" th:field="*{schoolId}">
-						<option value="" disabled selected>Select a school</option>
-						<option th:each="school : ${allSchools}" th:value="${school.schoolId}"
+						<option th:each="school : ${schools}" th:value="${school.schoolId}"
 							th:text="${school.schoolName}">
 						</option>
 					</select>

@@ -132,7 +132,7 @@ public class StudentProfile {
 	public String getPhotosImagePath() {
 		if (profilePhoto == null)
 			return null;
-		return "/photos/admin/" + userAccountId + "/" + profilePhoto;
+		return "/photos/student/" + userAccountId + "/" + profilePhoto;
 	}
 	
 	@Transient
