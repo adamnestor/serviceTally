@@ -134,6 +134,11 @@ public class StudentProfile {
 			return null;
 		return "/photos/admin/" + userAccountId + "/" + profilePhoto;
 	}
+	
+	@Transient
+	public Integer getSchoolId() {
+		return school != null ? school.getSchoolId() : null;
+	}
 
 	@Override
 	public String toString() {
