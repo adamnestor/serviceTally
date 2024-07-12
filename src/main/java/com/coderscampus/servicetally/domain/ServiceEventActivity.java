@@ -24,7 +24,7 @@ public class ServiceEventActivity {
 	private int eventId;
 
 	@ManyToOne
-	@JoinColumn(name = "posted_by_id", referencedColumnName = "user_account_id")
+	@JoinColumn(name = "posted_by_id", referencedColumnName = "userId")
 	private Users postedById;
 
 	private String serviceTitle;

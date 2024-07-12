@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
+import com.coderscampus.servicetally.domain.ServiceEventStatus;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
 import com.coderscampus.servicetally.service.UsersService;
@@ -59,6 +60,7 @@ public class ServiceEventActivityController {
 		if (user != null) {
 			serviceEventActivity.setPostedById(user);
 		}
+		serviceEventActivity.setStatus(ServiceEventStatus.SUBMITTED);
 		model.addAttribute("serviceEventActivity", serviceEventActivity);
 		serviceEventActivityService.addNew(serviceEventActivity);
 		return "redirect:/dashboard/";
