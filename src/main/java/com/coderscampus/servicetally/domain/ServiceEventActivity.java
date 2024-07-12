@@ -24,7 +24,7 @@ public class ServiceEventActivity {
 	private int eventId;
 
 	@ManyToOne
-	@JoinColumn(name = "postedById", referencedColumnName = "userId")
+	@JoinColumn(name = "posted_by_id", referencedColumnName = "user_account_id")
 	private Users postedById;
 
 	private String serviceTitle;
@@ -35,7 +35,7 @@ public class ServiceEventActivity {
 	private String city;
 	private String state;
 
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateOfService;
 
 	private Float hoursServed;
