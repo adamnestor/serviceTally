@@ -63,6 +63,22 @@
 		<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Student')">My Service
 			Hours</label>
 		<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Admin')">Search Results</label>
+		<th:block th:each="serviceEvent : ${serviceEvents}">
+			<a th:href="@{/service-details/{id}(id=${serviceEventActivity.eventId})}" class="service-link">
+				<div class="service-row"
+					onclick="window.location='/service-details/{id}(id=${serviceEventActivity.eventId})'">
+					<div class="service-info">
+						<label class="job-title">[[${serviceEventActivity.serviceTitle}]]</label>
+					</div>
+					<div class="service-info service-date">
+						<label th:text="${serviceEventActivity/postedById}">Posted By</label>
+					</div>
+					<div class="service-info service-status">
+						<label th:text="@{${serviceEventActivity.status}}">Event Status</label>
+					</div>
+				</div>
+			</a>
+		</th:block>
 	</main>
 </body>
 
