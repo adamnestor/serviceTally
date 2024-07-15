@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/st-edits/dashboard.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" />
   </head>
 
   <body>
     <header class="navbar">
-      <img class="img-logo" src="/Logo5.png"" alt="ServiceTally Logo" />
+      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
       <div>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -38,7 +38,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <!--<div>
         <img
           class="rounded-circle"
           th:if="${user.photosImagePath!=null}"
@@ -56,7 +56,7 @@
           class="display-name"
         ></label>
         <a class="logout" onclick="window.location.href='/logout'">Logout</a>
-      </div>
+      </div>-->
     </header>
 
     <section class="sidebar"></section>
@@ -71,13 +71,13 @@
           <div>
             <h4
               class="secondary-title side-by-side"
-              th:text="${serviceEventActivity.serviceTitle}"
+              th:text="${serviceEvent.serviceTitle}"
             >
               Soup Kitchen
             </h4>
             <p
               class="side-by-side"
-              th:text="${serviceEventActivity.city+', '+ serviceEventActivity.state}"
+              th:text="${serviceEvent.city+', '+ serviceEvent.state}"
             >
               Mentor, Ohio
             </p>
@@ -85,19 +85,19 @@
           <div>
             <h3
               class="side-by-side"
-              th:text="${'Service completed by: ' + serviceEventActivity.firstName+' '+serviceEventActivity.lastName}"
+              th:text="${'Service completed by: ' + serviceEvent.firstName+' '+serviceEvent.lastName}"
             >
               Service completed by: Adam Nestor
             </h3>
             <p
               class="side-by-side"
-              th:text="${'Date of Service: ' + serviceEventActivity.dateOfService}"
+              th:text="${'Date of Service: ' + serviceEvent.dateOfService}"
             >
               Date of Service: 1/1/2024
             </p>
             <p
               class="side-by-side"
-              th:text="${serviceEventActivity.hoursServed} + ' hours served"
+              th:text="${serviceEvent.hoursServed} + ' hours served"
             >
               2 hours served
             </p>
@@ -105,13 +105,13 @@
         </div>
         <div>
           <label class="secondary-title"> Description of Service </label>
-          <div th:utext="${serviceEventActivity.descriptionOfEvent}"></div>
+          <div th:utext="${serviceEvent.descriptionOfEvent}"></div>
         </div>
         <div class="btns">
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Student')" 
-              th:action="@{/dashboard/edit/{id}(id=${serviceEventActivity.eventId})}"
+              th:action="@{/dashboard/edit/{id}(id=${serviceEvent.eventId})}"
               method="post"
             >
               <button class="" type="submit">Edit Service</button>
@@ -120,7 +120,7 @@
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Student')"
-              th:action="@{/dashboard/deleteEvent/{id}(id=${serviceEventActivity.eventId})}"
+              th:action="@{/dashboard/deleteEvent/{id}(id=${serviceEvent.eventId})}"
               method="post"
             >
               <button class="" type="submit">Delete Service</button>
@@ -129,7 +129,7 @@
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Admin')"
-              th:action="@{/dashboard/edit/{id}(id=${serviceEventActivity.eventId})}"
+              th:action="@{/dashboard/edit/{id}(id=${serviceEvent.eventId})}"
               method="post"
             >
               <button class="" type="submit">Update Status</button>
