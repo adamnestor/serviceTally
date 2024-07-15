@@ -31,10 +31,9 @@ public class ServiceEventActivityService {
 		List<StudentServiceEventsDto> studentServiceEventsDtoList = new ArrayList<>();
 
 		for (IStudentServiceEvents activity : studentServiceEventsDtos) {
-			studentServiceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventsId(),
-					activity.getServiceTitle(), activity.getDescriptionOfEvent(), activity.getCity(),
-					activity.getState(), activity.getDateOfService(), activity.getHoursServed(), activity.getStatus(),
-					activity.getPostedById(), activity.getFirstName(), activity.getLastName()));
+			studentServiceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(),
+					activity.getServiceTitle(), activity.getCity(), activity.getState(), activity.getStatus(),
+					activity.getFirstName(), activity.getLastName()));
 		}
 
 		return studentServiceEventsDtoList;
