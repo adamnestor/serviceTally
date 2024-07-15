@@ -1,9 +1,20 @@
 package com.coderscampus.servicetally.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.coderscampus.servicetally.domain.IStudentServiceEvents;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 
-public interface ServiceEventActivityRepository extends JpaRepository<ServiceEventActivity, Integer>{
+public interface ServiceEventActivityRepository extends JpaRepository<ServiceEventActivity, Integer> {
+
+	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
+			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id" + " WHERE sea.posted_by_id = :student "
+			+ " GROUP BY sea.event_id", nativeQuery = true)
+	List<IStudentServiceEvents> getStudentServiceEvents(@Param("student") int student);
 
 }

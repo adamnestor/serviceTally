@@ -1,10 +1,11 @@
 package com.coderscampus.servicetally.web;
 
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.domain.ServiceEventStatus;
+import com.coderscampus.servicetally.domain.StudentProfile;
+import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
 import com.coderscampus.servicetally.service.UsersService;
@@ -39,6 +42,11 @@ public class ServiceEventActivityController {
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUsername = authentication.getName();
 			model.addAttribute("username", currentUsername);
+			if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Student"))) {
+				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
+						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
+				model.addAttribute("serviceEvent", studentServiceEvents);
+			}
 		}
 
 		model.addAttribute("user", currentUserProfile);
