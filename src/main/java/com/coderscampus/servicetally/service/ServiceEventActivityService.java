@@ -43,4 +43,8 @@ public class ServiceEventActivityService {
 
 		return serviceEventActivityRepo.findById(id).orElseThrow(() -> new RuntimeException("Service Event not found"));
 	}
+
+	public void deleteServiceEvent(Integer id) {
+		serviceEventActivityRepo.deleteById(id);
+	}
 }

@@ -112,7 +112,7 @@
             <form
               sec:authorize="hasAuthority('Student')" 
               th:action="@{/dashboard/edit/{id}(id=${serviceDetails.eventId})}"
-              method="post"
+              method="get"
             >
               <button class="" type="submit">Edit Service</button>
             </form>

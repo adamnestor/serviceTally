@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
@@ -61,7 +62,7 @@ public class ServiceEventActivityController {
 		return "add-service-event";
 	}
 
-	@PostMapping("/dashboard/addNew")
+	@PostMapping("/dashboard/add")
 	public String addNew(ServiceEventActivity serviceEventActivity, Model model) {
 
 		Users user = usersService.getCurrentUser();
@@ -71,6 +72,31 @@ public class ServiceEventActivityController {
 		serviceEventActivity.setStatus(ServiceEventStatus.SUBMITTED);
 		model.addAttribute("serviceEventActivity", serviceEventActivity);
 		serviceEventActivityService.addNew(serviceEventActivity);
+		return "redirect:/dashboard/";
+	}
+
+	@GetMapping("dashboard/edit/{id}")
+	public String editServiceEvent(@PathVariable("id") int id, Model model) {
+
+		ServiceEventActivity serviceEventActivity = serviceEventActivityService.getOne(id);
+		model.addAttribute("serviceEventActivity", serviceEventActivity);
+		model.addAttribute("user", usersService.getCurrentUserProfile());
+		return "add-service-event";
+	}
+
+	@PostMapping("dashboard/edit/{id}")
+	public String postEditServiceEvent(@PathVariable("id") Integer id, ServiceEventActivity serviceEventActivity) {
+		serviceEventActivity.setEventId(id);
+		Users currentUser = usersService.getCurrentUser();
+		serviceEventActivity.setPostedById(currentUser);
+		serviceEventActivity.setStatus(ServiceEventStatus.SUBMITTED);
+		serviceEventActivityService.addNew(serviceEventActivity);
+		return "redirect:/service-details/" + serviceEventActivity.getEventId();
+	}
+	
+	@PostMapping("dashboard/deleteEvent/{id}")
+	public String deleteServiceEvent(@PathVariable("id") Integer id) {
+		serviceEventActivityService.deleteServiceEvent(id);
 		return "redirect:/dashboard/";
 	}
 
