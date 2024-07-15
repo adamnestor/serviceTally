@@ -71,13 +71,13 @@
           <div>
             <h4
               class="secondary-title side-by-side"
-              th:text="${serviceEvent.serviceTitle}"
+              th:text="${serviceDetails.serviceTitle}"
             >
               Soup Kitchen
             </h4>
             <p
               class="side-by-side"
-              th:text="${serviceEvent.city+', '+ serviceEvent.state}"
+              th:text="${serviceDetails.city+', '+ serviceDetails.state}"
             >
               Mentor, Ohio
             </p>
@@ -85,19 +85,19 @@
           <div>
             <h3
               class="side-by-side"
-              th:text="${'Service completed by: ' + serviceEvent.firstName+' '+serviceEvent.lastName}"
+              th:text="${'Service completed by: ' + user.firstName+' '+user.lastName}"
             >
               Service completed by: Adam Nestor
             </h3>
             <p
               class="side-by-side"
-              th:text="${'Date of Service: ' + serviceEvent.dateOfService}"
+              th:text="${'Date of Service: ' + serviceDetails.dateOfService}"
             >
               Date of Service: 1/1/2024
             </p>
             <p
               class="side-by-side"
-              th:text="${serviceEvent.hoursServed} + ' hours served"
+              th:text="${serviceDetails.hoursServed} + ' hours served'"
             >
               2 hours served
             </p>
@@ -105,13 +105,13 @@
         </div>
         <div>
           <label class="secondary-title"> Description of Service </label>
-          <div th:utext="${serviceEvent.descriptionOfEvent}"></div>
+          <div th:utext="${serviceDetails.descriptionOfEvent}"></div>
         </div>
         <div class="btns">
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Student')" 
-              th:action="@{/dashboard/edit/{id}(id=${serviceEvent.eventId})}"
+              th:action="@{/dashboard/edit/{id}(id=${serviceDetails.eventId})}"
               method="post"
             >
               <button class="" type="submit">Edit Service</button>
@@ -120,7 +120,7 @@
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Student')"
-              th:action="@{/dashboard/deleteEvent/{id}(id=${serviceEvent.eventId})}"
+              th:action="@{/dashboard/deleteEvent/{id}(id=${serviceDetails.eventId})}"
               method="post"
             >
               <button class="" type="submit">Delete Service</button>
@@ -129,7 +129,7 @@
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Admin')"
-              th:action="@{/dashboard/edit/{id}(id=${serviceEvent.eventId})}"
+              th:action="@{/dashboard/edit/{id}(id=${serviceDetails.eventId})}"
               method="post"
             >
               <button class="" type="submit">Update Status</button>

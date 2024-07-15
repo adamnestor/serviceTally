@@ -38,4 +38,9 @@ public class ServiceEventActivityService {
 
 		return studentServiceEventsDtoList;
 	}
+
+	public ServiceEventActivity getOne(int id) {
+
+		return serviceEventActivityRepo.findById(id).orElseThrow(() -> new RuntimeException("Service Event not found"));
+	}
 }
