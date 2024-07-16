@@ -21,6 +21,7 @@ import com.coderscampus.servicetally.domain.ServiceEventStatus;
 import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.domain.Users;
+import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
 import com.coderscampus.servicetally.service.UsersService;
 
@@ -29,12 +30,14 @@ public class ServiceEventActivityController {
 
 	private final UsersService usersService;
 	private final ServiceEventActivityService serviceEventActivityService;
+	private final SchoolService schoolService;
 
 	@Autowired
 	public ServiceEventActivityController(UsersService usersService,
-			ServiceEventActivityService serviceEventActivityService) {
+			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService) {
 		this.usersService = usersService;
 		this.serviceEventActivityService = serviceEventActivityService;
+		this.schoolService = schoolService;
 	}
 
 	@GetMapping("/dashboard/")
@@ -57,6 +60,9 @@ public class ServiceEventActivityController {
 				List<StudentServiceEventsDto> allStudentServiceEvents = serviceEventActivityService
 						.getAllServiceEventsForSchools(schoolIds);
 				model.addAttribute("serviceEvent", allStudentServiceEvents);
+				
+				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
+				model.addAttribute("schools", schools);
 			}
 		}
 
