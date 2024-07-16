@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -24,6 +25,13 @@ public class StudentProfileService {
 
 	public StudentProfile addNew(StudentProfile studentProfile) {
 		return studentProfileRepo.save(studentProfile);
+	}
+
+
+
+	public List<StudentProfile> getAllStudentsBySchoolIds(List<Integer> schoolIds) {
+		List<StudentProfile> students = studentProfileRepo.findBySchoolIdIn(schoolIds);
+		return students;
 	}
 	
 	

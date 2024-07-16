@@ -57,6 +57,18 @@ public class ServiceEventActivityService {
 		return serviceEventsDtoList;
 	}
 
+	public List<StudentServiceEventsDto> getAllServiceEventsForStudentId(Integer studentId) {
+
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentId(studentId);
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+		return serviceEventsDtoList;
+	}
 
 	public ServiceEventActivity getOne(int id) {
 
@@ -66,4 +78,5 @@ public class ServiceEventActivityService {
 	public void deleteServiceEvent(Integer id) {
 		serviceEventActivityRepo.deleteById(id);
 	}
+
 }

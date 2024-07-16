@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
@@ -23,6 +24,7 @@ import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
+import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
@@ -31,17 +33,20 @@ public class ServiceEventActivityController {
 	private final UsersService usersService;
 	private final ServiceEventActivityService serviceEventActivityService;
 	private final SchoolService schoolService;
+	private final StudentProfileService studentProfileService;
 
 	@Autowired
 	public ServiceEventActivityController(UsersService usersService,
-			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService) {
+			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService,
+			StudentProfileService studentProfileService) {
 		this.usersService = usersService;
 		this.serviceEventActivityService = serviceEventActivityService;
 		this.schoolService = schoolService;
+		this.studentProfileService = studentProfileService;
 	}
 
 	@GetMapping("/dashboard/")
-	public String searchServiceEvents(Model model) {
+	public String searchServiceEvents(@RequestParam(value = "lastName", required = false) Integer studentIdFilter, Model model) {
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -55,12 +60,25 @@ public class ServiceEventActivityController {
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
+				// Create list of school ids managed by current admin profile
 				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
 						.map(School::getSchoolId).collect(Collectors.toList());
-				List<StudentServiceEventsDto> allStudentServiceEvents = serviceEventActivityService
-						.getAllServiceEventsForSchools(schoolIds);
+
+				// Add list of students who attend a school managed by current admin profile
+				List<StudentProfile> allStudents = studentProfileService.getAllStudentsBySchoolIds(schoolIds);
+				model.addAttribute("allStudents", allStudents);
+
+				// Filter service events by last name if provided
+				List<StudentServiceEventsDto> allStudentServiceEvents;
+				if (studentIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService
+							.getAllServiceEventsForStudentId(studentIdFilter);
+				} else {
+					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
+				}
+
 				model.addAttribute("serviceEvent", allStudentServiceEvents);
-				
+
 				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
 				model.addAttribute("schools", schools);
 			}
