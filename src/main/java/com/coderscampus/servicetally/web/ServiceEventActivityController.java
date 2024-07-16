@@ -1,6 +1,7 @@
 package com.coderscampus.servicetally.web;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.coderscampus.servicetally.domain.AdminProfile;
+import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.domain.ServiceEventStatus;
 import com.coderscampus.servicetally.domain.StudentProfile;
@@ -43,11 +46,17 @@ public class ServiceEventActivityController {
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUsername = authentication.getName();
 			model.addAttribute("username", currentUsername);
-			
+
 			if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Student"))) {
 				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
+			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
+				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
+						.map(School::getSchoolId).collect(Collectors.toList());
+				List<StudentServiceEventsDto> allStudentServiceEvents = serviceEventActivityService
+						.getAllServiceEventsForSchools(schoolIds);
+				model.addAttribute("serviceEvent", allStudentServiceEvents);
 			}
 		}
 
@@ -94,7 +103,7 @@ public class ServiceEventActivityController {
 		serviceEventActivityService.addNew(serviceEventActivity);
 		return "redirect:/service-details/" + serviceEventActivity.getEventId();
 	}
-	
+
 	@PostMapping("dashboard/deleteEvent/{id}")
 	public String deleteServiceEvent(@PathVariable("id") Integer id) {
 		serviceEventActivityService.deleteServiceEvent(id);
