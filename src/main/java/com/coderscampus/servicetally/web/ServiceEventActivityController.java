@@ -43,6 +43,7 @@ public class ServiceEventActivityController {
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUsername = authentication.getName();
 			model.addAttribute("username", currentUsername);
+			
 			if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Student"))) {
 				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
