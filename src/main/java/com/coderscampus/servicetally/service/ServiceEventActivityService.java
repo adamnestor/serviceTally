@@ -2,21 +2,27 @@ package com.coderscampus.servicetally.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.coderscampus.servicetally.domain.IStudentServiceEvents;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
+import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.repository.ServiceEventActivityRepository;
+import com.coderscampus.servicetally.repository.StudentProfileRepository;
 
 @Service
 public class ServiceEventActivityService {
 
 	private final ServiceEventActivityRepository serviceEventActivityRepo;
+	private final StudentProfileRepository studentProfileRepo;
 
-	public ServiceEventActivityService(ServiceEventActivityRepository serviceEventActivityRepo) {
+	public ServiceEventActivityService(ServiceEventActivityRepository serviceEventActivityRepo,
+			StudentProfileRepository studentProfileRepo) {
 		this.serviceEventActivityRepo = serviceEventActivityRepo;
+		this.studentProfileRepo = studentProfileRepo;
 	}
 
 	public ServiceEventActivity addNew(ServiceEventActivity serviceEventActivity) {
@@ -38,6 +44,19 @@ public class ServiceEventActivityService {
 
 		return studentServiceEventsDtoList;
 	}
+
+	public List<StudentServiceEventsDto> getAllServiceEventsForSchools(List<Integer> schoolIds) {
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIds(schoolIds);
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+		return serviceEventsDtoList;
+	}
+
 
 	public ServiceEventActivity getOne(int id) {
 
