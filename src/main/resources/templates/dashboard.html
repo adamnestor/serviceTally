@@ -48,14 +48,19 @@
 	</header>
 
 	<section class="sidebar">
-		<!--Filter by Student-->
 		<form action="/dashboard/" method="get">
-			<label for="studentIdFilter">Filter by Student:</label>
-			<select name="studentId" id="studentIdFilter">
-				<option th:each="student : ${allStudents}" th:value="${student.userAccountId}"
-					th:text="${student.lastName + ', ' + student.firstName}">
-				</option>
+			<!--Filter by Student-->
+			<select name="studentId">
+				<option value="">Select Student</option>
+				<option th:each="student : ${students}" th:value="${student.userAccountId}"
+					th:text="${student.firstName + ' ' + student.lastName}"></option>
 			</select>
+			<!--Filter by School-->
+			<select name="schoolId">
+				<option value="">Select School</option>
+				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.name}"></option>
+			</select>
+
 			<button type="submit">Filter</button>
 		</form>
 

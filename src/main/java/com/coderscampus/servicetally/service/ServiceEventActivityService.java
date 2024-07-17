@@ -79,4 +79,30 @@ public class ServiceEventActivityService {
 		serviceEventActivityRepo.deleteById(id);
 	}
 
+	public List<StudentServiceEventsDto> getAllServiceEventsForStudentIdAndSchoolId(Integer studentId,
+			Integer schoolId) {
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo
+				.findServiceEventsByStudentIdAndSchoolId(studentId, schoolId);
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+		return serviceEventsDtoList;
+	}
+
+	public List<StudentServiceEventsDto> getAllServiceEventForSchoolId(Integer schoolId) {
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+		return serviceEventsDtoList;
+	}
+
 }

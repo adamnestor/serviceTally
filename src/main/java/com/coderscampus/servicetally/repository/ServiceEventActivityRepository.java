@@ -24,12 +24,23 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 			+ "GROUP BY sea.event_id", nativeQuery = true)
 	List<IStudentServiceEvents> findServiceEventsBySchoolIds(@Param("schoolIds") List<Integer> schoolIds);
 
-	
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
-            + "FROM service_event_activity sea "
-            + "JOIN users u ON sea.posted_by_id = u.user_id "
-            + "JOIN student_profile sp ON u.user_id = sp.user_account_id "
-            + "WHERE sea.posted_by_id = :studentId "
-            + "GROUP BY sea.event_id", nativeQuery = true)
-    List<IStudentServiceEvents> findServiceEventsByStudentId(@Param("studentId") Integer studentId);
+			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sea.posted_by_id = :studentId "
+			+ "GROUP BY sea.event_id", nativeQuery = true)
+	List<IStudentServiceEvents> findServiceEventsByStudentId(@Param("studentId") Integer studentId);
+
+	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
+			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id "
+			+ "JOIN school s ON sp.school_id = s.school_id "
+			+ "WHERE sea.posted_by_id = :studentId AND s.school_id = :schoolId "
+			+ "GROUP BY sea.event_id", nativeQuery = true)
+	List<IStudentServiceEvents> findServiceEventsByStudentIdAndSchoolId(Integer studentId, Integer schoolId);
+
+	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
+			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sp.school_id = :schoolId "
+			+ "GROUP BY sea.event_id", nativeQuery = true)
+	List<IStudentServiceEvents> findServiceEventsBySchoolId(Integer schoolId);
 }

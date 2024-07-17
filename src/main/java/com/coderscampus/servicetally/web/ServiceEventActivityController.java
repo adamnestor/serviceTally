@@ -46,7 +46,8 @@ public class ServiceEventActivityController {
 	}
 
 	@GetMapping("/dashboard/")
-	public String searchServiceEvents(@RequestParam(value = "lastName", required = false) Integer studentIdFilter, Model model) {
+	public String searchServiceEvents(@RequestParam(value = "lastName", required = false) Integer studentIdFilter,
+			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter, Model model) {
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -60,9 +61,14 @@ public class ServiceEventActivityController {
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
+
 				// Create list of school ids managed by current admin profile
 				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
 						.map(School::getSchoolId).collect(Collectors.toList());
+
+				// Add list of schools managed by the current admin profile
+				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
+				model.addAttribute("schools", schools);
 
 				// Add list of students who attend a school managed by current admin profile
 				List<StudentProfile> allStudents = studentProfileService.getAllStudentsBySchoolIds(schoolIds);
@@ -70,17 +76,21 @@ public class ServiceEventActivityController {
 
 				// Filter service events by last name if provided
 				List<StudentServiceEventsDto> allStudentServiceEvents;
-				if (studentIdFilter != null) {
+				if (studentIdFilter != null && schoolIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService
+							.getAllServiceEventsForStudentIdAndSchoolId(studentIdFilter, schoolIdFilter);
+				} else if (studentIdFilter != null) {
 					allStudentServiceEvents = serviceEventActivityService
 							.getAllServiceEventsForStudentId(studentIdFilter);
+				} else if (schoolIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventForSchoolId(schoolIdFilter);
+					
 				} else {
 					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
 				}
 
 				model.addAttribute("serviceEvent", allStudentServiceEvents);
 
-				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
-				model.addAttribute("schools", schools);
 			}
 		}
 
