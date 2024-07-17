@@ -91,10 +91,11 @@ public class ServiceEventActivityService {
 		}
 		return serviceEventsDtoList;
 	}
-	
+
 	public List<StudentServiceEventsDto> getAllServiceEventsForStudentId(Integer userAccountId) {
 
-		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedById(userAccountId);
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo
+				.findServiceEventsByPostedById(userAccountId);
 		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
 
 		for (IStudentServiceEvents activity : serviceEvents) {
@@ -102,6 +103,39 @@ public class ServiceEventActivityService {
 					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
 					activity.getLastName()));
 		}
+		return serviceEventsDtoList;
+	}
+
+	public List<StudentServiceEventsDto> getAllServiceEventsFiltered(Integer studentId, Integer schoolId,
+			String status) {
+		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
+
+		if (studentId != null && schoolId != null && status != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndSchoolIdAndStatus(studentId,
+					schoolId, status);
+		} else if (studentId != null && schoolId != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndSchoolId(studentId, schoolId);
+		} else if (studentId != null && status != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndStatus(studentId, status);
+		} else if (schoolId != null && status != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIdAndStatus(schoolId, status);
+		} else if (studentId != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentId(studentId);
+		} else if (schoolId != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
+		} else if (status != null) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
+		} else {
+			serviceEvents = serviceEventActivityRepo.findAll();
+		}
+
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+
 		return serviceEventsDtoList;
 	}
 
