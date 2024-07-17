@@ -77,11 +77,14 @@ public class ServiceEventActivityController {
 				model.addAttribute("statusOptions", statusOptions);
 
 				// Filter service events
-				List<StudentServiceEventsDto> filteredEvents = serviceEventActivityService
+				List<StudentServiceEventsDto> filteredEvents;
+				if(studentIdFilter == null && schoolIdFilter == null && statusFilter == null) {
+					filteredEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
+				} else {
+				filteredEvents = serviceEventActivityService
 						.getAllServiceEventsFiltered(studentIdFilter, schoolIdFilter, statusFilter);
 
 				model.addAttribute("serviceEvent", filteredEvents);
-
 			}
 		}
 
