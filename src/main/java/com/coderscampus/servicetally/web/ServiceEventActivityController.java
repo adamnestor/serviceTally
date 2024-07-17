@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
@@ -23,6 +24,7 @@ import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
+import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
@@ -30,18 +32,20 @@ public class ServiceEventActivityController {
 
 	private final UsersService usersService;
 	private final ServiceEventActivityService serviceEventActivityService;
-	private final SchoolService schoolService;
+	private final StudentProfileService studentProfileService;
 
 	@Autowired
 	public ServiceEventActivityController(UsersService usersService,
-			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService) {
+			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService,
+			StudentProfileService studentProfileService) {
 		this.usersService = usersService;
 		this.serviceEventActivityService = serviceEventActivityService;
-		this.schoolService = schoolService;
+		this.studentProfileService = studentProfileService;
 	}
 
 	@GetMapping("/dashboard/")
-	public String searchServiceEvents(Model model) {
+	public String searchServiceEvents(@RequestParam(value = "userAccountId", required = false) Integer studentIdFilter,
+			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter, Model model) {
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -55,14 +59,34 @@ public class ServiceEventActivityController {
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
-				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
-						.map(School::getSchoolId).collect(Collectors.toList());
-				List<StudentServiceEventsDto> allStudentServiceEvents = serviceEventActivityService
-						.getAllServiceEventsForSchools(schoolIds);
+
+				// Create list of school ids managed by current admin profile
+				List<School> managedSchools = ((AdminProfile) currentUserProfile).getSchoolsManaged();
+				List<Integer> schoolIds = managedSchools.stream().map(School::getSchoolId).collect(Collectors.toList());
+				model.addAttribute("schools", managedSchools);
+
+				// Create a list of students who attend a school managed by the current admin
+				// profile
+				List<StudentProfile> studentsInManagedSchools = studentProfileService.findBySchoolIn(managedSchools);
+				model.addAttribute("students", studentsInManagedSchools);
+
+				// Filter service events 
+				List<StudentServiceEventsDto> allStudentServiceEvents;
+				if (studentIdFilter != null && schoolIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService
+							.getAllServiceEventsForStudentIdAndSchoolId(studentIdFilter, schoolIdFilter);
+				} else if (studentIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService
+							.getAllServiceEventsForStudentId(studentIdFilter);
+				} else if (schoolIdFilter != null) {
+					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventForSchoolId(schoolIdFilter);
+
+				} else {
+					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
+				}
+
 				model.addAttribute("serviceEvent", allStudentServiceEvents);
-				
-				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
-				model.addAttribute("schools", schools);
+
 			}
 		}
 

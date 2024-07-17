@@ -47,7 +47,24 @@
 		</div>
 	</header>
 
-	<section class="sidebar"></section>
+	<section class="sidebar">
+		<form action="/dashboard/" method="get">
+			<!--Filter by Student-->
+			<select name="userAccountId">
+				<option value="">Select Student</option>
+				<option th:each="student : ${students}" th:value="${student.userAccountId}"
+					th:text="${student.firstName + ' ' + student.lastName}"></option>
+			</select>
+			<!--Filter by School-->
+			<select name="schoolId">
+				<option value="">Select School</option>
+				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"></option>
+			</select>
+
+			<button type="submit">Filter</button>
+		</form>
+
+	</section>
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Student')">
@@ -65,8 +82,7 @@
 		<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Admin')">Search Results</label>
 		<th:block th:each="serviceEvent : ${serviceEvent}">
 			<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="service-link">
-				<div class="service-row"
-					onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
+				<div class="service-row" onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
 					<div class="service-info">
 						<label class="job-title">[[${serviceEvent.serviceTitle}]]</label>
 					</div>
@@ -80,6 +96,7 @@
 			</a>
 		</th:block>
 	</main>
+
 </body>
 
 </html>
