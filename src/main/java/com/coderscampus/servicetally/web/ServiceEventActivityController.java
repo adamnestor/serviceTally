@@ -44,7 +44,7 @@ public class ServiceEventActivityController {
 	}
 
 	@GetMapping("/dashboard/")
-	public String searchServiceEvents(@RequestParam(value = "lastName", required = false) Integer studentIdFilter,
+	public String searchServiceEvents(@RequestParam(value = "userAccountId", required = false) Integer studentIdFilter,
 			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter, Model model) {
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
@@ -70,7 +70,7 @@ public class ServiceEventActivityController {
 				List<StudentProfile> studentsInManagedSchools = studentProfileService.findBySchoolIn(managedSchools);
 				model.addAttribute("students", studentsInManagedSchools);
 
-				// Filter service events by last name if provided
+				// Filter service events 
 				List<StudentServiceEventsDto> allStudentServiceEvents;
 				if (studentIdFilter != null && schoolIdFilter != null) {
 					allStudentServiceEvents = serviceEventActivityService

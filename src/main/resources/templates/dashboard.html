@@ -50,7 +50,7 @@
 	<section class="sidebar">
 		<form action="/dashboard/" method="get">
 			<!--Filter by Student-->
-			<select name="studentId">
+			<select name="userAccountId">
 				<option value="">Select Student</option>
 				<option th:each="student : ${students}" th:value="${student.userAccountId}"
 					th:text="${student.firstName + ' ' + student.lastName}"></option>
@@ -58,7 +58,7 @@
 			<!--Filter by School-->
 			<select name="schoolId">
 				<option value="">Select School</option>
-				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.name}"></option>
+				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"></option>
 			</select>
 
 			<button type="submit">Filter</button>

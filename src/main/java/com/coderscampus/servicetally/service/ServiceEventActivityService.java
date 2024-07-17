@@ -57,19 +57,6 @@ public class ServiceEventActivityService {
 		return serviceEventsDtoList;
 	}
 
-	public List<StudentServiceEventsDto> getAllServiceEventsForStudentId(Integer studentId) {
-
-		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentId(studentId);
-		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
-
-		for (IStudentServiceEvents activity : serviceEvents) {
-			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
-					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
-					activity.getLastName()));
-		}
-		return serviceEventsDtoList;
-	}
-
 	public ServiceEventActivity getOne(int id) {
 
 		return serviceEventActivityRepo.findById(id).orElseThrow(() -> new RuntimeException("Service Event not found"));
@@ -95,6 +82,19 @@ public class ServiceEventActivityService {
 
 	public List<StudentServiceEventsDto> getAllServiceEventForSchoolId(Integer schoolId) {
 		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
+		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
+
+		for (IStudentServiceEvents activity : serviceEvents) {
+			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
+					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
+					activity.getLastName()));
+		}
+		return serviceEventsDtoList;
+	}
+	
+	public List<StudentServiceEventsDto> getAllServiceEventsForStudentId(Integer userAccountId) {
+
+		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedById(userAccountId);
 		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
 
 		for (IStudentServiceEvents activity : serviceEvents) {
