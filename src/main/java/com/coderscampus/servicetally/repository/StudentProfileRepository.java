@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.coderscampus.servicetally.domain.StudentProfile;
 
-public interface StudentProfileRepository extends JpaRepository<StudentProfile, Integer>{
-
-	List<StudentProfile> findBySchoolIdIn(List<Integer> schoolIds);
+public interface StudentProfileRepository extends JpaRepository<StudentProfile, Integer> {
 
 }

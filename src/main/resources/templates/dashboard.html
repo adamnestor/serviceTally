@@ -58,7 +58,7 @@
 			<!--Filter by School-->
 			<select name="schoolId">
 				<option value="">Select School</option>
-				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.name}"></option>
+				<option th:each="school : ${schoolIds}" th:value="${school.schoolId}" th:text="${school.name}"></option>
 			</select>
 
 			<button type="submit">Filter</button>

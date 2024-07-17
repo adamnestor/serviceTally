@@ -10,6 +10,4 @@ public interface SchoolRepository extends JpaRepository<School, Integer> {
 
 	List<School> findBySchoolAdminId_UserAccountId(int userAccountId);
 
-	List<School> findBySchoolIdIn(List<Integer> schoolIds);
-
 }

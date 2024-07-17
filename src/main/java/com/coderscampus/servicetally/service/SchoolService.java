@@ -38,10 +38,6 @@ public class SchoolService {
 	public List<School> getSchoolsByAdmin(AdminProfile adminProfile) {
 		return schoolRepo.findBySchoolAdminId_UserAccountId(adminProfile.getUserAccountId());
 	}
-	
-	public List<School> getSchoolsByIds(List<Integer> schoolIds) {
-		return schoolRepo.findBySchoolIdIn(schoolIds);
-	}
 
 	public School saveSchool(School school) {
 		return schoolRepo.save(school);

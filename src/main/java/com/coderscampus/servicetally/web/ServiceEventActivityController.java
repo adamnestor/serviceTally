@@ -65,14 +65,7 @@ public class ServiceEventActivityController {
 				// Create list of school ids managed by current admin profile
 				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
 						.map(School::getSchoolId).collect(Collectors.toList());
-
-				// Add list of schools managed by the current admin profile
-				List<School> schools = schoolService.getSchoolsByIds(schoolIds);
-				model.addAttribute("schools", schools);
-
-				// Add list of students who attend a school managed by current admin profile
-				List<StudentProfile> allStudents = studentProfileService.getAllStudentsBySchoolIds(schoolIds);
-				model.addAttribute("allStudents", allStudents);
+				model.addAttribute("schoolIds", schoolIds);
 
 				// Filter service events by last name if provided
 				List<StudentServiceEventsDto> allStudentServiceEvents;
@@ -84,7 +77,7 @@ public class ServiceEventActivityController {
 							.getAllServiceEventsForStudentId(studentIdFilter);
 				} else if (schoolIdFilter != null) {
 					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventForSchoolId(schoolIdFilter);
-					
+
 				} else {
 					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
 				}

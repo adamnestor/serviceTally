@@ -25,15 +25,6 @@ public class StudentProfileService {
 
 	public StudentProfile addNew(StudentProfile studentProfile) {
 		return studentProfileRepo.save(studentProfile);
-	}
-
-
-
-	public List<StudentProfile> getAllStudentsBySchoolIds(List<Integer> schoolIds) {
-		List<StudentProfile> students = studentProfileRepo.findBySchoolIdIn(schoolIds);
-		return students;
-	}
-	
-	
+	}	
 
 }
