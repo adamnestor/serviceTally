@@ -16,7 +16,7 @@ import com.coderscampus.servicetally.repository.StudentProfileRepository;
 public class ServiceEventActivityService {
 
 	private final ServiceEventActivityRepository serviceEventActivityRepo;
-	
+
 	@Autowired
 	public ServiceEventActivityService(ServiceEventActivityRepository serviceEventActivityRepo,
 			StudentProfileRepository studentProfileRepo) {
@@ -55,41 +55,6 @@ public class ServiceEventActivityService {
 		return serviceEventsDtoList;
 	}
 
-	public ServiceEventActivity getOne(int id) {
-
-		return serviceEventActivityRepo.findById(id).orElseThrow(() -> new RuntimeException("Service Event not found"));
-	}
-
-	public void deleteServiceEvent(Integer id) {
-		serviceEventActivityRepo.deleteById(id);
-	}
-
-	public List<StudentServiceEventsDto> getAllServiceEventsForStudentIdAndSchoolId(Integer studentId,
-			Integer schoolId) {
-		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo
-				.findServiceEventsByStudentIdAndSchoolId(studentId, schoolId);
-		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
-
-		for (IStudentServiceEvents activity : serviceEvents) {
-			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
-					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
-					activity.getLastName()));
-		}
-		return serviceEventsDtoList;
-	}
-
-	public List<StudentServiceEventsDto> getAllServiceEventForSchoolId(Integer schoolId) {
-		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
-		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
-
-		for (IStudentServiceEvents activity : serviceEvents) {
-			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
-					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
-					activity.getLastName()));
-		}
-		return serviceEventsDtoList;
-	}
-
 	public List<StudentServiceEventsDto> getAllServiceEventsFiltered(Integer studentId, Integer schoolId,
 			String status) {
 		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
@@ -109,7 +74,7 @@ public class ServiceEventActivityService {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
 		} else if (status != null) {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
-		} 
+		}
 
 		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
 		for (IStudentServiceEvents activity : serviceEvents) {
@@ -119,6 +84,15 @@ public class ServiceEventActivityService {
 		}
 
 		return serviceEventsDtoList;
+	}
+
+	public ServiceEventActivity getOne(int id) {
+
+		return serviceEventActivityRepo.findById(id).orElseThrow(() -> new RuntimeException("Service Event not found"));
+	}
+
+	public void deleteServiceEvent(Integer id) {
+		serviceEventActivityRepo.deleteById(id);
 	}
 
 }
