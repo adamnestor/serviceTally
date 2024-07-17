@@ -2,13 +2,12 @@ package com.coderscampus.servicetally.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coderscampus.servicetally.domain.IStudentServiceEvents;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
-import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.repository.ServiceEventActivityRepository;
 import com.coderscampus.servicetally.repository.StudentProfileRepository;
@@ -17,12 +16,11 @@ import com.coderscampus.servicetally.repository.StudentProfileRepository;
 public class ServiceEventActivityService {
 
 	private final ServiceEventActivityRepository serviceEventActivityRepo;
-	private final StudentProfileRepository studentProfileRepo;
-
+	
+	@Autowired
 	public ServiceEventActivityService(ServiceEventActivityRepository serviceEventActivityRepo,
 			StudentProfileRepository studentProfileRepo) {
 		this.serviceEventActivityRepo = serviceEventActivityRepo;
-		this.studentProfileRepo = studentProfileRepo;
 	}
 
 	public ServiceEventActivity addNew(ServiceEventActivity serviceEventActivity) {
@@ -92,20 +90,6 @@ public class ServiceEventActivityService {
 		return serviceEventsDtoList;
 	}
 
-	public List<StudentServiceEventsDto> getAllServiceEventsForStudentId(Integer userAccountId) {
-
-		List<IStudentServiceEvents> serviceEvents = serviceEventActivityRepo
-				.findServiceEventsByPostedById(userAccountId);
-		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
-
-		for (IStudentServiceEvents activity : serviceEvents) {
-			serviceEventsDtoList.add(new StudentServiceEventsDto(activity.getEventId(), activity.getServiceTitle(),
-					activity.getCity(), activity.getState(), activity.getStatus(), activity.getFirstName(),
-					activity.getLastName()));
-		}
-		return serviceEventsDtoList;
-	}
-
 	public List<StudentServiceEventsDto> getAllServiceEventsFiltered(Integer studentId, Integer schoolId,
 			String status) {
 		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
@@ -125,9 +109,7 @@ public class ServiceEventActivityService {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
 		} else if (status != null) {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
-		} else {
-			serviceEvents = serviceEventActivityRepo.findAll();
-		}
+		} 
 
 		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
 		for (IStudentServiceEvents activity : serviceEvents) {
