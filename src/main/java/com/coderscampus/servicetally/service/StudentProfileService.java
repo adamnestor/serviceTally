@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.repository.StudentProfileRepository;
 
@@ -17,8 +18,6 @@ public class StudentProfileService {
 		this.studentProfileRepo = studentProfileRepo;
 	}
 
-
-
 	public Optional<StudentProfile> getOne(Integer id) {
 		return studentProfileRepo.findById(id);
 	}
@@ -26,5 +25,9 @@ public class StudentProfileService {
 	public StudentProfile addNew(StudentProfile studentProfile) {
 		return studentProfileRepo.save(studentProfile);
 	}	
+	
+	public List<StudentProfile> findBySchoolIn(List<School> schools){
+		return studentProfileRepo.findBySchoolIn(schools);
+	}
 
 }

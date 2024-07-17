@@ -32,7 +32,6 @@ public class ServiceEventActivityController {
 
 	private final UsersService usersService;
 	private final ServiceEventActivityService serviceEventActivityService;
-	private final SchoolService schoolService;
 	private final StudentProfileService studentProfileService;
 
 	@Autowired
@@ -41,7 +40,6 @@ public class ServiceEventActivityController {
 			StudentProfileService studentProfileService) {
 		this.usersService = usersService;
 		this.serviceEventActivityService = serviceEventActivityService;
-		this.schoolService = schoolService;
 		this.studentProfileService = studentProfileService;
 	}
 
@@ -63,9 +61,14 @@ public class ServiceEventActivityController {
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
 
 				// Create list of school ids managed by current admin profile
-				List<Integer> schoolIds = ((AdminProfile) currentUserProfile).getSchoolsManaged().stream()
-						.map(School::getSchoolId).collect(Collectors.toList());
-				model.addAttribute("schoolIds", schoolIds);
+				List<School> managedSchools = ((AdminProfile) currentUserProfile).getSchoolsManaged();
+				List<Integer> schoolIds = managedSchools.stream().map(School::getSchoolId).collect(Collectors.toList());
+				model.addAttribute("schools", managedSchools);
+
+				// Create a list of students who attend a school managed by the current admin
+				// profile
+				List<StudentProfile> studentsInManagedSchools = studentProfileService.findBySchoolIn(managedSchools);
+				model.addAttribute("students", studentsInManagedSchools);
 
 				// Filter service events by last name if provided
 				List<StudentServiceEventsDto> allStudentServiceEvents;
