@@ -114,7 +114,7 @@ public class ServiceEventActivityController {
 		}
 		serviceEventActivity.setStatus(ServiceEventStatus.SUBMITTED);
 		model.addAttribute("serviceEventActivity", serviceEventActivity);
-		serviceEventActivityService.addNew(serviceEventActivity);
+		serviceEventActivityService.save(serviceEventActivity);
 		return "redirect:/dashboard/";
 	}
 
@@ -133,7 +133,7 @@ public class ServiceEventActivityController {
 		Users currentUser = usersService.getCurrentUser();
 		serviceEventActivity.setPostedById(currentUser);
 		serviceEventActivity.setStatus(ServiceEventStatus.SUBMITTED);
-		serviceEventActivityService.addNew(serviceEventActivity);
+		serviceEventActivityService.save(serviceEventActivity);
 		return "redirect:/service-details/" + serviceEventActivity.getEventId();
 	}
 
