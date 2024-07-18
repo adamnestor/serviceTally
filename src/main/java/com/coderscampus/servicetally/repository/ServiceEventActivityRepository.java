@@ -31,25 +31,26 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
 			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id "
-			+ "WHERE sea.posted_by_id = :studentId AND sp.school_id = :schoolId AND sea.status = :status "
+			+ "WHERE sea.posted_by_id = :userAccountId AND sp.school_id = :schoolId AND sea.status = :status "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
-	List<IStudentServiceEvents> findServiceEventsByStudentIdAndSchoolIdAndStatus(@Param("studentId") Integer studentId,
-			@Param("schoolId") Integer schoolId, @Param("status") String status);
+	List<IStudentServiceEvents> findServiceEventsByPostedByIdAndSchoolIdAndStatus(
+			@Param("userAccountId") Integer userAccountId, @Param("schoolId") Integer schoolId,
+			@Param("status") String status);
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
 			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id "
-			+ "WHERE sea.posted_by_id = :studentId AND sp.school_id = :schoolId "
+			+ "WHERE sea.posted_by_id = :userAccountId AND sp.school_id = :schoolId "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
-	List<IStudentServiceEvents> findServiceEventsByStudentIdAndSchoolId(@Param("studentId") Integer studentId,
+	List<IStudentServiceEvents> findServiceEventsByPostedByIdAndSchoolId(@Param("userAccountId") Integer userAccountId,
 			@Param("schoolId") Integer schoolId);
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
 			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id "
-			+ "WHERE sea.posted_by_id = :studentId AND sea.status = :status "
+			+ "WHERE sea.posted_by_id = :userAccountId AND sea.status = :status "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
-	List<IStudentServiceEvents> findServiceEventsByStudentIdAndStatus(@Param("studentId") Integer studentId,
+	List<IStudentServiceEvents> findServiceEventsByPostedByIdAndStatus(@Param("userAccountId") Integer userAccountId,
 			@Param("status") String status);
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
@@ -62,16 +63,15 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
-			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sea.posted_by_id = :studentId "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sea.posted_by_id = :userAccountId "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
-	List<IStudentServiceEvents> findServiceEventsByStudentId(@Param("studentId") Integer studentId);
+	List<IStudentServiceEvents> findServiceEventsByPostedById(@Param("userAccountId") Integer userAccountId);
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "
-			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id "
-			+ "JOIN school s ON sp.school_id = s.school_id " + "WHERE sp.school_id = :schoolId "
+			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sp.school_id = :schoolId "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
-	List<IStudentServiceEvents> findServiceEventsBySchoolId(@Param("schoolId") Integer schoolId);
+	List<IStudentServiceEvents> findServiceEventsBySchoolId(Integer schoolId);
 
 	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, sea.city AS city, sea.state AS state, sea.status AS status, sp.first_name AS firstName, sp.last_name AS lastName "
 			+ "FROM service_event_activity sea " + "JOIN users u ON sea.posted_by_id = u.user_id "

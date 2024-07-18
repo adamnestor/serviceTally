@@ -60,16 +60,16 @@ public class ServiceEventActivityService {
 		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
 
 		if (studentId != null && schoolId != null && status != null) {
-			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndSchoolIdAndStatus(studentId,
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolIdAndStatus(studentId,
 					schoolId, status);
 		} else if (studentId != null && schoolId != null) {
-			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndSchoolId(studentId, schoolId);
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolId(studentId, schoolId);
 		} else if (studentId != null && status != null) {
-			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentIdAndStatus(studentId, status);
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndStatus(studentId, status);
 		} else if (schoolId != null && status != null) {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIdAndStatus(schoolId, status);
 		} else if (studentId != null) {
-			serviceEvents = serviceEventActivityRepo.findServiceEventsByStudentId(studentId);
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedById(studentId);
 		} else if (schoolId != null) {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
 		} else if (status != null) {
