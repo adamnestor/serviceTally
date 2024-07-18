@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.web;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,12 @@ public class ServiceEventActivityController {
 
 	@GetMapping("/dashboard/")
 	public String searchServiceEvents(@RequestParam(value = "userAccountId", required = false) Integer studentIdFilter,
-			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter, Model model) {
+			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter,
+			@RequestParam(value = "status", required = false) String statusFilter, Model model) {
+
+		model.addAttribute("studentIdFilter", studentIdFilter);
+		model.addAttribute("schoolIdFilter", schoolIdFilter);
+		model.addAttribute("statusFilter", statusFilter);
 
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -70,23 +76,20 @@ public class ServiceEventActivityController {
 				List<StudentProfile> studentsInManagedSchools = studentProfileService.findBySchoolIn(managedSchools);
 				model.addAttribute("students", studentsInManagedSchools);
 
-				// Filter service events 
-				List<StudentServiceEventsDto> allStudentServiceEvents;
-				if (studentIdFilter != null && schoolIdFilter != null) {
-					allStudentServiceEvents = serviceEventActivityService
-							.getAllServiceEventsForStudentIdAndSchoolId(studentIdFilter, schoolIdFilter);
-				} else if (studentIdFilter != null) {
-					allStudentServiceEvents = serviceEventActivityService
-							.getAllServiceEventsForStudentId(studentIdFilter);
-				} else if (schoolIdFilter != null) {
-					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventForSchoolId(schoolIdFilter);
+				// Define status options using enum
+				List<ServiceEventStatus> statusOptions = Arrays.asList(ServiceEventStatus.values());
+				model.addAttribute("statusOptions", statusOptions);
 
+				// Filter service events
+				List<StudentServiceEventsDto> filteredEvents;
+				if (studentIdFilter == null && schoolIdFilter == null
+						&& (statusFilter == null || statusFilter.isEmpty())) {
+					filteredEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
 				} else {
-					allStudentServiceEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
+					filteredEvents = serviceEventActivityService.getAllServiceEventsFiltered(studentIdFilter,
+							schoolIdFilter, statusFilter);
 				}
-
-				model.addAttribute("serviceEvent", allStudentServiceEvents);
-
+				model.addAttribute("serviceEvent", filteredEvents);
 			}
 		}
 
