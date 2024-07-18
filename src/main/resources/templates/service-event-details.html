@@ -129,7 +129,7 @@
           <div class="side-by-side">
             <form
               sec:authorize="hasAuthority('Admin')"
-              th:action="@{/dashboard/edit/{id}(id=${serviceDetails.eventId})}"
+              th:action=""
               method="post"
             >
               <button class="" type="submit">Update Status</button>
