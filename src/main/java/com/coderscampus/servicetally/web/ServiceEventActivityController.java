@@ -49,6 +49,10 @@ public class ServiceEventActivityController {
 			@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter,
 			@RequestParam(value = "status", required = false) String statusFilter, Model model) {
 
+		model.addAttribute("studentIdFilter", studentIdFilter);
+		model.addAttribute("schoolIdFilter", schoolIdFilter);
+		model.addAttribute("statusFilter", statusFilter);
+
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -78,7 +82,8 @@ public class ServiceEventActivityController {
 
 				// Filter service events
 				List<StudentServiceEventsDto> filteredEvents;
-				if (studentIdFilter == null && schoolIdFilter == null && (statusFilter == null || statusFilter.isEmpty())) {
+				if (studentIdFilter == null && schoolIdFilter == null
+						&& (statusFilter == null || statusFilter.isEmpty())) {
 					filteredEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
 				} else {
 					filteredEvents = serviceEventActivityService.getAllServiceEventsFiltered(studentIdFilter,

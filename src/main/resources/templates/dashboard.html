@@ -48,29 +48,37 @@
 	</header>
 
 	<section class="sidebar">
-		<form action="/dashboard/" method="get">
+		<form sec:authorize="hasAuthority('Admin')" action="/dashboard/" method="get">
 			<!--Filter by Student-->
 			<select name="userAccountId">
 				<option value="">Select Student</option>
 				<option th:each="student : ${students}" th:value="${student.userAccountId}"
-					th:text="${student.firstName + ' ' + student.lastName}"></option>
+					th:text="${student.firstName + ' ' + student.lastName}"
+					th:selected="${student.userAccountId == studentIdFilter}"></option>
 			</select>
 			<!--Filter by School-->
 			<select name="schoolId">
 				<option value="">Select School</option>
-				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}">
+				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"
+					th:selected="${school.schoolId == schoolIdFilter}">
 				</option>
 			</select>
 			<!--Filter by status-->
 			<select name="status">
 				<option value="">Select Status</option>
 				<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
-					th:text="${statusOption.name()}">
+					th:text="${statusOption.name()}" th:selected="${statusOption.name() == statusFilter}">
 				</option>
 			</select>
 
 			<button type="submit">Filter</button>
+			<button type="button" onclick="resetFilters()">Reset</button>
 		</form>
+		<script th:inline="javascript">
+			function resetFilters(){
+				window.location.href = '/dashboard/';
+			}
+		</script>
 
 	</section>
 
