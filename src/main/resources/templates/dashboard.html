@@ -58,7 +58,15 @@
 			<!--Filter by School-->
 			<select name="schoolId">
 				<option value="">Select School</option>
-				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"></option>
+				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}">
+				</option>
+			</select>
+			<!--Filter by status-->
+			<select name="status">
+				<option value="">Select Status</option>
+				<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
+					th:text="${statusOption.name()}">
+				</option>
 			</select>
 
 			<button type="submit">Filter</button>
