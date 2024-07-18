@@ -23,7 +23,7 @@ public class ServiceEventActivityService {
 		this.serviceEventActivityRepo = serviceEventActivityRepo;
 	}
 
-	public ServiceEventActivity addNew(ServiceEventActivity serviceEventActivity) {
+	public ServiceEventActivity save(ServiceEventActivity serviceEventActivity) {
 		return serviceEventActivityRepo.save(serviceEventActivity);
 	}
 

@@ -96,14 +96,14 @@
 						<button class="" type="submit">Delete Service</button>
 					</form>
 				</div>
-				<div class="side-by-side">
-					<select name="status">
-						<option value="">Select Status</option>
-						<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
-							th:text="${statusOption.name()}" th:selected="${statusOption.name() == statusFilter}">
-						</option>
-					</select>
-					<form sec:authorize="hasAuthority('Admin')" th:action="" method="post">
+				<div sec:authorize="hasAuthority('Admin')" class="side-by-side">
+					<form method="post" th:action="@{'/service-details/' + ${serviceDetails.eventId}}">
+						<select id="status" name="status">
+							<option value="">Select Status</option>
+							<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
+								th:text="${statusOption.name()}" th:selected="${statusOption.name() == statusFilter}">
+							</option>
+						</select>
 						<button class="" type="submit">Update Status</button>
 					</form>
 				</div>
