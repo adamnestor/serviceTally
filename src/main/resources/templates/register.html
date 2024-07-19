@@ -1,89 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ServiceTally</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
-  </head>
 
-  <body>
-    <header class="header">
-      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="#">Sign-In Student</a></li>
-          <li><a class="main-nav-link" href="#">Sign-In Admin</a></li>
-          <li><a class="main-nav-link nav-cta" href="#">Register</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ServiceTally</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
 
-    <main class="center-items">
-      <section class="section-form">
-        <div>
-          <form
-            class="auth-form"
-            th:action="@{/register/new}"
-            th:object="${user}"
-            method="post"
-          >
-            <h2 class="heading-secondary text-center">Registration Form</h2>
-            <!-- Error message display-->
-            <div th:if="${error}" class="alert alert-danger" role="alert">
-              <p th:text="${error}"></p>
-            </div>
-            <!-- End of error message display-->
-            <div class="form-group">
-              <input
-                placeholder="Email"
-                name="email"
-                th:field="*{email}"
-                type="email"
-                id="email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                min="8"
-                placeholder="Password"
-                name="password"
-                th:field="*{password}"
-                type="password"
-                id="password"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <select
-                id="user-type"
-                name="user_type"
-                th:field="*{userTypeId}"
-                required
-              >
-                <th:block th:each="userType :${getAllTypes}">
-                  <option
-                    th:text="${userType.userTypeName}"
-                    th:value="${userType.userTypeId}"
-                  ></option>
-                </th:block>
-              </select>
-            </div>
-            <button class="formbtn" type="submit">Register</button>
-            <p class="small-text text-center">
-              Already have an account?
-              <a href="#"> Log In </a>
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-  </body>
+<body>
+	<header class="header">
+		<a href="/" th:href="@{/}">
+			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		</a>
+		<nav class="main-nav">
+			<ul class="main-nav-list">
+				<li><a class="main-nav-link" href="#">Sign-In Student</a></li>
+				<li><a class="main-nav-link" href="#">Sign-In Admin</a></li>
+				<li><a class="main-nav-link nav-cta" href="#">Register</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="center-items">
+		<section class="section-form">
+			<div>
+				<form class="auth-form" th:action="@{/register/new}" th:object="${user}" method="post">
+					<h2 class="heading-secondary text-center">Registration Form</h2>
+					<!-- Error message display-->
+					<div th:if="${error}" class="alert alert-danger" role="alert">
+						<p th:text="${error}"></p>
+					</div>
+					<!-- End of error message display-->
+					<div class="form-group">
+						<input placeholder="Email" name="email" th:field="*{email}" type="email" id="email" required />
+					</div>
+					<div class="form-group">
+						<input min="8" placeholder="Password" name="password" th:field="*{password}" type="password"
+							id="password" required />
+					</div>
+					<div class="form-group">
+						<select id="user-type" name="user_type" th:field="*{userTypeId}" required>
+							<th:block th:each="userType :${getAllTypes}">
+								<option th:text="${userType.userTypeName}" th:value="${userType.userTypeId}"></option>
+							</th:block>
+						</select>
+					</div>
+					<button class="formbtn" type="submit">Register</button>
+					<p class="small-text text-center">
+						Already have an account?
+						<a href="#"> Log In </a>
+					</p>
+				</form>
+			</div>
+		</section>
+	</main>
+</body>
+
 </html>
