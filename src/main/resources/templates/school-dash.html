@@ -28,17 +28,13 @@
 				</li>
 			</ul>
 		</div>
-		<div th:if="${adminProfile != null}">
-			<!--<img class="rounded-circle" th:if="${adminProfile.photosImagePath!=null}"
-				th:src="${adminProfile.getPhotosImagePath()}" alt="Admin Profile Picture" />
-			<span th:unless="${adminProfile.getPhotosImagePath() != null}"></span>
-			
+		<div>
+			<img class="rounded-circle" th:if="${user.photosImagePath!=null}" th:src="@{${user?.photosImagePath}}" />
 			<label th:if="${user.firstName != null && user.lastName != null}"
 				th:text="${user.firstName+' '+user.lastName}" class="display-name">
 			</label>
-			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${user.username}"
-				class="display-name"></label>-->
-
+			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
+				class="display-name"></label>
 			<a class="logout" onclick="window.location.href='/logout'">Logout</a>
 		</div>
 	</header>
