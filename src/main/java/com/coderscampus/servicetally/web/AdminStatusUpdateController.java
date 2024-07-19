@@ -34,6 +34,7 @@ public class AdminStatusUpdateController {
 
 	@GetMapping("service-details/{id}")
 	public String display(@PathVariable("id") int id, Model model) {
+		Object currentUserProfile = usersService.getCurrentUserProfile();
 		ServiceEventActivity serviceDetails = serviceEventActivityService.getOne(id);
 
 		// Define status options using enum
@@ -41,7 +42,7 @@ public class AdminStatusUpdateController {
 		model.addAttribute("statusOptions", statusOptions);
 
 		model.addAttribute("serviceDetails", serviceDetails);
-		model.addAttribute("user", usersService.getCurrentUserProfile());
+		model.addAttribute("user", currentUserProfile);
 
 		return "service-event-details";
 	}

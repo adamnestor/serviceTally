@@ -10,7 +10,9 @@
 
 <body>
 	<header class="navbar">
-		<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		<a href="/dashboard/" th:href="@{/dashboard/}">
+			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		</a>
 		<div>
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -26,22 +28,22 @@
 				</li>
 			</ul>
 		</div>
-		<div th:if="${adminProfile != null}">
-			<!--<img class="rounded-circle" th:if="${adminProfile.photosImagePath!=null}"
-				th:src="${adminProfile.getPhotosImagePath()}" alt="Admin Profile Picture" />
-			<span th:unless="${adminProfile.getPhotosImagePath() != null}"></span>
-			
+		<div>
+			<img class="rounded-circle" th:if="${user.photosImagePath!=null}" th:src="@{${user?.photosImagePath}}" />
 			<label th:if="${user.firstName != null && user.lastName != null}"
 				th:text="${user.firstName+' '+user.lastName}" class="display-name">
 			</label>
-			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${user.username}"
-				class="display-name"></label>-->
-
+			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
+				class="display-name"></label>
 			<a class="logout" onclick="window.location.href='/logout'">Logout</a>
 		</div>
 	</header>
 
-	<section class="sidebar"></section>
+	<section class="sidebar">
+		<form method="get" th:action="@{/dashboard/}">
+			<button class="" type="submit">Back</button>
+		</form>
+	</section>
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Admin')">

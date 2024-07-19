@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ServiceTally</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
-  </head>
 
-  <body>
-    <header class="header">
-      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="#">Sign-In Student</a></li>
-          <li><a class="main-nav-link" href="#">Sign-In Admin</a></li>
-          <li><a class="main-nav-link nav-cta" href="#">Register</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ServiceTally</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
 
-    <main class="center-items">
-      <section class="section-form">
-        <div>
-          <form
-            class="auth-form"
-            th:action="@{/login}"
-            th:object="${user}"
-            method="post"
-          >
-            <h2 class="heading-secondary text-center">Login</h2>
-            <div class="form-group">
-              <input
-                placeholder="Email"
-                name="username"
-                field="{email}"
-                type="email"
-                id="email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                placeholder="Password"
-                name="password"
-                field="{password}"
-                type="password"
-                id="password"
-                required
-              />
-            </div>
-            <button class="formbtn" type="submit">Log In</button>
-            <p class="small-text text-center">
-              Are you a new User?
-              <a th:href="@{/register}"> Register Now </a>
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-  </body>
+<body>
+	<header class="header">
+		<a href="/" th:href="@{/}">
+			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		</a>
+		<nav class="main-nav">
+			<ul class="main-nav-list">
+				<li><a class="main-nav-link" th:href="@{/login}">Sign-In Student</a></li>
+				<li><a class="main-nav-link" th:href="@{/login}">Sign-In Admin</a></li>
+				<li><a class="main-nav-link nav-cta" th:href="@{/register}">Register</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="center-items">
+		<section class="section-form">
+			<div>
+				<form class="auth-form" th:action="@{/login}" th:object="${user}" method="post">
+					<h2 class="heading-secondary text-center">Login</h2>
+					<div class="form-group">
+						<input placeholder="Email" name="username" field="{email}" type="email" id="email" required />
+					</div>
+					<div class="form-group">
+						<input placeholder="Password" name="password" field="{password}" type="password" id="password"
+							required />
+					</div>
+					<button class="formbtn" type="submit">Log In</button>
+					<p class="small-text text-center">
+						Are you a new User?
+						<a th:href="@{/register}"> Register Now </a>
+					</p>
+				</form>
+			</div>
+		</section>
+	</main>
+</body>
+
 </html>

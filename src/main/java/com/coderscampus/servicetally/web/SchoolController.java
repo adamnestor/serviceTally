@@ -35,12 +35,12 @@ public class SchoolController {
 
 	@GetMapping("/")
 	public String manageSchools(Model model) {
-		Users currentUser = usersService.getCurrentUser();
+		Object currentUserProfile = usersService.getCurrentUserProfile();
 		String currentUserEmail = usersService.getCurrentUser().getEmail();
 		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUserEmail);
 		List<School> schools = schoolService.getSchoolsByAdmin(adminProfile);
 
-		model.addAttribute("user", currentUser);
+		model.addAttribute("user", currentUserProfile);
 		model.addAttribute("adminProfile", adminProfile);
 		model.addAttribute("schools", schools);
 		return "school-dash";
@@ -63,11 +63,13 @@ public class SchoolController {
 
 	@GetMapping("/{id}")
 	public String viewSchoolDetails(@PathVariable("id") Integer id, Model model) {
+		Object currentUserProfile = usersService.getCurrentUserProfile();
 		School school = schoolService.getSchoolById(id);
 		if (school == null) {
 			return "redirect:/schools";
 		}
 		model.addAttribute("school", school);
+		model.addAttribute("user", currentUserProfile);
 		return "school-details";
 	}
 

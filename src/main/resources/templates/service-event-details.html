@@ -13,7 +13,9 @@
 
 <body>
 	<header class="navbar">
-		<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		<a href="/dashboard/" th:href="@{/dashboard/}">
+			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		</a>
 		<div>
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -29,28 +31,22 @@
 				</li>
 			</ul>
 		</div>
-		<!--<div>
-        <img
-          class="rounded-circle"
-          th:if="${user.photosImagePath!=null}"
-          th:src="@{${user?.photosImagePath}}"
-        />
-        <label
-          th:if="${user.firstName != null && user.lastName != null}"
-          th:text="${user.firstName+' '+user.lastName}"
-          class="display-name"
-        >
-        </label>
-        <label
-          th:unless="${user.firstName != null && user.lastName != null}"
-          th:text="${username}"
-          class="display-name"
-        ></label>
-        <a class="logout" onclick="window.location.href='/logout'">Logout</a>
-      </div>-->
+		<div>
+			<img class="rounded-circle" th:if="${user.photosImagePath!=null}" th:src="@{${user?.photosImagePath}}" />
+			<label th:if="${user.firstName != null && user.lastName != null}"
+				th:text="${user.firstName+' '+user.lastName}" class="display-name">
+			</label>
+			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
+				class="display-name"></label>
+			<a class="logout" onclick="window.location.href='/logout'">Logout</a>
+		</div>
 	</header>
 
-	<section class="sidebar"></section>
+	<section class="sidebar">
+		<form method="get" th:action="@{/dashboard/}">
+			<button class="" type="submit">Back</button>
+		</form>
+	</section>
 
 	<main class="main-content">
 		<div>
