@@ -41,7 +41,11 @@
 		</div>
 	</header>
 
-	<section class="sidebar"></section>
+	<section class="sidebar">
+		<form method="get" th:action="@{/dashboard/}">
+			<button class="" type="submit">Back</button>
+		</form>
+	</section>
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Admin')">

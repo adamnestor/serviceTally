@@ -1,74 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ServiceTally</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
-  </head>
-  
-  <body class="grid-profile">
-    <div class="picture-background">
-      <img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
-    </div>
 
-    <div class="profile center-items">
-      <form
-        class="profile-form"
-        th:object="${school}"
-        method="post"
-      >
-        <div>
-          <h1 class="heading-primary text-center">School</h1>
-        </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>ServiceTally</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
 
-        <div class="form-heading">
-          <h2 class="heading-secondary text-center">Set up your profile</h2>
-        </div>
+<body class="grid-profile">
+	<div class="picture-background">
+		<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		<form method="get" th:action="@{/dashboard/}">
+			<button class="" type="submit">Back</button>
+		</form>
+	</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            placeholder="School Name"
-            id="school-name"
-            th:field="*{schoolName}"
-            name="school-name"
-            type="text"
-          />
-          <input
-            class="input-field"
-            placeholder="Hours Required"
-            id="hours-required"
-            th:field="*{hoursRequired}"
-            name="hours-required"
-            type="number"
-          />
-        </div>
+	<div class="profile center-items">
+		<form class="profile-form" th:object="${school}" method="post">
+			<div>
+				<h1 class="heading-primary text-center">School</h1>
+			</div>
 
-        <div class="row">
-          <input
-            class="input-field"
-            placeholder="City"
-            id="city"
-            th:field="*{city}"
-            name="city"
-            type="text"
-          />
-          <input
-            class="input-field"
-            placeholder="State"
-            id="state"
-            th:field="*{state}"
-            name="state"
-            type="text"
-          />
-        </div>
-        <div class="center-items">
-          <button class="formbtn" type="submit" name="submit">
-            Save School
-          </button>
-        </div>
-      </form>
-    </div>
-  </body>
+			<div class="form-heading">
+				<h2 class="heading-secondary text-center">Set up your profile</h2>
+			</div>
+
+			<div class="row">
+				<input class="input-field" placeholder="School Name" id="school-name" th:field="*{schoolName}"
+					name="school-name" type="text" />
+				<input class="input-field" placeholder="Hours Required" id="hours-required" th:field="*{hoursRequired}"
+					name="hours-required" type="number" />
+			</div>
+
+			<div class="row">
+				<input class="input-field" placeholder="City" id="city" th:field="*{city}" name="city" type="text" />
+				<input class="input-field" placeholder="State" id="state" th:field="*{state}" name="state"
+					type="text" />
+			</div>
+			<div class="center-items">
+				<button class="formbtn" type="submit" name="submit">
+					Save School
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+
 </html>
