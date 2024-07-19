@@ -10,7 +10,9 @@
 
 <body class="grid-profile">
 	<div class="picture-background">
-		<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		<a href="/dashboard/" th:href="@{/dashboard/}">
+			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+		</a>
 		<form method="get" th:action="@{/dashboard/}">
 			<button class="" type="submit">Back</button>
 		</form>
