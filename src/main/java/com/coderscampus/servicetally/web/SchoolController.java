@@ -8,12 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.Users;
-import com.coderscampus.servicetally.repository.AdminProfileRepository;
 import com.coderscampus.servicetally.service.AdminProfileService;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.UsersService;
