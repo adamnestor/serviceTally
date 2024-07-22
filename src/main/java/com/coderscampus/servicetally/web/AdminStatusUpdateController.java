@@ -2,6 +2,7 @@ package com.coderscampus.servicetally.web;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.domain.ServiceEventStatus;
+import com.coderscampus.servicetally.domain.StudentProfile;
+import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.AdminStatusUpdateService;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
+import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
@@ -22,13 +26,16 @@ public class AdminStatusUpdateController {
 
 	private final ServiceEventActivityService serviceEventActivityService;
 	private final AdminStatusUpdateService adminStatusUpdateService;
+	private final StudentProfileService studentProfileService;
 	private final UsersService usersService;
 
 	@Autowired
 	public AdminStatusUpdateController(ServiceEventActivityService serviceEventActivityService,
-			AdminStatusUpdateService adminStatusUpdateService, UsersService usersService) {
+			AdminStatusUpdateService adminStatusUpdateService, StudentProfileService studentProfileService,
+			UsersService usersService) {
 		this.serviceEventActivityService = serviceEventActivityService;
 		this.adminStatusUpdateService = adminStatusUpdateService;
+		this.studentProfileService = studentProfileService;
 		this.usersService = usersService;
 	}
 
@@ -36,6 +43,17 @@ public class AdminStatusUpdateController {
 	public String display(@PathVariable("id") int id, Model model) {
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		ServiceEventActivity serviceDetails = serviceEventActivityService.getOne(id);
+
+		// Fetch the Users object associated with postedById
+		Users postedByUser = serviceDetails.getPostedById();
+		// Fetch the StudentProfile associated with postedById
+		Optional<StudentProfile> optionalPostedByProfile = studentProfileService.getOne(postedByUser.getUserId());
+		if(optionalPostedByProfile.isPresent()) {
+			StudentProfile postedByProfile = optionalPostedByProfile.get();
+			model.addAttribute("postedByProfile", postedByProfile);
+		} else {
+			model.addAttribute("postedByProfile", "N/A");
+		}
 
 		// Define status options using enum
 		List<ServiceEventStatus> statusOptions = Arrays.asList(ServiceEventStatus.values());
