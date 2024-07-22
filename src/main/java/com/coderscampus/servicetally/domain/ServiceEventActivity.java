@@ -139,6 +139,4 @@ public class ServiceEventActivity {
 				+ ", dateOfService=" + dateOfService + ", hoursServed=" + hoursServed + ", status=" + status + "]";
 	}
 
-	
-
 }
