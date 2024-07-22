@@ -52,7 +52,7 @@ public class SchoolController {
 	@PostMapping("/new")
 	public String createSchool(School school) {
 		Users currentUser = usersService.getCurrentUser();
-		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUser.getEmail());
 		school.setSchoolAdminId(adminProfile);
 		schoolService.saveSchool(school);
 		return "redirect:/schools/";
@@ -90,7 +90,7 @@ public class SchoolController {
 	public String postEditSchool(@PathVariable("id") Integer id, School school) {
 		school.setSchoolId(id);
 		Users currentUser = usersService.getCurrentUser();
-		AdminProfile adminProfile = adminProfileService.getByEmail(currentUser.getEmail());
+		AdminProfile adminProfile = adminProfileService.getAdminProfileByUserEmail(currentUser.getEmail());
 		school.setSchoolAdminId(adminProfile);
 		schoolService.saveSchool(school);
 
