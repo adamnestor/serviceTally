@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.coderscampus.servicetally.domain.AdminProfile;
 
-public interface AdminProfileRepository extends JpaRepository<AdminProfile, Integer>{
+public interface AdminProfileRepository extends JpaRepository<AdminProfile, Integer> {
 
 	Optional<AdminProfile> findByUserIdEmail(String email);
 

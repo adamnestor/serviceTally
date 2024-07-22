@@ -11,10 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.domain.UsersType;
 
-public class CustomUserDetails implements UserDetails{
+public class CustomUserDetails implements UserDetails {
 
 	private Users user;
-	
+
 	public CustomUserDetails(Users user) {
 		this.user = user;
 	}
@@ -36,22 +36,22 @@ public class CustomUserDetails implements UserDetails{
 	public String getUsername() {
 		return user.getEmail();
 	}
-	
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isEnabled() {
 		return true;
