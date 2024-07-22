@@ -39,7 +39,7 @@ public class AdminProfile {
 
 	public AdminProfile() {
 	}
-	
+
 	public AdminProfile(Users users) {
 		this.userId = users;
 	}

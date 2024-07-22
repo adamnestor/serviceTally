@@ -127,14 +127,14 @@ public class StudentProfile {
 	public void setSchool(School school) {
 		this.school = school;
 	}
-	
+
 	@Transient
 	public String getPhotosImagePath() {
 		if (profilePhoto == null)
 			return null;
 		return "/photos/student/" + userAccountId + "/" + profilePhoto;
 	}
-	
+
 	@Transient
 	public Integer getSchoolId() {
 		return school != null ? school.getSchoolId() : null;

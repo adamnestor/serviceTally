@@ -13,7 +13,7 @@ public class School {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int schoolId;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "school_admin_id", referencedColumnName = "user_account_id")
 	private AdminProfile schoolAdminId;
