@@ -16,15 +16,11 @@ import jakarta.transaction.Transactional;
 public class SchoolService {
 
 	private final SchoolRepository schoolRepo;
-	private final AdminProfileService adminProfileService;
-	private final UsersService usersService;
-
+	
 	@Autowired
 	public SchoolService(SchoolRepository schoolRepo, AdminProfileService adminProfileService,
 			UsersService usersService) {
 		this.schoolRepo = schoolRepo;
-		this.adminProfileService = adminProfileService;
-		this.usersService = usersService;
 	}
 
 	public List<School> getAllSchools() {

@@ -11,7 +11,7 @@ import com.coderscampus.servicetally.repository.StudentProfileRepository;
 
 @Service
 public class StudentProfileService {
-	
+
 	private final StudentProfileRepository studentProfileRepo;
 
 	public StudentProfileService(StudentProfileRepository studentProfileRepo) {
@@ -24,9 +24,9 @@ public class StudentProfileService {
 
 	public StudentProfile addNew(StudentProfile studentProfile) {
 		return studentProfileRepo.save(studentProfile);
-	}	
-	
-	public List<StudentProfile> findBySchoolIn(List<School> schools){
+	}
+
+	public List<StudentProfile> findBySchoolIn(List<School> schools) {
 		return studentProfileRepo.findBySchoolIn(schools);
 	}
 

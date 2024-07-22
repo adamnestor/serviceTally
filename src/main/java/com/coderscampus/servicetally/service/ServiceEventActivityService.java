@@ -58,27 +58,27 @@ public class ServiceEventActivityService {
 	public List<StudentServiceEventsDto> getAllServiceEventsFiltered(Integer studentId, Integer schoolId,
 			String status) {
 		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
-		
-	    System.out.println("Parameters: studentId=" + studentId + ", schoolId=" + schoolId + ", status=" + status);
+
+		System.out.println("Parameters: studentId=" + studentId + ", schoolId=" + schoolId + ", status=" + status);
 
 		if (studentId != null && schoolId != null && status != null && !status.isEmpty()) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolIdAndStatus(studentId,
-	                schoolId, status);
-	    } else if (studentId != null && schoolId != null && (status == null || status.isEmpty())) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolId(studentId, schoolId);
-	    } else if (studentId != null && schoolId == null && status != null && !status.isEmpty()) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndStatus(studentId, status);
-	    } else if (studentId != null && schoolId == null && (status == null || status.isEmpty())) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedById(studentId);
-	    } else if (studentId == null && schoolId != null && status != null && !status.isEmpty()) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIdAndStatus(schoolId, status);
-	    } else if (studentId == null && schoolId != null && (status == null || status.isEmpty())) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
-	    } else if (studentId == null && schoolId == null && status != null && !status.isEmpty()) {
-	        serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
-	    } else {
-	        System.out.println("All parameters are null, add default behavior here.");
-	    }
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolIdAndStatus(studentId,
+					schoolId, status);
+		} else if (studentId != null && schoolId != null && (status == null || status.isEmpty())) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndSchoolId(studentId, schoolId);
+		} else if (studentId != null && schoolId == null && status != null && !status.isEmpty()) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedByIdAndStatus(studentId, status);
+		} else if (studentId != null && schoolId == null && (status == null || status.isEmpty())) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByPostedById(studentId);
+		} else if (studentId == null && schoolId != null && status != null && !status.isEmpty()) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIdAndStatus(schoolId, status);
+		} else if (studentId == null && schoolId != null && (status == null || status.isEmpty())) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
+		} else if (studentId == null && schoolId == null && status != null && !status.isEmpty()) {
+			serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
+		} else {
+			System.out.println("All parameters are null, add default behavior here.");
+		}
 
 		List<StudentServiceEventsDto> serviceEventsDtoList = new ArrayList<>();
 		for (IStudentServiceEvents activity : serviceEvents) {
