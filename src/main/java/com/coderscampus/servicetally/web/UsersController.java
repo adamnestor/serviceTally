@@ -48,34 +48,34 @@ public class UsersController {
 
 		Optional<Users> optionalUsers = usersService.getUserByEmail(users.getEmail());
 
-		if(optionalUsers.isPresent()) {
+		if (optionalUsers.isPresent()) {
 			model.addAttribute("error", "Email already registered, try to login or register with another email.");
 			List<UsersType> usersTypes = usersTypeService.getAll();
 			model.addAttribute("getAllTypes", usersTypes);
 			model.addAttribute("user", new Users());
 			return "register";
 		}
-		
+
 		usersService.addNew(users);
 		return "redirect:/dashboard/";
 	}
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		if (authentication != null) {
 			new SecurityContextLogoutHandler().logout(request, response, authentication);
 		}
-		
+
 		return "redirect:/";
-		
+
 	}
 
 }
