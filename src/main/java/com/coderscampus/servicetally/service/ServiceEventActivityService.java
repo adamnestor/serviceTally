@@ -27,10 +27,10 @@ public class ServiceEventActivityService {
 		return serviceEventActivityRepo.save(serviceEventActivity);
 	}
 
-	public List<StudentServiceEventsDto> getStudentServiceEvents(int student) {
+	public List<StudentServiceEventsDto> getStudentServiceEvents(int userAccountId) {
 
 		List<IStudentServiceEvents> studentServiceEventsDtos = serviceEventActivityRepo
-				.getStudentServiceEvents(student);
+				.findServiceEventsByPostedById(userAccountId);
 
 		List<StudentServiceEventsDto> studentServiceEventsDtoList = new ArrayList<>();
 
