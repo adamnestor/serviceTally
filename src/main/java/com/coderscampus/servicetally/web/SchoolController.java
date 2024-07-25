@@ -46,7 +46,7 @@ public class SchoolController {
 	@GetMapping("/new")
 	public String createSchoolForm(Model model) {
 		model.addAttribute("school", new School());
-		return "school-form";
+		return "add-school";
 	}
 
 	@PostMapping("/new")
@@ -83,7 +83,7 @@ public class SchoolController {
 			return "redirect:/schools";
 		}
 		model.addAttribute("school", school);
-		return "school-form";
+		return "add-school";
 	}
 
 	@PostMapping("/edit/{id}")
