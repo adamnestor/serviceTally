@@ -8,6 +8,8 @@
 	height: 100vh;
 }
 
+/*********** OLD DASHBOARD FILE -- BELOW ***********/
+
 /**************************/
 /* HEADER NAVIGATION */
 /**************************/
@@ -115,7 +117,8 @@
   color: black;
 }
 
-/*** STYLE ***/
+/*********** OLD DASHBOARD FILE -- ABOVE ***********/
+/***********   OLD STYLE FILE -- BELOW   ***********/
 
 /**************************/
 /* HEADER */
@@ -137,6 +140,7 @@
 /* NAVIGATION */
 /**************************/
 
+/**** Container for sign-in links and register button ****/
 .main-nav-list {
   list-style: none;
   display: flex;
