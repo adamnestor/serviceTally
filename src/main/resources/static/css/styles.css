@@ -12,6 +12,91 @@
   height: 7rem;
 }
 
+/***********   INDEX / AUTHORIZATION TEMPLATES   ***********/
+
+/**************************/
+/* HEADER / NAVIGATION    */
+/**************************/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+/**** Container for sign-in links and register button ****/
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+/**************************/
+/* INDEX - HERO SECTION   */
+/**************************/
+
+.section-hero {
+  background-color: #fff;
+  padding: 9.6rem 0;
+}
+
+.hero {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero-description {
+  font-size: 2.4rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img-box {
+  display: grid;
+}
+
+.hero-img {
+  width: 80%;
+  justify-self: center;
+}
+
+/**************************/
+/* AUTHORIZATION FORMS    */
+/**************************/
+
+.section-form {
+  width: 100%;
+  max-width: 50rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.auth-form input,
+.auth-form select {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid #f18814;
+  border-radius: 5px;
+}
+
 /*********** "DASHBOARD" & "DETAILS" TEMPLATES ***********/
 
 /**************************/
@@ -117,97 +202,13 @@
   color: black;
 }
 
-/***********   INDEX / AUTHORIZATION TEMPLATES   ***********/
+/***********  ENTITY FORMS: ADD/UPDATE TEMPLATES   ***********/
+/***********  PROFILE & ADD SCHOOL/EVENT           ***********/
 
-/**************************/
-/* HEADER / NAVIGATION    */
-/**************************/
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  height: 9.6rem;
-  padding: 0 4.8rem;
-}
-
-/**** Container for sign-in links and register button ****/
-.main-nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 3.2rem;
-}
-
-/**************************/
-/* INDEX - HERO SECTION   */
-/**************************/
-
-.section-hero {
-  background-color: #fff;
-  padding: 9.6rem 0;
-}
-
-.hero {
-  max-width: 140rem;
-  margin: 0 auto;
-  padding: 0 3.2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9.6rem;
-  align-items: center;
-}
-
-.hero-description {
-  font-size: 2.4rem;
-  line-height: 1.6;
-  margin-bottom: 4.8rem;
-}
-
-.hero-img-box {
-  display: grid;
-}
-
-.hero-img {
-  width: 80%;
-  justify-self: center;
-}
-
-/**************************/
-/* AUTHORIZATION FORMS    */
-/**************************/
-
-.section-form {
-  width: 100%;
-  max-width: 50rem;
-  padding: 2rem;
-  border-radius: 10px;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.auth-form .form-group {
-  margin-bottom: 2rem;
-}
-
-.auth-form input,
-.auth-form select {
-  width: 100%;
-  padding: 1rem;
-  font-size: 2rem;
-  border: 1px solid #f18814;
-  border-radius: 5px;
-}
-
-/***********  PROFILE & ADD-SCHOOL/EVENT TEMPLATES   ***********/
-
-/**************************/
-/* PROFILE GENERAL        */
-/**************************/
-.grid-profile {
+/*****************************/
+/* ENTITY FORMS: GENERAL     */
+/*****************************/
+.grid-entity-form {
   display: grid;
   grid-template-columns: 30% 1fr;
   gap: 1rem;
@@ -215,30 +216,30 @@
   height: 100vh;
 }
 
-/**************************/
-/* PROFILE SIDE COLUMN    */
-/**************************/
-.picture-background {
+/*****************************/
+/* ENTITY FORMS: SIDE COLUMN */
+/*****************************/
+.side-column {
   background-color: #f18814;
 }
 
-.picture-background .img-logo {
+.side-column .img-logo {
   margin-top: 2.4rem;
   margin-left: 4.8rem;
 }
 
-/**************************/
-/* PROFILE FORM SECTION   */
-/**************************/
+/*****************************/
+/* ENTITY FORM SECTION       */
+/*****************************/
 
-.profile {
+.entity-form-container {
   width: 100%;
   max-width: 120rem;
   padding: 2rem;
   border-radius: 10px;
 }
 
-.profile-form {
+.entity-form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -247,11 +248,11 @@
   border-radius: 10px;
 }
 
-.profile-form .form-group {
+.entity-form .form-group {
   margin-bottom: 2rem;
 }
 
-.profile-form input {
+.entity-form input {
   width: 100%;
   padding: 1.5rem;
   font-size: 2.4rem;

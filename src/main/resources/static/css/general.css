@@ -155,7 +155,7 @@ body {
 }
 
 /**** Profile - Form Button  ****/
-.profile-form .formbtn {
+.entity-form .formbtn {
   padding: 2rem 4rem;
   font-size: 2rem;
   background-color: #f18814;
@@ -169,7 +169,7 @@ body {
   width: 50%;
 }
 
-.profile-form .formbtn:hover {
+.entity-form .formbtn:hover {
   background-color: #d97a12;
 }
 
