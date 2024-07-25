@@ -53,6 +53,12 @@ body {
   text-decoration: underline;
 }
 
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
 
 /**********************/
 /*  BUTTONS / LINKS   */
