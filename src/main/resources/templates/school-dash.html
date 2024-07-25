@@ -53,13 +53,13 @@
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Admin')">
-			<h1 class="primary-title">Admin Dashboard</h1>
+			<h1 class="heading-primary">Admin Dashboard</h1>
 		</div>
 	</div>
 
 	<main class="main-content">
 		<div>
-			<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Admin')">My Schools</label>
+			<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Admin')">My Schools</label>
 			<a th:href="@{/schools/new}" class="btn btn-primary">Create New School</a>
 		</div>
 		<th:block th:each="school : ${schools}">

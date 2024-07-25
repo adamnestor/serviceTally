@@ -36,18 +36,6 @@ body {
   margin-bottom: 2.4rem;
 }
 
-.primary-title {
-  font-size: 5.2rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.secondary-title {
-  font-size: 3.6rem;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-}
-
 .small-text {
   font-size: 1.8rem;
 }
@@ -65,11 +53,18 @@ body {
   text-decoration: underline;
 }
 
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
 
 /**********************/
 /*  BUTTONS / LINKS   */
 /**********************/
 
+/**** Index - Start Tracking ****/
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -90,7 +85,39 @@ body {
   color: #fff;
 }
 
+/**** Auth - Register Button ****/
+.nav-link.nav-cta:link,
+.nav-link.nav-cta:visited {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  border-radius: 150px;
+  color: #fff;
+  background-color: #f18814;
+}
 
+.nav-link.nav-cta:hover,
+.nav-link.nav-cta:active {
+  background-color: #d97a12;
+}
+
+/**** Auth - Sign-In Links   ****/
+/**** Dashboard - Nav Links  ****/
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #f18814;
+}
+
+/**** Dashboard - Logout Btn ****/
 .logout:link,
 .logout:visited {
   display: inline-block;
@@ -111,35 +138,7 @@ body {
   color: #fff;
 }
 
-.main-nav-link:link,
-.main-nav-link:visited {
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 2rem;
-  transition: all 0.3s;
-}
-
-.main-nav-link:hover,
-.main-nav-link:active {
-  color: #f18814;
-}
-
-.main-nav-link.nav-cta:link,
-.main-nav-link.nav-cta:visited {
-  display: inline-block;
-  padding: 1.2rem 2.4rem;
-  border-radius: 150px;
-  color: #fff;
-  background-color: #f18814;
-}
-
-.main-nav-link.nav-cta:hover,
-.main-nav-link.nav-cta:active {
-  background-color: #d97a12;
-}
-
+/**** Auth - Form Button     ****/
 .auth-form .formbtn {
   padding: 1rem;
   font-size: 2rem;
@@ -155,6 +154,7 @@ body {
   background-color: #d97a12;
 }
 
+/**** Profile - Form Button  ****/
 .profile-form .formbtn {
   padding: 2rem 4rem;
   font-size: 2rem;
@@ -173,6 +173,3 @@ body {
   background-color: #d97a12;
 }
 
-/**********************/
-/*       OTHER        */
-/**********************/

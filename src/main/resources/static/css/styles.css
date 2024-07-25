@@ -8,8 +8,14 @@
 	height: 100vh;
 }
 
+.img-logo {
+  height: 7rem;
+}
+
+/*********** "DASHBOARD" & "DETAILS" TEMPLATES ***********/
+
 /**************************/
-/* HEADER NAVIGATION */
+/* HEADER / NAVIGATION    */
 /**************************/
 
 .navbar {
@@ -21,10 +27,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.img-logo {
-  height: 7rem;
 }
 
 .navbar-nav {
@@ -46,7 +48,7 @@
 }
 
 /**************************/
-/* SECTION - SIDE NAV */
+/* SECTION - SIDE NAV     */
 /**************************/
 
 .sidebar {
@@ -59,7 +61,7 @@
 }
 
 /**************************/
-/* WELCOME MESSAGE */
+/* WELCOME MESSAGE        */
 /**************************/
 
 .welcome-message {
@@ -70,7 +72,7 @@
 }
 
 /**************************/
-/* MAIN CONTENT */
+/* MAIN CONTENT           */
 /**************************/
 
 .main-content {
@@ -115,10 +117,10 @@
   color: black;
 }
 
-/*** STYLE ***/
+/***********   INDEX / AUTHORIZATION TEMPLATES   ***********/
 
 /**************************/
-/* HEADER */
+/* HEADER / NAVIGATION    */
 /**************************/
 .header {
   display: flex;
@@ -129,14 +131,7 @@
   padding: 0 4.8rem;
 }
 
-.img-logo {
-  height: 7rem;
-}
-
-/**************************/
-/* NAVIGATION */
-/**************************/
-
+/**** Container for sign-in links and register button ****/
 .main-nav-list {
   list-style: none;
   display: flex;
@@ -145,7 +140,7 @@
 }
 
 /**************************/
-/* HERO SECTION */
+/* INDEX - HERO SECTION   */
 /**************************/
 
 .section-hero {
@@ -179,13 +174,8 @@
 }
 
 /**************************/
-/* LOGIN */
+/* AUTHORIZATION FORMS    */
 /**************************/
-.center-items {
-  display: grid;
-  place-items: center;
-  padding-top: 6.4rem;
-}
 
 .section-form {
   width: 100%;
@@ -212,8 +202,10 @@
   border-radius: 5px;
 }
 
+/***********  PROFILE & ADD-SCHOOL/EVENT TEMPLATES   ***********/
+
 /**************************/
-/* PROFILE GENERAL*/
+/* PROFILE GENERAL        */
 /**************************/
 .grid-profile {
   display: grid;
@@ -224,7 +216,7 @@
 }
 
 /**************************/
-/* PROFILE SIDE */
+/* PROFILE SIDE COLUMN    */
 /**************************/
 .picture-background {
   background-color: #f18814;
@@ -236,7 +228,7 @@
 }
 
 /**************************/
-/* PROFILE FORM */
+/* PROFILE FORM SECTION   */
 /**************************/
 
 .profile {

@@ -92,18 +92,18 @@
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Student')">
-			<h1 class="primary-title">Student Dashboard</h1>
+			<h1 class="heading-primary">Student Dashboard</h1>
 		</div>
 
 		<div class="box" sec:authorize="hasAuthority('Admin')">
-			<h1 class="primary-title">Admin Dashboard</h1>
+			<h1 class="heading-primary">Admin Dashboard</h1>
 		</div>
 	</div>
 
 	<main class="main-content">
-		<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Student')">My Service
+		<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Student')">My Service
 			Hours</label>
-		<label class="secondary-title main-secondary-title" sec:authorize="hasAuthority('Admin')">Search Results</label>
+		<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Admin')">Search Results</label>
 		<th:block th:each="serviceEvent : ${serviceEvent}">
 			<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="service-link">
 				<div class="service-row" onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
