@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 </html>
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/general.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
-<body>
+<body class="body--grid">
 	<header class="navbar">
 		<a href="/dashboard/" th:href="@{/dashboard/}">
 			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
@@ -62,7 +69,8 @@
 					</p>
 				</div>
 				<div>
-					<h3 class="side-by-side" th:text="${'Service completed by: ' + postedByProfile.firstName+' '+postedByProfile.lastName}">
+					<h3 class="side-by-side"
+						th:text="${'Service completed by: ' + postedByProfile.firstName+' '+postedByProfile.lastName}">
 						Service completed by: Adam Nestor
 					</h3>
 					<p class="side-by-side" th:text="${'Date of Service: ' + serviceDetails.dateOfService}">
