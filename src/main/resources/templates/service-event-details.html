@@ -57,11 +57,11 @@
 	<main class="main-content">
 		<div>
 			<div class="title">
-				<h1 class="side-by-side primary-title">Service Details</h1>
+				<h1 class="side-by-side heading-primary">Service Details</h1>
 			</div>
 			<div>
 				<div>
-					<h4 class="secondary-title side-by-side" th:text="${serviceDetails.serviceTitle}">
+					<h4 class="heading-secondary side-by-side" th:text="${serviceDetails.serviceTitle}">
 						Soup Kitchen
 					</h4>
 					<p class="side-by-side" th:text="${serviceDetails.city+', '+ serviceDetails.state}">
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<div>
-				<label class="secondary-title"> Description of Service </label>
+				<label class="heading-secondary"> Description of Service </label>
 				<div th:utext="${serviceDetails.descriptionOfEvent}"></div>
 			</div>
 			<div class="btns">
