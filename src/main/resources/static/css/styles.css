@@ -1,0 +1,288 @@
+.body--grid {
+	display: grid;
+	grid-template-areas: "nav nav" "side welcome" "side main";
+	grid-template-columns: 20% 1fr;
+	grid-template-rows: auto auto 1fr;
+	gap: 1rem;
+	margin: 0;
+	height: 100vh;
+}
+
+/**************************/
+/* HEADER NAVIGATION */
+/**************************/
+
+.navbar {
+  grid-area: nav;
+  height: 9.6rem;
+  padding: 0 4.8rem;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-logo {
+  height: 7rem;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.rounded-circle{
+	border-radius: 50%;
+	object-fit: cover;
+	height: 5rem;
+	width: 5rem;
+}
+
+.display-name {
+  padding-right: 2.4rem;
+}
+
+/**************************/
+/* SECTION - SIDE NAV */
+/**************************/
+
+.sidebar {
+  grid-area: side;
+  background-color: #f18814;
+  color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/**************************/
+/* WELCOME MESSAGE */
+/**************************/
+
+.welcome-message {
+  grid-area: welcome;
+  color: #d97a12;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/**************************/
+/* MAIN CONTENT */
+/**************************/
+
+.main-content {
+  grid-area: main;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.main-secondary-title {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.job-title {
+  text-align: left;
+  font-weight: bold;
+}
+
+.service-date {
+  text-align: center;
+}
+
+.service-status {
+  text-align: right;
+}
+
+.service-link {
+  text-decoration: none;
+  color: black;
+}
+
+/*** STYLE ***/
+
+/**************************/
+/* HEADER */
+/**************************/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+.img-logo {
+  height: 7rem;
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+/**************************/
+/* HERO SECTION */
+/**************************/
+
+.section-hero {
+  background-color: #fff;
+  padding: 9.6rem 0;
+}
+
+.hero {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero-description {
+  font-size: 2.4rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img-box {
+  display: grid;
+}
+
+.hero-img {
+  width: 80%;
+  justify-self: center;
+}
+
+/**************************/
+/* LOGIN */
+/**************************/
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
+.section-form {
+  width: 100%;
+  max-width: 50rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.auth-form input,
+.auth-form select {
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid #f18814;
+  border-radius: 5px;
+}
+
+/**************************/
+/* PROFILE GENERAL*/
+/**************************/
+.grid-profile {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 1rem;
+  margin: 0;
+  height: 100vh;
+}
+
+/**************************/
+/* PROFILE SIDE */
+/**************************/
+.picture-background {
+  background-color: #f18814;
+}
+
+.picture-background .img-logo {
+  margin-top: 2.4rem;
+  margin-left: 4.8rem;
+}
+
+/**************************/
+/* PROFILE FORM */
+/**************************/
+
+.profile {
+  width: 100%;
+  max-width: 120rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.profile-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2.4rem;
+  border: 1px solid #f18814;
+  border-radius: 5px;
+  height: 6rem;
+}
+
+.form-heading {
+  padding-bottom: 3.2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-field {
+  flex: 1;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-field:last-child {
+  margin-right: 0;
+}
