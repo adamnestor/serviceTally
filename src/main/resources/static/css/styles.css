@@ -74,100 +74,6 @@ body {
 }
 
 
-/**********************/
-/*  BUTTONS / LINKS   */
-/**********************/
-
-/**** Index - Start Tracking ****/
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  background-color: #f18814;
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.6rem 3.2rem;
-  border-radius: 150px;
-
-  transition: background-color 0.3s;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #d97a12;
-  color: #fff;
-}
-
-/**** Auth - Register Button ****/
-.main-nav-list .btn:link,
-.main-nav-list .btn:visited {
-  padding: 1.2rem 2.4rem;
-}
-
-/**** Auth - Sign-In Links   ****/
-/**** Dashboard - Nav Links  ****/
-.nav-link:link,
-.nav-link:visited {
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 2rem;
-  transition: all 0.3s;
-}
-
-.nav-link:hover,
-.nav-link:active {
-  color: #f18814;
-}
-
-/**** Dashboard - Logout Btn ****/
-a.border-btn:link,
-a.border-btn:visited {
-  display: inline-block;
-  background-color: #f18814;
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.2rem 2.4rem;
-  border-radius: 150px;
-
-  transition: background-color 0.3s;
-}
-
-a.border-btn:hover,
-a.border-btn:active {
-  background-color: #d97a12;
-  color: #fff;
-}
-
-/**** Auth Form Button     ****/
-.formbtn {
-  padding: 1rem;
-  font-size: 2rem;
-  background-color: #f18814;
-  color: #fff;
-  font-size: 2.4rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 150px;
-  cursor: pointer;
-  margin-bottom: 2rem;
-}
-
-.formbtn:hover {
-  background-color: #d97a12;
-}
-
-/**** Entity Form Button  ****/
-.entity-form .formbtn {
-  padding: 2rem 4rem;
-  width: 50%;
-}
-
-
 /***********   INDEX / AUTHORIZATION TEMPLATES   ***********/
 
 /**************************/
@@ -434,4 +340,97 @@ a.border-btn:active {
 
 .input-field:last-child {
   margin-right: 0;
+}
+
+/**********************/
+/*  BUTTONS / LINKS   */
+/**********************/
+
+/**** Index - Start Tracking ****/
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: #f18814;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 150px;
+
+  transition: background-color 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #d97a12;
+  color: #fff;
+}
+
+/**** Auth - Register Button ****/
+.main-nav-list .btn:link,
+.main-nav-list .btn:visited {
+  padding: 1.2rem 2.4rem;
+}
+
+/**** Auth - Sign-In Links   ****/
+/**** Dashboard - Nav Links  ****/
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #f18814;
+}
+
+/**** Dashboard - Logout Btn ****/
+border-btn:link,
+border-btn:visited {
+  display: inline-block;
+  background-color: #f18814;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.2rem 2.4rem;
+  border-radius: 150px;
+
+  transition: background-color 0.3s;
+}
+
+border-btn:hover,
+border-btn:active {
+  background-color: #d97a12;
+  color: #fff;
+}
+
+/**** Auth Form Button     ****/
+.formbtn {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #f18814;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 150px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.formbtn:hover {
+  background-color: #d97a12;
+}
+
+/**** Entity Form Button  ****/
+.entity-form .formbtn {
+  padding: 2rem 4rem;
+  width: 50%;
 }
