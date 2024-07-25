@@ -202,12 +202,13 @@
   color: black;
 }
 
-/***********  PROFILE & ADD-SCHOOL/EVENT TEMPLATES   ***********/
+/***********  ENTITY FORMS: ADD/UPDATE TEMPLATES   ***********/
+/***********  PROFILE & ADD SCHOOL/EVENT           ***********/
 
-/**************************/
-/* PROFILE GENERAL        */
-/**************************/
-.grid-profile {
+/*****************************/
+/* ENTITY FORMS: GENERAL     */
+/*****************************/
+.grid-entity-form {
   display: grid;
   grid-template-columns: 30% 1fr;
   gap: 1rem;
@@ -215,30 +216,30 @@
   height: 100vh;
 }
 
-/**************************/
-/* PROFILE SIDE COLUMN    */
-/**************************/
-.picture-background {
+/*****************************/
+/* ENTITY FORMS: SIDE COLUMN */
+/*****************************/
+.side-column {
   background-color: #f18814;
 }
 
-.picture-background .img-logo {
+.side-column .img-logo {
   margin-top: 2.4rem;
   margin-left: 4.8rem;
 }
 
-/**************************/
-/* PROFILE FORM SECTION   */
-/**************************/
+/*****************************/
+/* ENTITY FORM SECTION       */
+/*****************************/
 
-.profile {
+.entity-form-container {
   width: 100%;
   max-width: 120rem;
   padding: 2rem;
   border-radius: 10px;
 }
 
-.profile-form {
+.entity-form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -247,11 +248,11 @@
   border-radius: 10px;
 }
 
-.profile-form .form-group {
+.entity-form .form-group {
   margin-bottom: 2rem;
 }
 
-.profile-form input {
+.entity-form input {
   width: 100%;
   padding: 1.5rem;
   font-size: 2.4rem;

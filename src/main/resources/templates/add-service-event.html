@@ -14,8 +14,8 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
-<body class="grid-profile">
-	<div class="picture-background">
+<body class="grid-entity-form">
+	<div class="side-column">
 		<a href="/dashboard/" th:href="@{/dashboard/}">
 			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
 		</a>
@@ -24,8 +24,8 @@
 		</form>
 	</div>
 
-	<div class="profile center-items">
-		<form class="profile-form" th:object="${serviceEventActivity}" method="post">
+	<div class="entity-form-container center-items">
+		<form class="entity-form" th:object="${serviceEventActivity}" method="post">
 			<div>
 				<h1 class="heading-primary text-center">Post New Service</h1>
 			</div>
