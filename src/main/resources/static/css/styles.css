@@ -7,6 +7,11 @@
 	margin: 0;
 	height: 100vh;
 }
+
+.img-logo {
+  height: 7rem;
+}
+
 /*********** "DASHBOARD" & "DETAILS" TEMPLATES ***********/
 
 /**************************/
@@ -22,10 +27,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.img-logo {
-  height: 7rem;
 }
 
 .navbar-nav {
@@ -128,10 +129,6 @@
 
   height: 9.6rem;
   padding: 0 4.8rem;
-}
-
-.img-logo {
-  height: 7rem;
 }
 
 /**** Container for sign-in links and register button ****/
