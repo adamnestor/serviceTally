@@ -50,30 +50,31 @@
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Admin')">
-			<h1 class="heading-primary">Admin Dashboard</h1>
+			<h1 class="heading-secondary">Admin Dashboard - My Schools</h1>
 		</div>
 	</div>
 
 	<main class="main-content">
-		<div>
-			<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Admin')">My Schools</label>
-			<a th:href="@{/schools/new}" class="btn btn-primary">Create New School</a>
+		<div class="event-list-box">
+			<div class="create-new">
+				<a th:href="@{/schools/new}" class="btn btn-primary">Create New School</a>
+			</div>
+			<th:block th:each="school : ${schools}">
+				<a th:href="@{/schools/{schoolId}(schoolId=${school.schoolId})}" class="service-link">
+					<div class="service-row" onclick="window.location.href='/schools/${school.schoolId}'">
+						<div class="service-info">
+							<label class="job-title">[[${school.schoolName}]]</label>
+						</div>
+						<div class="service-info service-date">
+							<label th:text="${school.city + ', ' + school.state}">City/State</label>
+						</div>
+						<div class="service-info service-status">
+							<label th:text="${school.hoursRequired} + ' hours required'">Hours Required</label>
+						</div>
+					</div>
+				</a>
+			</th:block>
 		</div>
-		<th:block th:each="school : ${schools}">
-			<a th:href="@{/schools/{schoolId}(schoolId=${school.schoolId})}" class="service-link">
-				<div class="service-row" onclick="window.location.href='/schools/${school.schoolId}'">
-					<div class="service-info">
-						<label class="job-title">[[${school.schoolName}]]</label>
-					</div>
-					<div class="service-info service-date">
-						<label th:text="${school.city + ', ' + school.state}">City/State</label>
-					</div>
-					<div class="service-info service-status">
-						<label th:text="${school.hoursRequired} + ' hours required'">Hours Required</label>
-					</div>
-				</div>
-			</a>
-		</th:block>
 	</main>
 </body>
 
