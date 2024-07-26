@@ -1,3 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Rubik", sans-serif;
+	line-height: 1;
+	font-weight: 400;
+	color: #555;
+	font-size: 2.4rem;
+}
+
 .body--grid {
 	display: grid;
 	grid-template-areas: "nav nav" "side welcome" "side main";
@@ -8,9 +26,53 @@
 	height: 100vh;
 }
 
+/**********************/
+/* GENERAL COMPONENTS */
+/**********************/
+
+.heading-primary {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 2.4rem;
+}
+
+.small-text {
+  font-size: 1.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
 .img-logo {
   height: 7rem;
 }
+
 
 /***********   INDEX / AUTHORIZATION TEMPLATES   ***********/
 
@@ -143,6 +205,11 @@
   padding: 1rem;
   box-sizing: border-box;
   height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
 }
 
 /**************************/
@@ -278,4 +345,112 @@
 
 .input-field:last-child {
   margin-right: 0;
+}
+
+/**********************/
+/*  BUTTONS / LINKS   */
+/**********************/
+
+/**** Index - Start Tracking ****/
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: #f18814;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 150px;
+
+  transition: background-color 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #d97a12;
+  color: #fff;
+}
+
+/**** Auth - Register Button ****/
+.main-nav-list .btn:link,
+.main-nav-list .btn:visited {
+  padding: 1.2rem 2.4rem;
+}
+
+/**** Back Button            ****/
+.back-btn:link,
+.back-btn:visited {
+	background-color: #87CEEB;
+	color: black;
+	text-align: center;
+	width: 75%;
+}
+
+.back-btn:hover,
+.back-btn:active {
+	background-color: #7ab9d4;
+}
+
+/**** Auth - Sign-In Links   ****/
+/**** Dashboard - Nav Links  ****/
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #f18814;
+}
+
+/**** Dashboard - Logout Btn ****/
+a.border-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #f18814;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.2rem 2.4rem;
+  border: 3px solid #f18814;
+  border-radius: 150px;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a.border-btn:hover,
+a.border-btn:active {
+  background-color: #d97a12;
+  color: #fff;
+  border-color: #d97a12;
+}
+
+/**** Auth Form Button     ****/
+.formbtn {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #f18814;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 150px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.formbtn:hover {
+  background-color: #d97a12;
+}
+
+/**** Entity Form Button  ****/
+.entity-form .formbtn {
+  padding: 2rem 4rem;
+  width: 50%;
 }

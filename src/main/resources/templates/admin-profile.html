@@ -10,7 +10,6 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/general.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
@@ -19,9 +18,7 @@
 		<a href="/dashboard/" th:href="@{/dashboard/}">
 			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
 		</a>
-		<form method="get" th:action="@{/dashboard/}">
-			<button class="" type="submit">Back</button>
-		</form>
+		<a class="btn back-btn" th:href="@{/dashboard/}">Back</a>
 	</div>
 
 	<div class="entity-form-container center-items">

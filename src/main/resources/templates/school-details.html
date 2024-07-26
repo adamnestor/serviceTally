@@ -10,7 +10,6 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/general.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
@@ -41,14 +40,12 @@
 			</label>
 			<label th:unless="${user.firstName != null && user.lastName != null}" th:text="${username}"
 				class="display-name"></label>
-			<a class="logout" onclick="window.location.href='/logout'">Logout</a>
+			<a class="border-btn" onclick="window.location.href='/logout'">Logout</a>
 		</div>
 	</header>
 
 	<section class="sidebar">
-		<form method="get" th:action="@{/dashboard/}">
-			<button class="" type="submit">Back</button>
-		</form>
+		<a class="btn back-btn" th:href="@{/schools/}">Back</a>
 	</section>
 
 	<main class="main-content">
