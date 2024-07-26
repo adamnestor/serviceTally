@@ -91,33 +91,33 @@
 
 	<div class="welcome-message">
 		<div class="box" sec:authorize="hasAuthority('Student')">
-			<h1 class="heading-primary">Student Dashboard</h1>
+			<h1 class="heading-secondary">Student Dashboard - My Service Events</h1>
 		</div>
 
 		<div class="box" sec:authorize="hasAuthority('Admin')">
-			<h1 class="heading-primary">Admin Dashboard</h1>
+			<h1 class="heading-secondary">Admin Dashboard - Search Results</h1>
 		</div>
 	</div>
 
 	<main class="main-content">
-		<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Student')">My Service
-			Hours</label>
-		<label class="heading-secondary main-secondary-title" sec:authorize="hasAuthority('Admin')">Search Results</label>
-		<th:block th:each="serviceEvent : ${serviceEvent}">
-			<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="service-link">
-				<div class="service-row" onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
-					<div class="service-info">
-						<label class="job-title">[[${serviceEvent.serviceTitle}]]</label>
+		<div class="event-list-box">
+			<th:block th:each="serviceEvent : ${serviceEvent}">
+				<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="service-link">
+					<div class="service-row"
+						onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
+						<div class="service-info">
+							<label class="job-title">[[${serviceEvent.serviceTitle}]]</label>
+						</div>
+						<div class="service-info service-date">
+							<label th:text="${serviceEvent.firstName+' '+serviceEvent.lastName}">Posted By</label>
+						</div>
+						<div class="service-info service-status">
+							<label th:text="@{${serviceEvent.status}}">Event Status</label>
+						</div>
 					</div>
-					<div class="service-info service-date">
-						<label th:text="${serviceEvent.firstName+' '+serviceEvent.lastName}">Posted By</label>
-					</div>
-					<div class="service-info service-status">
-						<label th:text="@{${serviceEvent.status}}">Event Status</label>
-					</div>
-				</div>
-			</a>
-		</th:block>
+				</a>
+			</th:block>
+		</div>
 	</main>
 
 </body>

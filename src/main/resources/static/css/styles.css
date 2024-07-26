@@ -31,46 +31,46 @@ body {
 /**********************/
 
 .heading-primary {
-  font-size: 5.2rem;
-  font-weight: 700;
-  line-height: 1.05;
-  color: #333;
-  letter-spacing: -0.5px;
-  margin-bottom: 3.2rem;
+	font-size: 5.2rem;
+	font-weight: 700;
+	line-height: 1.05;
+	color: #333;
+	letter-spacing: -0.5px;
+	margin-bottom: 3.2rem;
 }
 
 .heading-secondary {
-  font-size: 3.6rem;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  margin-bottom: 2.4rem;
+	font-size: 3.6rem;
+	font-weight: 500;
+	letter-spacing: -0.5px;
+	margin-bottom: 2.4rem;
 }
 
 .small-text {
-  font-size: 1.8rem;
+	font-size: 1.8rem;
 }
 
 .text-center {
-  text-align: center;
+	text-align: center;
 }
 
 .text-center a {
-  color: #007bff;
-  text-decoration: none;
+	color: #007bff;
+	text-decoration: none;
 }
 
 .text-center a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .center-items {
-  display: grid;
-  place-items: center;
-  padding-top: 6.4rem;
+	display: grid;
+	place-items: center;
+	padding-top: 6.4rem;
 }
 
 .img-logo {
-  height: 7rem;
+	height: 7rem;
 }
 
 
@@ -80,20 +80,20 @@ body {
 /* HEADER / NAVIGATION    */
 /**************************/
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  height: 9.6rem;
-  padding: 0 4.8rem;
+	height: 9.6rem;
+	padding: 0 4.8rem;
 }
 
 /**** Container for sign-in links and register button ****/
 .main-nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 3.2rem;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 3.2rem;
 }
 
 /**************************/
@@ -101,33 +101,33 @@ body {
 /**************************/
 
 .section-hero {
-  background-color: #fff;
-  padding: 9.6rem 0;
+	background-color: #fff;
+	padding: 9.6rem 0;
 }
 
 .hero {
-  max-width: 140rem;
-  margin: 0 auto;
-  padding: 0 3.2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9.6rem;
-  align-items: center;
+	max-width: 140rem;
+	margin: 0 auto;
+	padding: 0 3.2rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 9.6rem;
+	align-items: center;
 }
 
 .hero-description {
-  font-size: 2.4rem;
-  line-height: 1.6;
-  margin-bottom: 4.8rem;
+	font-size: 2.4rem;
+	line-height: 1.6;
+	margin-bottom: 4.8rem;
 }
 
 .hero-img-box {
-  display: grid;
+	display: grid;
 }
 
 .hero-img {
-  width: 80%;
-  justify-self: center;
+	width: 80%;
+	justify-self: center;
 }
 
 /**************************/
@@ -135,28 +135,28 @@ body {
 /**************************/
 
 .section-form {
-  width: 100%;
-  max-width: 50rem;
-  padding: 2rem;
-  border-radius: 10px;
+	width: 100%;
+	max-width: 50rem;
+	padding: 2rem;
+	border-radius: 10px;
 }
 
 .auth-form {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .auth-form .form-group {
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 .auth-form input,
 .auth-form select {
-  width: 100%;
-  padding: 1rem;
-  font-size: 2rem;
-  border: 1px solid #f18814;
-  border-radius: 5px;
+	width: 100%;
+	padding: 1rem;
+	font-size: 2rem;
+	border: 1px solid #f18814;
+	border-radius: 5px;
 }
 
 /*********** "DASHBOARD" & "DETAILS" TEMPLATES ***********/
@@ -166,24 +166,24 @@ body {
 /**************************/
 
 .navbar {
-  grid-area: nav;
-  height: 9.6rem;
-  padding: 0 4.8rem;
-  box-sizing: border-box;
+	grid-area: nav;
+	height: 9.6rem;
+	padding: 0 4.8rem;
+	box-sizing: border-box;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .navbar-nav {
-  list-style-type: none;
-  display: flex;
-  gap: 5rem;
-  justify-content: center;
+	list-style-type: none;
+	display: flex;
+	gap: 5rem;
+	justify-content: center;
 }
 
-.rounded-circle{
+.rounded-circle {
 	border-radius: 50%;
 	object-fit: cover;
 	height: 5rem;
@@ -191,7 +191,7 @@ body {
 }
 
 .display-name {
-  padding-right: 2.4rem;
+	padding-right: 2.4rem;
 }
 
 /**************************/
@@ -199,17 +199,17 @@ body {
 /**************************/
 
 .sidebar {
-  grid-area: side;
-  background-color: #f18814;
-  color: white;
-  padding: 1rem;
-  box-sizing: border-box;
-  height: 100%;
-  
-  display: flex;
-  flex-direction: column;
-  
-  align-items: center;
+	grid-area: side;
+	background-color: #f18814;
+	color: white;
+	padding: 1rem;
+	box-sizing: border-box;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
 }
 
 /**************************/
@@ -217,10 +217,24 @@ body {
 /**************************/
 
 .welcome-message {
-  grid-area: welcome;
-  color: #d97a12;
-  padding: 2rem;
-  box-sizing: border-box;
+	grid-area: welcome;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	padding-top: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.box {
+	border-radius: 25px;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+	width: 100%;
+	padding: 2rem;
+}
+
+.welcome-message h1 {
+	margin: 0;
 }
 
 /**************************/
@@ -228,45 +242,64 @@ body {
 /**************************/
 
 .main-content {
-  grid-area: main;
-  padding: 2rem;
-  box-sizing: border-box;
+	grid-area: main;
+	padding: 2rem;
+	box-sizing: border-box;
 }
 
 .main-secondary-title {
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-bottom: 1rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	margin-bottom: 1rem;
+}
+
+.event-list-box {
+	border-radius: 25px;
+	background-color: white;
+	padding: 2rem;
+	box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15);
 }
 
 .service-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	padding: 1.5rem;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 25px;
+	font-size: 1.8rem;
+}
+
+.service-row:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .service-info {
-  flex: 1;
+	flex: 1;
 }
 
 .job-title {
-  text-align: left;
-  font-weight: bold;
+	text-align: left;
+	font-weight: bold;
 }
 
 .service-date {
-  text-align: center;
+	text-align: center;
 }
 
 .service-status {
-  text-align: right;
+	text-align: right;
 }
 
 .service-link {
-  text-decoration: none;
-  color: black;
+	text-decoration: none;
+	color: black;
+}
+
+.create-new {
+	display: flex;
+	align-items: center;
+	padding-bottom: 2rem;
 }
 
 /***********  ENTITY FORMS: ADD/UPDATE TEMPLATES   ***********/
@@ -276,23 +309,23 @@ body {
 /* ENTITY FORMS: GENERAL     */
 /*****************************/
 .grid-entity-form {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  gap: 1rem;
-  margin: 0;
-  height: 100vh;
+	display: grid;
+	grid-template-columns: 30% 1fr;
+	gap: 1rem;
+	margin: 0;
+	height: 100vh;
 }
 
 /*****************************/
 /* ENTITY FORMS: SIDE COLUMN */
 /*****************************/
 .side-column {
-  background-color: #f18814;
+	background-color: #f18814;
 }
 
 .side-column .img-logo {
-  margin-top: 2.4rem;
-  margin-left: 4.8rem;
+	margin-top: 2.4rem;
+	margin-left: 4.8rem;
 }
 
 /*****************************/
@@ -300,51 +333,51 @@ body {
 /*****************************/
 
 .entity-form-container {
-  width: 100%;
-  max-width: 120rem;
-  padding: 2rem;
-  border-radius: 10px;
+	width: 100%;
+	max-width: 120rem;
+	padding: 2rem;
+	border-radius: 10px;
 }
 
 .entity-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 100rem;
-  padding: 2rem;
-  border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100rem;
+	padding: 2rem;
+	border-radius: 10px;
 }
 
 .entity-form .form-group {
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 .entity-form input {
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 2.4rem;
-  border: 1px solid #f18814;
-  border-radius: 5px;
-  height: 6rem;
+	width: 100%;
+	padding: 1.5rem;
+	font-size: 2.4rem;
+	border: 1px solid #f18814;
+	border-radius: 5px;
+	height: 6rem;
 }
 
 .form-heading {
-  padding-bottom: 3.2rem;
+	padding-bottom: 3.2rem;
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .input-field {
-  flex: 1;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+	flex: 1;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
 }
 
 .input-field:last-child {
-  margin-right: 0;
+	margin-right: 0;
 }
 
 /**********************/
@@ -354,28 +387,28 @@ body {
 /**** Index - Start Tracking ****/
 .btn:link,
 .btn:visited {
-  display: inline-block;
-  background-color: #f18814;
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.6rem 3.2rem;
-  border-radius: 150px;
+	display: inline-block;
+	background-color: #f18814;
+	color: #fff;
+	text-decoration: none;
+	font-size: 2rem;
+	font-weight: 600;
+	padding: 1.6rem 3.2rem;
+	border-radius: 150px;
 
-  transition: background-color 0.3s;
+	transition: background-color 0.3s;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: #d97a12;
-  color: #fff;
+	background-color: #d97a12;
+	color: #fff;
 }
 
 /**** Auth - Register Button ****/
 .main-nav-list .btn:link,
 .main-nav-list .btn:visited {
-  padding: 1.2rem 2.4rem;
+	padding: 1.2rem 2.4rem;
 }
 
 /**** Back Button            ****/
@@ -396,61 +429,61 @@ body {
 /**** Dashboard - Nav Links  ****/
 .nav-link:link,
 .nav-link:visited {
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 2rem;
-  transition: all 0.3s;
+	display: inline-block;
+	text-decoration: none;
+	color: #333;
+	font-weight: 500;
+	font-size: 2rem;
+	transition: all 0.3s;
 }
 
 .nav-link:hover,
 .nav-link:active {
-  color: #f18814;
+	color: #f18814;
 }
 
 /**** Dashboard - Logout Btn ****/
 a.border-btn {
-  display: inline-block;
-  background-color: transparent;
-  color: #f18814;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.2rem 2.4rem;
-  box-shadow: inset 0 0 0 3px #f18814;
-  border-radius: 150px;
+	display: inline-block;
+	background-color: transparent;
+	color: #f18814;
+	text-decoration: none;
+	font-size: 2rem;
+	font-weight: 600;
+	padding: 1.2rem 2.4rem;
+	box-shadow: inset 0 0 0 3px #f18814;
+	border-radius: 150px;
 
-  transition: background-color 0.3s, color 0.3s;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 a.border-btn:hover,
 a.border-btn:active {
-  background-color: #d97a12;
-  color: #fff;
-  box-shadow: inset 0 0 0 3px #d97a12;
+	background-color: #d97a12;
+	color: #fff;
+	box-shadow: inset 0 0 0 3px #d97a12;
 }
 
 /**** Auth Form Button     ****/
 .formbtn {
-  padding: 1rem;
-  font-size: 2rem;
-  background-color: #f18814;
-  color: #fff;
-  font-size: 2.4rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 150px;
-  cursor: pointer;
-  margin-bottom: 2rem;
+	padding: 1rem;
+	font-size: 2rem;
+	background-color: #f18814;
+	color: #fff;
+	font-size: 2.4rem;
+	font-weight: 700;
+	border: none;
+	border-radius: 150px;
+	cursor: pointer;
+	margin-bottom: 2rem;
 }
 
 .formbtn:hover {
-  background-color: #d97a12;
+	background-color: #d97a12;
 }
 
 /**** Entity Form Button  ****/
 .entity-form .formbtn {
-  padding: 2rem 4rem;
-  width: 50%;
+	padding: 2rem 4rem;
+	width: 50%;
 }
