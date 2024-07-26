@@ -20,9 +20,9 @@
 		</a>
 		<nav class="main-nav">
 			<ul class="main-nav-list">
-				<li><a class="nav-link" href="#">Sign-In Student</a></li>
-				<li><a class="nav-link" href="#">Sign-In Admin</a></li>
-				<li><a class="btn" href="#">Register</a></li>
+				<li><a class="nav-link" th:href="@{/login}">Sign-In Student</a></li>
+				<li><a class="nav-link" th:href="@{/login}">Sign-In Admin</a></li>
+				<li><a class="btn" th:href="@{/register}">Register</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -54,7 +54,7 @@
 					<button class="formbtn" type="submit">Register</button>
 					<p class="small-text text-center">
 						Already have an account?
-						<a href="#"> Log In </a>
+						<a th:href="@{/login}"> Log In </a>
 					</p>
 				</form>
 			</div>
