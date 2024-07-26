@@ -219,10 +219,17 @@ body {
 .welcome-message {
 	grid-area: welcome;
 	box-sizing: border-box;
-	border-radius: 25px;
-	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 	display: flex;
 	align-items: center;
+	padding-top: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.box {
+	border-radius: 25px;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+	width: 100%;
 	padding: 2rem;
 }
 
@@ -289,7 +296,7 @@ body {
 	color: black;
 }
 
-.create-new{
+.create-new {
 	display: flex;
 	align-items: center;
 	padding-bottom: 2rem;
