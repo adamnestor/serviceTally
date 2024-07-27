@@ -306,12 +306,14 @@ body {
 	font-weight: bold;
 }
 
-.service-date {
-	text-align: center;
+.service-name {
+	text-align: left;
 }
 
-.service-status {
-	text-align: right;
+.service-info.service-status {
+	flex: 0 0 150px;
+	display: flex;
+	justify-content: center;
 }
 
 .service-link {
@@ -324,6 +326,34 @@ body {
 	align-items: center;
 	padding-bottom: 2rem;
 }
+
+/**************************/
+/* STATUS PILLS           */
+/**************************/
+
+.status-pill{
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	border-radius: 50px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #fff;
+	margin-right: 0.8rem;
+	width: 100%;
+	text-align: center;
+}
+.status-submitted {
+	background-color: #007bff;
+}
+
+.status-modify {
+	background-color: #ffc107;
+}
+
+.status-approved {
+	background-color: #28a745;
+}
+
 
 /***********  ENTITY FORMS: ADD/UPDATE TEMPLATES   ***********/
 /***********  PROFILE & ADD SCHOOL/EVENT           ***********/
