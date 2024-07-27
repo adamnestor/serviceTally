@@ -276,16 +276,17 @@ body {
 	margin-bottom: 1rem;
 }
 
-.event-list-box {
+.list-box {
 	border-radius: 25px;
 	background-color: white;
 	padding: 2rem;
 	box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15);
 }
 
-.service-row {
+.item-row {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 1.5rem;
 	border: 1px solid #ccc;
 	margin-bottom: 10px;
@@ -293,30 +294,41 @@ body {
 	font-size: 1.8rem;
 }
 
-.service-row:hover {
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.item-row:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.service-info {
+.item-info {
 	flex: 1;
 }
 
-.job-title {
+.item-name {
 	text-align: left;
 	font-weight: bold;
 }
 
-.service-name {
+.service-user {
 	text-align: left;
 }
 
-.service-info.service-status {
+.school-location {
+	text-align: left;
+}
+
+/*used in js for status pill*/
+.item-info.service-status {
 	flex: 0 0 150px;
 	display: flex;
 	justify-content: center;
 }
 
-.service-link {
+.item-info.hours-required {
+	flex: 0 0 150px;
+	display: flex;
+	justify-content: center;
+}
+
+.item-link {
 	text-decoration: none;
 	color: black;
 }

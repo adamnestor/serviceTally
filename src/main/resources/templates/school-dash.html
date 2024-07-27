@@ -55,20 +55,20 @@
 	</div>
 
 	<main class="main-content">
-		<div class="event-list-box">
+		<div class="list-box">
 			<div class="create-new">
 				<a th:href="@{/schools/new}" class="btn btn-primary">Create New School</a>
 			</div>
 			<th:block th:each="school : ${schools}">
-				<a th:href="@{/schools/{schoolId}(schoolId=${school.schoolId})}" class="service-link">
-					<div class="service-row" onclick="window.location.href='/schools/${school.schoolId}'">
-						<div class="service-info">
-							<label class="job-title">[[${school.schoolName}]]</label>
+				<a th:href="@{/schools/{schoolId}(schoolId=${school.schoolId})}" class="item-link">
+					<div class="item-row" onclick="window.location.href='/schools/${school.schoolId}'">
+						<div class="item-info">
+							<label class="item-name">[[${school.schoolName}]]</label>
 						</div>
-						<div class="service-info service-date">
+						<div class="item-info school-location">
 							<label th:text="${school.city + ', ' + school.state}">City/State</label>
 						</div>
-						<div class="service-info service-status">
+						<div class="item-info hours-required">
 							<label th:text="${school.hoursRequired} + ' hours required'">Hours Required</label>
 						</div>
 					</div>

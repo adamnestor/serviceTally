@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		'APPROVED': 'status-approved'
 	};
 	
-	const statusElements = document.querySelectorAll('.service-info.service-status label');
+	const statusElements = document.querySelectorAll('.item-info.service-status label');
 	
 	statusElements.forEach(label => {
 		const statusText = label.textContent.trim().toUpperCase();
