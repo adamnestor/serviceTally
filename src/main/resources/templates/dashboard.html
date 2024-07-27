@@ -115,7 +115,7 @@
 						<div class="service-info">
 							<label class="job-title">[[${serviceEvent.serviceTitle}]]</label>
 						</div>
-						<div class="service-info service-date">
+						<div class="service-info service-name">
 							<label th:text="${serviceEvent.firstName+' '+serviceEvent.lastName}">Posted By</label>
 						</div>
 						<div class="service-info service-status">
@@ -126,6 +126,7 @@
 			</th:block>
 		</div>
 	</main>
+	<script th:src="@{/js/script.js}"></script>
 
 </body>
 
