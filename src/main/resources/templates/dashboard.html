@@ -57,29 +57,36 @@
 	<section class="sidebar">
 		<form sec:authorize="hasAuthority('Admin')" action="/dashboard/" method="get">
 			<!--Filter by Student-->
-			<select name="userAccountId">
-				<option value="">Select Student</option>
-				<option th:each="student : ${students}" th:value="${student.userAccountId}"
-					th:text="${student.firstName + ' ' + student.lastName}"
-					th:selected="${student.userAccountId == studentIdFilter}"></option>
-			</select>
+			<div class="select-container">
+				<select class="select-box" name="userAccountId">
+					<option value="">Select Student</option>
+					<option th:each="student : ${students}" th:value="${student.userAccountId}"
+						th:text="${student.firstName + ' ' + student.lastName}"
+						th:selected="${student.userAccountId == studentIdFilter}"></option>
+				</select>
+			</div>
 			<!--Filter by School-->
-			<select name="schoolId">
-				<option value="">Select School</option>
-				<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"
-					th:selected="${school.schoolId == schoolIdFilter}">
-				</option>
-			</select>
+			<div class="select-container">
+				<select class="select-box" name="schoolId">
+					<option value="">Select School</option>
+					<option th:each="school : ${schools}" th:value="${school.schoolId}" th:text="${school.schoolName}"
+						th:selected="${school.schoolId == schoolIdFilter}">
+					</option>
+				</select>
+			</div>
 			<!--Filter by status-->
-			<select name="status">
-				<option value="">Select Status</option>
-				<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
-					th:text="${statusOption.name()}" th:selected="${statusOption.name() == statusFilter}">
-				</option>
-			</select>
-
-			<button type="submit">Filter</button>
-			<button type="button" onclick="resetFilters()">Reset</button>
+			<div class="select-container">
+				<select class="select-box" name="status">
+					<option value="">Select Status</option>
+					<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
+						th:text="${statusOption.name()}" th:selected="${statusOption.name() == statusFilter}">
+					</option>
+				</select>
+			</div>
+			<div class="filter-btn-box">
+				<button class="formbtn filter-btn" type="submit">Filter</button>
+				<button class="formbtn filter-btn" type="button" onclick="resetFilters()">Reset</button>
+			</div>
 		</form>
 		<script th:inline="javascript">
 			function resetFilters() {
