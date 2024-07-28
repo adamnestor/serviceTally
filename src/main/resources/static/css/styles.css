@@ -176,7 +176,7 @@ body {
 	align-items: center;
 }
 
-.navbar .img-logo{
+.navbar .img-logo {
 	padding-right: 4rem;
 }
 
@@ -187,12 +187,12 @@ body {
 	justify-content: left;
 }
 
-.navbar-nav li:last-child{
+.navbar-nav li:last-child {
 	margin-right: 0;
-	margin-left:0;
+	margin-left: 0;
 }
 
-.nav-box{
+.nav-box {
 	flex-grow: 1;
 	text-align: left;
 }
@@ -251,7 +251,7 @@ body {
 	font-weight: 600;
 }
 
-.filter-btn-box{
+.filter-btn-box {
 	display: flex;
 	justify-content: center;
 	gap: 1rem;
@@ -284,7 +284,7 @@ body {
 }
 
 /**************************/
-/* MAIN CONTENT           */
+/* MAIN CONTENT - DASH    */
 /**************************/
 
 .main-content {
@@ -364,10 +364,89 @@ body {
 }
 
 /**************************/
+/* MAIN CONTENT - DETAILS */
+/**************************/
+
+.grid-container {
+	display: grid;
+	grid-template-rows: auto 1fr 1fr 1fr auto;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	/* Adjust gap between sections */
+	padding: 20px;
+	height: 100vh;
+	/* Adjust based on your needs */
+}
+
+.item {
+	padding: 20px;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-row1 {
+	grid-column: 1 / span 2;
+	grid-row: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.item-column1-row2 {
+	grid-column: 1;
+	grid-row: 2 / span 1;
+	display: flex;
+	align-items: center;
+}
+
+.item-column1-row3 {
+	grid-column: 1;
+	grid-row: 3 / span 3;
+	display: flex;
+	align-items: center;
+}
+
+.event-details {
+	margin-bottom: 1.2rem;
+}
+
+.item-column1-row3 .event-details:last-child {
+	margin-bottom: 0;
+}
+
+.item-column2 {
+	grid-column: 2;
+	grid-row: 2 / span 4;
+}
+
+.heading-description {
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+.description-content {
+	margin-top: 1.2rem;
+}
+
+.item-row6 {
+	grid-column: 1 / span 2;
+	grid-row: 6;
+	display: flex;
+	align-items: center;
+}
+
+.status-dropdown {
+	margin-right: 2.4rem;
+}
+
+
+/**************************/
 /* STATUS PILLS           */
 /**************************/
 
-.status-pill{
+.status-pill {
 	display: inline-block;
 	padding: 0.8rem 1.6rem;
 	border-radius: 50px;
@@ -378,6 +457,7 @@ body {
 	width: 50%;
 	text-align: center;
 }
+
 .status-submitted {
 	background-color: #007bff;
 }
@@ -579,12 +659,12 @@ a.border-btn:active {
 
 /**** Admin Filter Buttons  ****/
 
-.filter-btn{
+.filter-btn {
 	background-color: #87CEEB;
 	padding: 1.2rem 2.4rem;
 }
 
-.filter-btn:hover{
+.filter-btn:hover {
 	background-color: blue;
 }
 
@@ -592,4 +672,10 @@ a.border-btn:active {
 .entity-form .formbtn {
 	padding: 2rem 4rem;
 	width: 50%;
+}
+
+.update-status-box .formbtn{
+	font-size: 1.6rem;
+	padding: 0.8rem 1.6rem;
+	margin-bottom: 0;
 }
