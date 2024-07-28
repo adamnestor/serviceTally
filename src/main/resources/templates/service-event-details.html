@@ -55,7 +55,7 @@
 		<div class="grid-container">
 			<!-- Service Title & Status -->
 			<div class="item item-row1">
-				<h4 class="secondary-title side-by-side" th:text="${serviceDetails.serviceTitle}">
+				<h4 class="heading-secondary side-by-side" th:text="${serviceDetails.serviceTitle}">
 					Soup Kitchen
 				</h4>
 				<div class="item-info service-status">
@@ -65,16 +65,16 @@
 			<!-- Completed by -->
 			<div class="item item-column1-row2">
 				<div class="content">
-					<h3 class="side-by-side"
-						th:text="${postedByProfile.firstName+' '+postedByProfile.lastName}">
+					<h4 class="side-by-side" th:text="${postedByProfile.firstName+' '+postedByProfile.lastName}">
 						Service completed by: Adam Nestor
-					</h3>
+					</h4>
 				</div>
 			</div>
 			<!-- Date, Location, hours served -->
 			<div class="item item-column1-row3">
 				<div class="content">
-					<p class="side-by-side event-details" th:text="${'Date of Service: ' + serviceDetails.dateOfService}">
+					<p class="side-by-side event-details"
+						th:text="${'Date of Service: ' + serviceDetails.dateOfService}">
 						Date of Service: 1/1/2024
 					</p>
 					<p class="side-by-side event-details" th:text="${serviceDetails.city+', '+ serviceDetails.state}">
@@ -88,13 +88,13 @@
 			<!-- Description -->
 			<div class="item item-column2">
 				<div class="content">
-					<label class="heading-description"> Description of Service </label>
+					<label class="heading-description"> Description </label>
 					<div class="description-content" th:utext="${serviceDetails.descriptionOfEvent}"></div>
 				</div>
 			</div>
 			<!--  Buttons -->
 			<div class="item item-row6">
-				<div class="btns">
+				<div class="action-btns">
 					<div class="side-by-side">
 						<form sec:authorize="hasAuthority('Student')"
 							th:action="@{/dashboard/edit/{id}(id=${serviceDetails.eventId})}" method="get">
@@ -109,12 +109,14 @@
 					</div>
 					<div sec:authorize="hasAuthority('Admin')" class="side-by-side update-status-box">
 						<form method="post" th:action="@{'/service-details/' + ${serviceDetails.eventId}}">
-							<select class="status-dropdown" id="status" name="status">
-								<option value="">Select Status</option>
-								<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
-									th:text="${statusOption.name()}"
-									th:selected="${statusOption.name() == statusFilter}"></option>
-							</select>
+							<div class="select-container">
+								<select class="select-box status-dropdown" id="status" name="status">
+									<option value="">Select Status</option>
+									<option th:each="statusOption : ${statusOptions}" th:value="${statusOption.name()}"
+										th:text="${statusOption.name()}"
+										th:selected="${statusOption.name() == statusFilter}"></option>
+								</select>
+							</div>
 							<button class="formbtn" type="submit">Update Status</button>
 						</form>
 					</div>
