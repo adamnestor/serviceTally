@@ -71,7 +71,6 @@ body {
 
 .img-logo {
 	height: 5rem;
-	padding-right: 4rem;
 }
 
 
@@ -175,6 +174,10 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.navbar .img-logo{
+	padding-right: 4rem;
 }
 
 .navbar-nav {
@@ -396,7 +399,7 @@ body {
 /*****************************/
 .grid-entity-form {
 	display: grid;
-	grid-template-columns: 30% 1fr;
+	grid-template-columns: 25% 1fr;
 	gap: 1rem;
 	margin: 0;
 	height: 100vh;
@@ -407,11 +410,17 @@ body {
 /*****************************/
 .side-column {
 	background-color: #f18814;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .side-column .img-logo {
 	margin-top: 2.4rem;
-	margin-left: 4.8rem;
+}
+
+.side-column .back-btn {
+	margin-top: 2.4rem;
 }
 
 /*****************************/
