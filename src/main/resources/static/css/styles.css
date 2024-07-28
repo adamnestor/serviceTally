@@ -71,6 +71,7 @@ body {
 
 .img-logo {
 	height: 5rem;
+	padding-right: 4rem;
 }
 
 
@@ -180,7 +181,17 @@ body {
 	list-style-type: none;
 	display: flex;
 	gap: 5rem;
-	justify-content: center;
+	justify-content: left;
+}
+
+.navbar-nav li:last-child{
+	margin-right: 0;
+	margin-left:0;
+}
+
+.nav-box{
+	flex-grow: 1;
+	text-align: left;
 }
 
 .rounded-circle {
@@ -188,10 +199,17 @@ body {
 	object-fit: cover;
 	height: 5rem;
 	width: 5rem;
+	margin-right: 2rem;
 }
 
 .display-name {
 	padding-right: 2.4rem;
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
 }
 
 /**************************/
@@ -268,6 +286,7 @@ body {
 	grid-area: main;
 	padding: 2rem;
 	box-sizing: border-box;
+	overflow: auto;
 }
 
 .main-secondary-title {

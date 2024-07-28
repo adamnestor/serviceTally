@@ -19,7 +19,7 @@
 		<a href="/dashboard/" th:href="@{/dashboard/}">
 			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
 		</a>
-		<div>
+		<div class="nav-box">
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/schools/}">Manage School</a>
@@ -44,7 +44,7 @@
 				
 			</ul>
 		</div>
-		<div>
+		<div class="user-profile">
 			<img class="rounded-circle" th:if="${user.photosImagePath!=null}" th:src="@{${user?.photosImagePath}}" />
 			<label th:if="${user.firstName != null && user.lastName != null}"
 				th:text="${user.firstName+' '+user.lastName}" class="display-name">
