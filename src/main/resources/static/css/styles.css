@@ -1,3 +1,17 @@
+:root {
+	--primary-color: #002B5B;
+	/* Navy Blue */
+	--secondary-color: #87CEEB;
+	/* Sky Blue */
+	--accent-color: #28A745;
+	/* Green */
+	--background-color: #F8F9FA;
+	/* Light Grey */
+	--text-color: #343A40;
+	/* Dark Grey */
+	--highlight-color: #FFA500;
+	/* Orange */
+}
 
 
 * {
@@ -14,13 +28,12 @@ body {
 	font-family: "Rubik", sans-serif;
 	line-height: 1;
 	font-weight: 400;
-	color: #555;
+	color: var(--text-color);
+	background-color: var(--background-color);
 	font-size: 2.4rem;
-
-	
 }
 
-.index-page{
+.index-page {
 	background-image: url('/assets/index-background.svg');
 	background-size: cover;
 	background-position: center;
@@ -45,7 +58,7 @@ body {
 	font-size: 5.2rem;
 	font-weight: 700;
 	line-height: 1.05;
-	color: #333;
+	color: var(--text-color);
 	letter-spacing: -0.5px;
 	margin-bottom: 3.2rem;
 }
@@ -65,7 +78,7 @@ body {
 }
 
 .text-center a {
-	color: #007bff;
+	color: var(--accent-color);
 	text-decoration: none;
 }
 
@@ -130,8 +143,8 @@ body {
 	margin-bottom: 4.8rem;
 }
 
-.hero-text-box{
-	background-color: #F8F9FA;
+.hero-text-box {
+	background-color: var(--background-color);
 }
 
 .hero-img-box {
@@ -160,6 +173,10 @@ body {
 	flex-direction: column;
 }
 
+.auth-form .heading-secondary {
+	margin-bottom: 2.4rem;
+}
+
 .auth-form .form-group {
 	margin-bottom: 2rem;
 }
@@ -169,7 +186,7 @@ body {
 	width: 100%;
 	padding: 1rem;
 	font-size: 2rem;
-	border: 1px solid #f18814;
+	border: 2px solid var(--primary-color);
 	border-radius: 5px;
 }
 
@@ -237,7 +254,7 @@ body {
 
 .sidebar {
 	grid-area: side;
-	background-color: #f18814;
+	background-color: var(--primary-color);
 	color: white;
 	padding: 2rem;
 	box-sizing: border-box;
@@ -326,7 +343,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.5rem;
-	border: 1px solid #ccc;
+	border: 1px solid var(--text-color);
 	margin-bottom: 10px;
 	border-radius: 25px;
 	font-size: 1.8rem;
@@ -368,7 +385,7 @@ body {
 
 .item-link {
 	text-decoration: none;
-	color: black;
+	color: var(--text-color);
 }
 
 .create-new {
@@ -391,7 +408,7 @@ body {
 
 .item {
 	padding: 20px;
-	border: 1px solid #ccc;
+	border: 1px solid var(--secondary-color);
 	background-color: #f9f9f9;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -475,8 +492,7 @@ body {
 
 .school-item {
 	padding: 20px;
-	border: 1px solid #ccc;
-	background-color: #f9f9f9;
+	border: 1px solid var(--secondary-color);
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -522,15 +538,15 @@ body {
 }
 
 .status-submitted {
-	background-color: #007bff;
+	background-color: #6ca5bc;
 }
 
 .status-modify {
-	background-color: #ffc107;
+	background-color: var(--highlight-color);
 }
 
 .status-approved {
-	background-color: #28a745;
+	background-color: var(--accent-color);
 }
 
 
@@ -552,7 +568,7 @@ body {
 /* ENTITY FORMS: SIDE COLUMN */
 /*****************************/
 .side-column {
-	background-color: #f18814;
+	background-color: var(--primary-color);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -594,7 +610,7 @@ body {
 	width: 100%;
 	padding: 1.5rem;
 	font-size: 2.4rem;
-	border: 1px solid #f18814;
+	border: 1px solid var(--primary-color);
 	border-radius: 5px;
 	height: 6rem;
 }
@@ -626,7 +642,7 @@ body {
 .btn:link,
 .btn:visited {
 	display: inline-block;
-	background-color: #f18814;
+	background-color: var(--accent-color);
 	color: #fff;
 	text-decoration: none;
 	font-size: 2rem;
@@ -639,8 +655,7 @@ body {
 
 .btn:hover,
 .btn:active {
-	background-color: #d97a12;
-	color: #fff;
+	background-color: #24963e;
 }
 
 /**** Auth - Register Button ****/
@@ -652,7 +667,7 @@ body {
 /**** Back Button            ****/
 .back-btn:link,
 .back-btn:visited {
-	background-color: #87CEEB;
+	background-color: var(--secondary-color);
 	color: black;
 	text-align: center;
 	width: 75%;
@@ -669,7 +684,7 @@ body {
 .nav-link:visited {
 	display: inline-block;
 	text-decoration: none;
-	color: #333;
+	color: var(--text-color);
 	font-weight: 500;
 	font-size: 2rem;
 	transition: all 0.3s;
@@ -677,19 +692,19 @@ body {
 
 .nav-link:hover,
 .nav-link:active {
-	color: #f18814;
+	color: var(--accent-color);
 }
 
 /**** Dashboard - Logout Btn ****/
 a.border-btn {
 	display: inline-block;
 	background-color: transparent;
-	color: #f18814;
+	color: var(--accent-color);
 	text-decoration: none;
 	font-size: 2rem;
 	font-weight: 600;
 	padding: 1.2rem 2.4rem;
-	box-shadow: inset 0 0 0 3px #f18814;
+	box-shadow: inset 0 0 0 3px var(--accent-color);
 	border-radius: 150px;
 
 	transition: background-color 0.3s, color 0.3s;
@@ -697,16 +712,16 @@ a.border-btn {
 
 a.border-btn:hover,
 a.border-btn:active {
-	background-color: #d97a12;
+	background-color: #24963e;
 	color: #fff;
-	box-shadow: inset 0 0 0 3px #d97a12;
+	box-shadow: inset 0 0 0 3px #24963e;
 }
 
 /**** Auth Form Button     ****/
 .formbtn {
 	padding: 1rem;
 	font-size: 2rem;
-	background-color: #f18814;
+	background-color: var(--accent-color);
 	color: #fff;
 	font-size: 2.4rem;
 	font-weight: 700;
@@ -717,18 +732,18 @@ a.border-btn:active {
 }
 
 .formbtn:hover {
-	background-color: #d97a12;
+	background-color: #24963e;
 }
 
 /**** Admin Filter Buttons  ****/
 
 .filter-btn {
-	background-color: #87CEEB;
+	background-color: var(--secondary-color);
 	padding: 1.2rem 2.4rem;
 }
 
 .filter-btn:hover {
-	background-color: blue;
+	background-color: #7ab9d4;
 }
 
 /**** Entity Form Button  ****/
