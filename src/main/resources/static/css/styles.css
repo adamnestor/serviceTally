@@ -1,3 +1,5 @@
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -14,6 +16,15 @@ body {
 	font-weight: 400;
 	color: #555;
 	font-size: 2.4rem;
+
+	
+}
+
+.index-page{
+	background-image: url('/assets/index-background.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .body--grid {
@@ -100,8 +111,7 @@ body {
 /**************************/
 
 .section-hero {
-	background-color: #fff;
-	padding: 9.6rem 0;
+	padding: 4.2rem;
 }
 
 .hero {
@@ -110,7 +120,7 @@ body {
 	padding: 0 3.2rem;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 9.6rem;
+	gap: 4.2rem;
 	align-items: center;
 }
 
@@ -120,6 +130,10 @@ body {
 	margin-bottom: 4.8rem;
 }
 
+.hero-text-box{
+	background-color: #F8F9FA;
+}
+
 .hero-img-box {
 	display: grid;
 }
@@ -127,6 +141,7 @@ body {
 .hero-img {
 	width: 80%;
 	justify-self: center;
+	border-radius: 74% 26% 67% 33% / 28% 73% 27% 72%;
 }
 
 /**************************/
@@ -451,41 +466,41 @@ body {
 /**********************************/
 
 .school-grid-container {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	padding: 20px;
 }
 
 .school-item {
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .school-item-row1 {
-    grid-row: 1;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+	grid-row: 1;
+	display: flex;
+	justify-content: left;
+	align-items: center;
 }
 
 .school-item-row2 {
-    grid-row: 2 / span 2;
+	grid-row: 2 / span 2;
 }
 
 .school-item-row3 {
-    grid-row: 4;
-    display: flex;
-    align-items: center;
+	grid-row: 4;
+	display: flex;
+	align-items: center;
 }
 
 .action-btns {
-    display: flex;
-    gap: 2rem;
+	display: flex;
+	gap: 2rem;
 }
 
 
@@ -722,7 +737,7 @@ a.border-btn:active {
 	width: 50%;
 }
 
-.action-btns .formbtn{
+.action-btns .formbtn {
 	font-size: 1.6rem;
 	padding: 0.8rem 1.6rem;
 	margin-bottom: 0;
