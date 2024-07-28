@@ -19,7 +19,7 @@ body {
 .body--grid {
 	display: grid;
 	grid-template-areas: "nav nav" "side welcome" "side main";
-	grid-template-columns: 20% 1fr;
+	grid-template-columns: 25% 1fr;
 	grid-template-rows: auto auto 1fr;
 	gap: 1rem;
 	margin: 0;
@@ -70,7 +70,7 @@ body {
 }
 
 .img-logo {
-	height: 7rem;
+	height: 5rem;
 }
 
 
@@ -176,11 +176,25 @@ body {
 	align-items: center;
 }
 
+.navbar .img-logo{
+	padding-right: 4rem;
+}
+
 .navbar-nav {
 	list-style-type: none;
 	display: flex;
 	gap: 5rem;
-	justify-content: center;
+	justify-content: left;
+}
+
+.navbar-nav li:last-child{
+	margin-right: 0;
+	margin-left:0;
+}
+
+.nav-box{
+	flex-grow: 1;
+	text-align: left;
 }
 
 .rounded-circle {
@@ -188,10 +202,19 @@ body {
 	object-fit: cover;
 	height: 5rem;
 	width: 5rem;
+	margin-right: 2rem;
 }
 
 .display-name {
 	padding-right: 2.4rem;
+	font-size: 2.4rem;
+	font-weight: 600;
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
 }
 
 /**************************/
@@ -268,6 +291,7 @@ body {
 	grid-area: main;
 	padding: 2rem;
 	box-sizing: border-box;
+	overflow: auto;
 }
 
 .main-secondary-title {
@@ -375,7 +399,7 @@ body {
 /*****************************/
 .grid-entity-form {
 	display: grid;
-	grid-template-columns: 30% 1fr;
+	grid-template-columns: 25% 1fr;
 	gap: 1rem;
 	margin: 0;
 	height: 100vh;
@@ -386,11 +410,17 @@ body {
 /*****************************/
 .side-column {
 	background-color: #f18814;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .side-column .img-logo {
 	margin-top: 2.4rem;
-	margin-left: 4.8rem;
+}
+
+.side-column .back-btn {
+	margin-top: 2.4rem;
 }
 
 /*****************************/
