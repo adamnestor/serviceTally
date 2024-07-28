@@ -204,6 +204,8 @@ body {
 
 .display-name {
 	padding-right: 2.4rem;
+	font-size: 2.4rem;
+	font-weight: 600;
 }
 
 .user-profile {
