@@ -362,9 +362,9 @@ body {
 	padding-bottom: 2rem;
 }
 
-/**************************/
-/* MAIN CONTENT - DETAILS */
-/**************************/
+/**********************************/
+/* MAIN CONTENT - SERVICE DETAILS */
+/**********************************/
 
 .grid-container {
 	display: grid;
@@ -445,6 +445,49 @@ body {
 .status-dropdown {
 	margin-right: 2.4rem;
 }
+
+/**********************************/
+/* MAIN CONTENT - SCHOOL DETAILS  */
+/**********************************/
+
+.school-grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.school-item {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.school-item-row1 {
+    grid-row: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.school-item-row2 {
+    grid-row: 2 / span 2;
+}
+
+.school-item-row3 {
+    grid-row: 4;
+    display: flex;
+    align-items: center;
+}
+
+.action-btns {
+    display: flex;
+    gap: 2rem;
+}
+
 
 
 /**************************/
@@ -679,7 +722,7 @@ a.border-btn:active {
 	width: 50%;
 }
 
-.update-status-box .formbtn{
+.action-btns .formbtn{
 	font-size: 1.6rem;
 	padding: 0.8rem 1.6rem;
 	margin-bottom: 0;

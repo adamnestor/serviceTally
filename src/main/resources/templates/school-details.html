@@ -49,28 +49,36 @@
 	</section>
 
 	<main class="main-content">
-		<div>
-			<h1>Job Details</h1>
-			<div>
-				<h4 th:text="${school.schoolName}">Somewhere High School</h4>
-				<div>
-					<p th:text="${school.city+', '+ school.state}">Mentor, Ohio</p>
-					<p th:text="${school.hoursRequired} + ' hours required'">
-						40 hours required
-					</p>
-				</div>
-			</div>
-			<div class="">
-				<form th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
-					<button class="" type="submit">Edit School</button>
-				</form>
-			</div>
-			<div class="">
-				<form th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
-					<button class="" type="submit">Delete School</button>
-				</form>
-			</div>
-		</div>
+		 <div class="school-grid-container">
+        <!-- Section 1: School Name -->
+        <div class="school-item school-item-row1">
+            <h4 th:text="${school.schoolName}">Somewhere High School</h4>
+        </div>
+
+        <!-- Section 2: Location and Hours Required -->
+        <div class="school-item school-item-row2">
+            <div class="content">
+                <p th:text="${school.city + ', ' + school.state}">Mentor, Ohio</p>
+                <p th:text="${school.hoursRequired + ' hours required'}">40 hours required</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Edit and Delete Buttons -->
+        <div class="school-item school-item-row3">
+            <div class="action-btns">
+                <div class="side-by-side">
+                    <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
+                        <button class="formbtn" type="submit">Edit School</button>
+                    </form>
+                </div>
+                <div class="side-by-side">
+                    <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
+                        <button class="formbtn" type="submit">Delete School</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 	</main>
 </body>
 
