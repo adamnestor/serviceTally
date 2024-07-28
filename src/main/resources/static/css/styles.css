@@ -19,7 +19,7 @@ body {
 .body--grid {
 	display: grid;
 	grid-template-areas: "nav nav" "side welcome" "side main";
-	grid-template-columns: 20% 1fr;
+	grid-template-columns: 25% 1fr;
 	grid-template-rows: auto auto 1fr;
 	gap: 1rem;
 	margin: 0;
