@@ -23,29 +23,35 @@
 		<div class="nav-box">
 			<ul class="navbar-nav">
 				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
-					<i class="fa-solid fa-school"></i>
-					<a class="nav-link" th:href="@{/schools/}">Manage School</a>
+					<a class="nav-link" th:href="@{/schools/}">
+						<i class="fa-solid fa-school"></i>
+						<span>Manage School</span>
+					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
-					<i class="fa-solid fa-list-ul"></i>
-					<a class="nav-link" th:href="@{/dashboard/}">View Service
-						Events</a>
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
-					<i class="fa-solid fa-user-pen"></i>
-					<a class="nav-link" th:href="@{/admin-profile/}">Edit
-						Account</a>
+					<a class="nav-link" th:href="@{/admin-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Account</span>
+					</a>
 				</li>
 
 				<li sec:authorize="hasAuthority('Student')" class="nav-item">
-					<i class="fa-solid fa-plus"></i>
-					<a class="nav-link" th:href="@{/dashboard/add}">Log New
-						Service</a>
+					<a class="nav-link" th:href="@{/dashboard/add}">
+						<i class="fa-solid fa-plus"></i>
+						<span>Log New Service</span>
+					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Student')" class="nav-item">
-					<i class="fa-solid fa-user-pen"></i>
-					<a class="nav-link" th:href="@{/student-profile/}">Edit
-						Profile</a>
+					<a class="nav-link" th:href="@{/student-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Profile</span>
+					</a>
 				</li>
 			</ul>
 		</div>
