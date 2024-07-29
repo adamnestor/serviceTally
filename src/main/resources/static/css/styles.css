@@ -210,14 +210,17 @@ body {
 }
 
 .navbar .img-logo {
-	padding-right: 4rem;
+	padding-right: 5rem;
 }
 
 .navbar-nav {
 	list-style-type: none;
 	display: flex;
-	gap: 5rem;
 	justify-content: left;
+}
+
+.nav-link{
+	padding-right: 5rem;
 }
 
 .navbar-nav li:last-child {
