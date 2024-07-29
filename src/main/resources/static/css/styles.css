@@ -204,7 +204,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	
+
 	background-color: var(--primary-color);
 	color: var(--background-color);
 }
@@ -410,7 +410,7 @@ body {
 
 .item {
 	padding: 20px;
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--text-color);
 	background-color: #f9f9f9;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -494,7 +494,7 @@ body {
 
 .school-item {
 	padding: 20px;
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--text-color);
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -651,7 +651,7 @@ body {
 	font-weight: 600;
 	padding: 1.6rem 3.2rem;
 	border-radius: 150px;
-	box-shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 	transition: background-color 0.3s;
 }
@@ -659,7 +659,7 @@ body {
 .btn:hover,
 .btn:active {
 	background-color: #24963e;
-	box-shadow:  0 6px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /**** Auth - Register Button ****/
@@ -672,16 +672,18 @@ body {
 .back-btn:link,
 .back-btn:visited {
 	background-color: var(--secondary-color);
-	color: black;
+	color: var(--primary-color);
+	border: solid 2px var(--background-color);
+	padding: 1.6rem 3.6rem;
 	text-align: center;
 	width: 75%;
-	box-shadow:  0 4px 6px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
 .back-btn:hover,
 .back-btn:active {
 	background-color: #7ab9d4;
-	box-shadow:  0 6px 8px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
 }
 
 /**** Auth - Sign-In Links   ****/
@@ -740,23 +742,25 @@ a.border-btn:active {
 	border-radius: 150px;
 	cursor: pointer;
 	margin-bottom: 2rem;
-	box-shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .formbtn:hover {
 	background-color: #24963e;
-	box-shadow:  0 6px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-.edit-btn {
+.edit-btn,
+.update-status-btn {
 	background-color: var(--secondary-color);
 	color: var(--primary-color);
-	box-shadow:  0 4px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.edit-btn:hover {
+.edit-btn:hover,
+.update-status-btn:hover {
 	background-color: #7ab9d4;
-	box-shadow:  0 6px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .delete-btn {
@@ -768,7 +772,7 @@ a.border-btn:active {
 .delete-btn:hover {
 	background-color: #DC143C;
 	color: #fff;
-	box-shadow:  0 6px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /**** Admin Filter Buttons  ****/
@@ -777,12 +781,12 @@ a.border-btn:active {
 	background-color: var(--secondary-color);
 	padding: 0.8rem 2.4rem;
 	font-size: 1.8rem;
-	box-shadow:  0 4px 6px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn:hover {
 	background-color: #7ab9d4;
-	box-shadow:  0 6px 8px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
 }
 
 /**** Entity Form Button  ****/
