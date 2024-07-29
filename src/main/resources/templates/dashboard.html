@@ -12,6 +12,7 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script src="https://kit.fontawesome.com/aaae10360c.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="body--grid">
@@ -21,25 +22,42 @@
 		</a>
 		<div class="nav-box">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/schools/}">Manage School</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/schools/}">
+						<i class="fa-solid fa-school"></i>
+						<span>Manage School</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/dashboard/}">View Service
-						Events</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/admin-profile/}">Edit
-						Account</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/admin-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Account</span>
+					</a>
 				</li>
-				
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Student')" class="nav-link" th:href="@{/dashboard/add}">Log New
-						Service</a>
+
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/add}">
+						<i class="fa-solid fa-plus"></i>
+						<span>Log New Service</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Student')" class="nav-link" th:href="@{/student-profile/}">Edit
-						Profile</a>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
+				</li>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/student-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Profile</span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -108,10 +126,12 @@
 
 	<main class="main-content">
 		<div class="list-box">
+			<div sec:authorize="hasAuthority('Student')" class="create-new">
+				<a th:href="@{/dashboard/add}" class="btn btn-primary">Log New Service</a>
+			</div>
 			<th:block th:each="serviceEvent : ${serviceEvent}">
 				<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="item-link">
-					<div class="item-row"
-						onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
+					<div class="item-row" onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
 						<div class="item-info">
 							<label class="item-name">[[${serviceEvent.serviceTitle}]]</label>
 						</div>

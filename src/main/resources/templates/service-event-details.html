@@ -14,6 +14,7 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script src="https://kit.fontawesome.com/aaae10360c.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="body--grid">
@@ -23,25 +24,42 @@
 		</a>
 		<div class="nav-box">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/schools/}">Manage School</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/schools/}">
+						<i class="fa-solid fa-school"></i>
+						<span>Manage School</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/dashboard/}">View Service
-						Events</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/admin-profile/}">Edit
-						Account</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/admin-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Account</span>
+					</a>
 				</li>
-				
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Student')" class="nav-link" th:href="@{/dashboard/add}">Log New
-						Service</a>
+
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/add}">
+						<i class="fa-solid fa-plus"></i>
+						<span>Log New Service</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Student')" class="nav-link" th:href="@{/student-profile/}">Edit
-						Profile</a>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
+				</li>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/student-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Profile</span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -82,22 +100,34 @@
 			<!-- Date, Location, hours served -->
 			<div class="item item-column1-row3">
 				<div class="content">
-					<p class="side-by-side event-details"
-						th:text="${'Date of Service: ' + serviceDetails.dateOfService}">
-						Date of Service: 1/1/2024
-					</p>
-					<p class="side-by-side event-details" th:text="${serviceDetails.city+', '+ serviceDetails.state}">
-						Mentor, Ohio
-					</p>
-					<p class="side-by-side event-details" th:text="${serviceDetails.hoursServed} + ' hours served'">
-						2 hours served
-					</p>
+					<div class="icon-text-pair">
+						<i class="fa-regular fa-calendar"></i>
+						<p class="side-by-side event-details" th:text="${'Completed: ' + serviceDetails.dateOfService}">
+							Completed: 1/1/2024
+						</p>
+					</div>
+					<div class="icon-text-pair">
+						<i class="fa-solid fa-location-dot"></i>
+						<p class="side-by-side event-details"
+							th:text="${serviceDetails.city+', '+ serviceDetails.state}">
+							Mentor, Ohio
+						</p>
+					</div>
+					<div class="icon-text-pair">
+						<i class="fa-solid fa-clock"></i>
+						<p class="side-by-side event-details" th:text="${serviceDetails.hoursServed} + ' hours served'">
+							2 hours served
+						</p>
+					</div>
 				</div>
 			</div>
 			<!-- Description -->
 			<div class="item item-column2">
 				<div class="content">
-					<label class="heading-description"> Description </label>
+					<div class="icon-text-pair">
+						<i class="fa-regular fa-newspaper"></i>
+						<label class="heading-description"> Description </label>
+					</div>
 					<div class="description-content" th:utext="${serviceDetails.descriptionOfEvent}"></div>
 				</div>
 			</div>

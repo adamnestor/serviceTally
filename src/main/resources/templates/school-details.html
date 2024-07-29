@@ -11,6 +11,7 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script src="https://kit.fontawesome.com/aaae10360c.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="body--grid">
@@ -20,16 +21,23 @@
 		</a>
 		<div class="nav-box">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/schools/}">Manage School</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/schools/}">
+						<i class="fa-solid fa-school"></i>
+						<span>Manage School</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/dashboard/}">View Service
-						Events</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
 				</li>
-				<li class="nav-item">
-					<a sec:authorize="hasAuthority('Admin')" class="nav-link" th:href="@{/admin-profile/}">Edit
-						Account</a>
+				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
+					<a class="nav-link" th:href="@{/admin-profile/}">
+						<i class="fa-solid fa-user-pen"></i>
+						<span>Edit Account</span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -49,36 +57,44 @@
 	</section>
 
 	<main class="main-content">
-		 <div class="school-grid-container">
-        <!-- Section 1: School Name -->
-        <div class="school-item school-item-row1">
-            <h4 th:text="${school.schoolName}">Somewhere High School</h4>
-        </div>
+		<div class="school-grid-container">
+			<!-- Section 1: School Name -->
+			<div class="school-item school-item-row1">
+				<h4 th:text="${school.schoolName}">Somewhere High School</h4>
+			</div>
 
-        <!-- Section 2: Location and Hours Required -->
-        <div class="school-item school-item-row2">
-            <div class="content">
-                <p th:text="${school.city + ', ' + school.state}">Mentor, Ohio</p>
-                <p th:text="${school.hoursRequired + ' hours required'}">40 hours required</p>
-            </div>
-        </div>
+			<!-- Section 2: Location and Hours Required -->
+			<div class="school-item school-item-row2">
+				<div class="content">
+					<div class="icon-text-pair">
+						<i class="fa-solid fa-location-dot"></i>
+						<p th:text="${school.city + ', ' + school.state}">Mentor, Ohio</p>
+					</div>
+					<div class="icon-text-pair">
+						<i class="fa-solid fa-clock"></i>
+						<p th:text="${school.hoursRequired + ' hours required'}">40 hours required</p>
+					</div>
+				</div>
+			</div>
 
-        <!-- Section 3: Edit and Delete Buttons -->
-        <div class="school-item school-item-row3">
-            <div class="action-btns">
-                <div class="side-by-side">
-                    <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
-                        <button class="formbtn edit-btn" type="submit">Edit School</button>
-                    </form>
-                </div>
-                <div class="side-by-side">
-                    <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
-                        <button class="formbtn delete-btn" type="submit">Delete School</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+			<!-- Section 3: Edit and Delete Buttons -->
+			<div class="school-item school-item-row3">
+				<div class="action-btns">
+					<div class="side-by-side">
+						<form sec:authorize="hasAuthority('Admin')"
+							th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
+							<button class="formbtn edit-btn" type="submit">Edit School</button>
+						</form>
+					</div>
+					<div class="side-by-side">
+						<form sec:authorize="hasAuthority('Admin')"
+							th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
+							<button class="formbtn delete-btn" type="submit">Delete School</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</main>
 </body>
 
