@@ -45,7 +45,6 @@ body {
 	grid-template-areas: "nav nav" "side welcome" "side main";
 	grid-template-columns: 25% 1fr;
 	grid-template-rows: auto auto 1fr;
-	gap: 1rem;
 	margin: 0;
 	height: 100vh;
 }
@@ -205,6 +204,9 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	
+	background-color: var(--primary-color);
+	color: var(--background-color);
 }
 
 .navbar .img-logo {
@@ -684,7 +686,7 @@ body {
 .nav-link:visited {
 	display: inline-block;
 	text-decoration: none;
-	color: var(--text-color);
+	color: var(--background-color);
 	font-weight: 500;
 	font-size: 2rem;
 	transition: all 0.3s;
@@ -692,6 +694,11 @@ body {
 
 .nav-link:hover,
 .nav-link:active {
+	color: var(--accent-color);
+}
+
+.sign-in-btn:link,
+.sign-in-btn:visited {
 	color: var(--accent-color);
 }
 
