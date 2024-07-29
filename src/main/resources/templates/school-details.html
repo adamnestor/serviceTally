@@ -16,7 +16,7 @@
 <body class="body--grid">
 	<header class="navbar">
 		<a href="/dashboard/" th:href="@{/dashboard/}">
-			<img class="img-logo" src="/assets/Logo5.png" alt="ServiceTally Logo" th:src="@{/assets/Logo5.png}" />
+			<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-white.png}" />
 		</a>
 		<div class="nav-box">
 			<ul class="navbar-nav">
@@ -68,12 +68,12 @@
             <div class="action-btns">
                 <div class="side-by-side">
                     <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
-                        <button class="formbtn" type="submit">Edit School</button>
+                        <button class="formbtn edit-btn" type="submit">Edit School</button>
                     </form>
                 </div>
                 <div class="side-by-side">
                     <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
-                        <button class="formbtn" type="submit">Delete School</button>
+                        <button class="formbtn delete-btn" type="submit">Delete School</button>
                     </form>
                 </div>
             </div>

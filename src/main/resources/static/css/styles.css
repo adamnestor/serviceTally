@@ -45,7 +45,6 @@ body {
 	grid-template-areas: "nav nav" "side welcome" "side main";
 	grid-template-columns: 25% 1fr;
 	grid-template-rows: auto auto 1fr;
-	gap: 1rem;
 	margin: 0;
 	height: 100vh;
 }
@@ -205,6 +204,9 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	background-color: var(--primary-color);
+	color: var(--background-color);
 }
 
 .navbar .img-logo {
@@ -285,7 +287,7 @@ body {
 .filter-btn-box {
 	display: flex;
 	justify-content: center;
-	gap: 1rem;
+	gap: 2.4rem;
 	margin: 1rem 0;
 }
 
@@ -408,7 +410,7 @@ body {
 
 .item {
 	padding: 20px;
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--text-color);
 	background-color: #f9f9f9;
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -492,7 +494,7 @@ body {
 
 .school-item {
 	padding: 20px;
-	border: 1px solid var(--secondary-color);
+	border: 1px solid var(--text-color);
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -538,15 +540,17 @@ body {
 }
 
 .status-submitted {
-	background-color: #6ca5bc;
+	background-color: var(--text-color);
+	color: var(--background-color);
 }
 
 .status-modify {
 	background-color: var(--highlight-color);
+	color: #343A40;
 }
 
 .status-approved {
-	background-color: var(--accent-color);
+	background-color: #208637;
 }
 
 
@@ -649,6 +653,7 @@ body {
 	font-weight: 600;
 	padding: 1.6rem 3.2rem;
 	border-radius: 150px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 	transition: background-color 0.3s;
 }
@@ -656,6 +661,7 @@ body {
 .btn:hover,
 .btn:active {
 	background-color: #24963e;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /**** Auth - Register Button ****/
@@ -668,14 +674,18 @@ body {
 .back-btn:link,
 .back-btn:visited {
 	background-color: var(--secondary-color);
-	color: black;
+	color: var(--primary-color);
+	border: solid 2px var(--background-color);
+	padding: 1.6rem 3.6rem;
 	text-align: center;
 	width: 75%;
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
 .back-btn:hover,
 .back-btn:active {
 	background-color: #7ab9d4;
+	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
 }
 
 /**** Auth - Sign-In Links   ****/
@@ -684,7 +694,7 @@ body {
 .nav-link:visited {
 	display: inline-block;
 	text-decoration: none;
-	color: var(--text-color);
+	color: var(--background-color);
 	font-weight: 500;
 	font-size: 2rem;
 	transition: all 0.3s;
@@ -692,6 +702,11 @@ body {
 
 .nav-link:hover,
 .nav-link:active {
+	color: var(--accent-color);
+}
+
+.sign-in-btn:link,
+.sign-in-btn:visited {
 	color: var(--accent-color);
 }
 
@@ -729,21 +744,51 @@ a.border-btn:active {
 	border-radius: 150px;
 	cursor: pointer;
 	margin-bottom: 2rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .formbtn:hover {
 	background-color: #24963e;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-btn,
+.update-status-btn {
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn:hover,
+.update-status-btn:hover {
+	background-color: #7ab9d4;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn {
+	background-color: transparent;
+	color: #DC143C;
+	box-shadow: inset 0 0 0 3px #DC143C;
+}
+
+.delete-btn:hover {
+	background-color: #DC143C;
+	color: #fff;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 /**** Admin Filter Buttons  ****/
 
 .filter-btn {
 	background-color: var(--secondary-color);
-	padding: 1.2rem 2.4rem;
+	padding: 0.8rem 3.2rem;
+	font-size: 1.8rem;
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
 .filter-btn:hover {
 	background-color: #7ab9d4;
+	box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
 }
 
 /**** Entity Form Button  ****/
