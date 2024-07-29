@@ -540,15 +540,17 @@ body {
 }
 
 .status-submitted {
-	background-color: #6ca5bc;
+	background-color: var(--text-color);
+	color: var(--background-color);
 }
 
 .status-modify {
 	background-color: var(--highlight-color);
+	color: #343A40;
 }
 
 .status-approved {
-	background-color: var(--accent-color);
+	background-color: #208637;
 }
 
 
@@ -779,7 +781,7 @@ a.border-btn:active {
 
 .filter-btn {
 	background-color: var(--secondary-color);
-	padding: 0.8rem 2.4rem;
+	padding: 0.8rem 3.2rem;
 	font-size: 1.8rem;
 	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
