@@ -68,12 +68,12 @@
             <div class="action-btns">
                 <div class="side-by-side">
                     <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/edit/{id}(id=${school.schoolId})}" method="get">
-                        <button class="formbtn" type="submit">Edit School</button>
+                        <button class="formbtn edit-btn" type="submit">Edit School</button>
                     </form>
                 </div>
                 <div class="side-by-side">
                     <form sec:authorize="hasAuthority('Admin')" th:action="@{/schools/delete/{id}(id=${school.schoolId})}" method="post">
-                        <button class="formbtn" type="submit">Delete School</button>
+                        <button class="formbtn delete-btn" type="submit">Delete School</button>
                     </form>
                 </div>
             </div>

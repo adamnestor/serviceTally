@@ -742,6 +742,17 @@ a.border-btn:active {
 	background-color: #24963e;
 }
 
+.delete-btn {
+	background-color: transparent;
+	color: #DC143C;
+	box-shadow: inset 0 0 0 3px #DC143C;
+}
+
+.delete-btn:hover {
+	background-color: #DC143C;
+	color: #fff;
+}
+
 /**** Admin Filter Buttons  ****/
 
 .filter-btn {
