@@ -50,6 +50,12 @@
 					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
+				</li>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
 					<a class="nav-link" th:href="@{/student-profile/}">
 						<i class="fa-solid fa-user-pen"></i>
 						<span>Edit Profile</span>

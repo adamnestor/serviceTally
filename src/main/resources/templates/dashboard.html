@@ -48,6 +48,12 @@
 					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Student')" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard/}">
+						<i class="fa-solid fa-list-ul"></i>
+						<span>View Service Events</span>
+					</a>
+				</li>
+				<li sec:authorize="hasAuthority('Student')" class="nav-item">
 					<a class="nav-link" th:href="@{/student-profile/}">
 						<i class="fa-solid fa-user-pen"></i>
 						<span>Edit Profile</span>
@@ -120,6 +126,9 @@
 
 	<main class="main-content">
 		<div class="list-box">
+			<div sec:authorize="hasAuthority('Student')" class="create-new">
+				<a th:href="@{/dashboard/add}" class="btn btn-primary">Log New Service</a>
+			</div>
 			<th:block th:each="serviceEvent : ${serviceEvent}">
 				<a th:href="@{/service-details/{id}(id=${serviceEvent.eventId})}" class="item-link">
 					<div class="item-row" onclick="window.location='/service-details/{id}(id=${serviceEvent.eventId})'">
