@@ -92,9 +92,13 @@
 			<!-- Completed by -->
 			<div class="item item-column1-row2">
 				<div class="content">
-					<h4 class="side-by-side" th:text="${postedByProfile.firstName+' '+postedByProfile.lastName}">
-						Service completed by: Adam Nestor
-					</h4>
+					<div class="icon-text-pair">
+						<img class="rounded-circle" th:if="${postedByProfile.photosImagePath!=null}"
+							th:src="@{${postedByProfile?.photosImagePath}}" />
+						<h4 class="side-by-side" th:text="${postedByProfile.firstName+' '+postedByProfile.lastName}">
+							Service completed by: Adam Nestor
+						</h4>
+					</div>
 				</div>
 			</div>
 			<!-- Date, Location, hours served -->
