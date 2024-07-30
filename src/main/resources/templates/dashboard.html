@@ -112,6 +112,16 @@
 			}
 		</script>
 
+		<div class="progress-box" sec:authorize="hasAuthority('Student')">
+			<h2 class="heading-secondary">My Progress</h2>
+			<div class="this-out-of-that" th:text="${serviceHoursDto.totalHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
+			<div class="progress">
+				<div th:style="'width:' + ${serviceHoursDto.totalHours / serviceHoursDto.requiredHours * 100} + '%'"
+					class="progress-bar">
+				</div>
+			</div>
+		</div>
+
 	</section>
 
 	<div class="welcome-message">

@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.coderscampus.servicetally.domain.IStudentServiceEvents;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
+import com.coderscampus.servicetally.domain.Users;
 
 public interface ServiceEventActivityRepository extends JpaRepository<ServiceEventActivity, Integer> {
 
@@ -72,5 +73,9 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sea.status = :status "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
 	List<IStudentServiceEvents> findServiceEventsByStatus(@Param("status") String status);
+
+	
+	@Query("SELECT SUM(sea.hoursServed) FROM ServiceEventActivity sea WHERE sea.postedById = :userId")
+	Integer findTotalHoursByStudentId(@Param("userId") Users user);
 
 }
