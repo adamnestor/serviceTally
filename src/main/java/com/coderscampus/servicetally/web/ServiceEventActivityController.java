@@ -20,11 +20,13 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
 import com.coderscampus.servicetally.domain.ServiceEventActivity;
 import com.coderscampus.servicetally.domain.ServiceEventStatus;
+import com.coderscampus.servicetally.domain.ServiceHoursDto;
 import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.domain.StudentServiceEventsDto;
 import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.service.SchoolService;
 import com.coderscampus.servicetally.service.ServiceEventActivityService;
+import com.coderscampus.servicetally.service.ServiceHoursService;
 import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
@@ -34,14 +36,16 @@ public class ServiceEventActivityController {
 	private final UsersService usersService;
 	private final ServiceEventActivityService serviceEventActivityService;
 	private final StudentProfileService studentProfileService;
+	private final ServiceHoursService serviceHoursService;
 
 	@Autowired
 	public ServiceEventActivityController(UsersService usersService,
 			ServiceEventActivityService serviceEventActivityService, SchoolService schoolService,
-			StudentProfileService studentProfileService) {
+			StudentProfileService studentProfileService, ServiceHoursService serviceHoursService) {
 		this.usersService = usersService;
 		this.serviceEventActivityService = serviceEventActivityService;
 		this.studentProfileService = studentProfileService;
+		this.serviceHoursService = serviceHoursService;
 	}
 
 	@GetMapping("/dashboard/")
@@ -64,6 +68,10 @@ public class ServiceEventActivityController {
 				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
+				
+				int studentId = ((StudentProfile) currentUserProfile).getUserAccountId();
+				ServiceHoursDto serviceHoursDto = serviceHoursService.getServiceHoursProgress(studentId);
+				model.addAttribute("serviceHoursDto", serviceHoursDto);
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
 
 				// Create list of school ids managed by current admin profile
