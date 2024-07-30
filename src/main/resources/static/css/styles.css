@@ -295,9 +295,21 @@ body {
 }
 
 /**** Progress Widget ****/
+.progress-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.progress-box .heading-secondary,
+.this-out-of-that {
+	margin-bottom: 1rem;
+	color: var(--background-color);
+}
+
 .progress {
 	width: 100%;
-	background-color: #e0e0e0;
+	background-color: var(--background-color);
 	border-radius: 13px;
 	overflow: hidden;
 	margin-bottom: 1rem;
@@ -308,7 +320,6 @@ body {
 	background-color: var(--accent-color);
 	text-align: center;
 	line-height: 2rem;
-	color: #fff;
 	width: 0%;
 	transition: width 0.5s;
 }
