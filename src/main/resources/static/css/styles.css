@@ -324,6 +324,10 @@ body {
 	transition: width 0.5s;
 }
 
+.progress .submitted-hours {
+	background-color: var(--secondary-color);
+}
+
 /**************************/
 /* WELCOME MESSAGE        */
 /**************************/

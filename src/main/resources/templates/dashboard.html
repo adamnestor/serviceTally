@@ -120,7 +120,7 @@
 					th:text="${serviceHoursDto.submittedHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
 				<div class="progress">
 					<div th:style="'width:' + ${serviceHoursDto.submittedHours / serviceHoursDto.requiredHours * 100} + '%'"
-						class="progress-bar">
+						class="progress-bar submitted-hours">
 					</div>
 				</div>
 			</div>
@@ -130,7 +130,7 @@
 					th:text="${serviceHoursDto.approvedHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
 				<div class="progress">
 					<div th:style="'width:' + ${serviceHoursDto.approvedHours / serviceHoursDto.requiredHours * 100} + '%'"
-						class="progress-bar">
+						class="progress-bar approved-hours">
 					</div>
 				</div>
 			</div>
