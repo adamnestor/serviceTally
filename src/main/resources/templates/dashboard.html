@@ -114,10 +114,24 @@
 
 		<div class="progress-box" sec:authorize="hasAuthority('Student')">
 			<h2 class="heading-secondary">My Progress</h2>
-			<div class="this-out-of-that" th:text="${serviceHoursDto.totalHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
-			<div class="progress">
-				<div th:style="'width:' + ${serviceHoursDto.totalHours / serviceHoursDto.requiredHours * 100} + '%'"
-					class="progress-bar">
+			<div class="submitted-hours">
+				<h3>Submitted Hours</h3>
+				<div class="this-out-of-that"
+					th:text="${serviceHoursDto.submittedHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
+				<div class="progress">
+					<div th:style="'width:' + ${serviceHoursDto.submittedHours / serviceHoursDto.requiredHours * 100} + '%'"
+						class="progress-bar">
+					</div>
+				</div>
+			</div>
+			<div class="approved-hours">
+				<h3>Approved Hours</h3>
+				<div class="this-out-of-that"
+					th:text="${serviceHoursDto.approvedHours} + ' / ' + ${serviceHoursDto.requiredHours} + ' hours'"></div>
+				<div class="progress">
+					<div th:style="'width:' + ${serviceHoursDto.approvedHours / serviceHoursDto.requiredHours * 100} + '%'"
+						class="progress-bar">
+					</div>
 				</div>
 			</div>
 		</div>
