@@ -294,6 +294,25 @@ body {
 	margin: 1rem 0;
 }
 
+/**** Progress Widget ****/
+.progress {
+	width: 100%;
+	background-color: #e0e0e0;
+	border-radius: 13px;
+	overflow: hidden;
+	margin-bottom: 1rem;
+}
+
+.progress-bar {
+	height: 2rem;
+	background-color: var(--accent-color);
+	text-align: center;
+	line-height: 2rem;
+	color: #fff;
+	width: 0%;
+	transition: width 0.5s;
+}
+
 /**************************/
 /* WELCOME MESSAGE        */
 /**************************/
@@ -818,5 +837,5 @@ a.border-btn:active {
 }
 
 /**********************/
-/*  ICONS             */
+/*               */
 /**********************/
