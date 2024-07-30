@@ -308,24 +308,31 @@ body {
 }
 
 .progress {
+	position: relative;
 	width: 100%;
 	background-color: var(--background-color);
 	border-radius: 13px;
 	overflow: hidden;
 	margin-bottom: 1rem;
+	height: 2rem;
 }
 
 .progress-bar {
-	height: 2rem;
-	background-color: var(--accent-color);
+	position: absolute;
+	height: 100%;
 	text-align: center;
 	line-height: 2rem;
-	width: 0%;
 	transition: width 0.5s;
 }
 
 .progress .submitted-hours {
 	background-color: var(--secondary-color);
+	z-index: 1;
+}
+
+.progress .approved-hours {
+	background-color: var(--accent-color);
+	z-index: 2;
 }
 
 .temp-class{
