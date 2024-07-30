@@ -25,12 +25,20 @@ public class ServiceHoursService {
 		this.usersRepo = usersRepo;
 	}
 
-	public float getTotalServiceHours(int studentId) {
+	public float getTotalSubmittedServiceHours(int studentId) {
 		StudentProfile studentProfile = studentProfileRepo.findById(studentId)
 				.orElseThrow(() -> new RuntimeException("Student not found"));
 		Users user = usersRepo.findById(studentProfile.getUserAccountId())
 				.orElseThrow(() -> new RuntimeException("User not found"));
 		return serviceEventActivityRepo.findTotalHoursByStudentId(user);
+	}
+
+	public float getTotalApprovedServiceHours(int studentId) {
+		StudentProfile studentProfile = studentProfileRepo.findById(studentId)
+				.orElseThrow(() -> new RuntimeException("Student not found"));
+		Users user = usersRepo.findById(studentProfile.getUserAccountId())
+				.orElseThrow(() -> new RuntimeException("User not found"));
+		return serviceEventActivityRepo.findTotalHoursByStudentIdAndStatusApproved(user);
 	}
 
 	public float getRequiredServiceHours(int studentId) {
@@ -40,9 +48,10 @@ public class ServiceHoursService {
 	}
 
 	public ServiceHoursDto getServiceHoursProgress(int studentId) {
-		float totalHours = getTotalServiceHours(studentId);
+		float submittedHours = getTotalSubmittedServiceHours(studentId);
+		float approvedHours = getTotalApprovedServiceHours(studentId);
 		float requiredHours = getRequiredServiceHours(studentId);
-		return new ServiceHoursDto(totalHours, requiredHours);
+		return new ServiceHoursDto(submittedHours, approvedHours, requiredHours);
 	}
 
 }

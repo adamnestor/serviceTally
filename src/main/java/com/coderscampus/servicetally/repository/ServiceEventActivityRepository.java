@@ -74,8 +74,11 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 			+ "GROUP BY sea.event_id", nativeQuery = true)
 	List<IStudentServiceEvents> findServiceEventsByStatus(@Param("status") String status);
 
-	
+	// Queries for progress widget on student dashboard
 	@Query("SELECT SUM(sea.hoursServed) FROM ServiceEventActivity sea WHERE sea.postedById = :userId")
 	Integer findTotalHoursByStudentId(@Param("userId") Users user);
+
+	@Query("SELECT SUM(sea.hoursServed) FROM ServiceEventActivity sea WHERE sea.postedById = :userId AND sea.status = 'APPROVED'")
+	Integer findTotalHoursByStudentIdAndStatusApproved(@Param("userId") Users user);
 
 }
