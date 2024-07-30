@@ -313,7 +313,7 @@ body {
 	background-color: var(--background-color);
 	border-radius: 13px;
 	overflow: hidden;
-	margin-bottom: 1rem;
+	margin-bottom: 1.6rem;
 	height: 2rem;
 }
 
@@ -337,6 +337,14 @@ body {
 
 .temp-class{
 	margin-bottom: 1.4rem;
+}
+
+.submitted-text {
+	color: var(--secondary-color);
+}
+
+.approved-text {
+	color: var(--accent-color);
 }
 
 /**************************/
