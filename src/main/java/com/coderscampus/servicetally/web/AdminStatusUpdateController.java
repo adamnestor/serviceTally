@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,7 @@ public class AdminStatusUpdateController {
 	}
 
 	@GetMapping("service-details/{id}")
+	@PreAuthorize("@serviceEventSecurityService.hasAccessToEvent(#id)")
 	public String display(@PathVariable("id") int id, Model model) {
 		Object currentUserProfile = usersService.getCurrentUserProfile();
 		ServiceEventActivity serviceDetails = serviceEventActivityService.getOne(id);
