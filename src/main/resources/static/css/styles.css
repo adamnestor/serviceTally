@@ -302,8 +302,8 @@ body {
 }
 
 .progress-box .heading-secondary,
-.this-out-of-that {
-	margin-bottom: 1rem;
+.progress-text {
+	margin-bottom: 1.4rem;
 	color: var(--background-color);
 }
 
@@ -322,6 +322,14 @@ body {
 	line-height: 2rem;
 	width: 0%;
 	transition: width 0.5s;
+}
+
+.progress .submitted-hours {
+	background-color: var(--secondary-color);
+}
+
+.temp-class{
+	margin-bottom: 1.4rem;
 }
 
 /**************************/

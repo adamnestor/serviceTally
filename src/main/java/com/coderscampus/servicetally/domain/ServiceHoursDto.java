@@ -2,28 +2,34 @@ package com.coderscampus.servicetally.domain;
 
 public class ServiceHoursDto {
 
-	private float totalHours;
+	private float submittedHours;
+	private float approvedHours;
 	private float requiredHours;
 	
-	public ServiceHoursDto(float totalHours, float requiredHours) {
-		this.totalHours = totalHours;
+	public ServiceHoursDto(float submittedHours, float approvedHours, float requiredHours) {
+		this.submittedHours = submittedHours;
+		this.approvedHours = approvedHours;
 		this.requiredHours = requiredHours;
 	}
-
-	public float getTotalHours() {
-		return totalHours;
+	public float getSubmittedHours() {
+		return submittedHours;
 	}
-
-	public void setTotalHours(float totalHours) {
-		this.totalHours = totalHours;
+	public void setSubmittedHours(float submittedHours) {
+		this.submittedHours = submittedHours;
 	}
-
+	public float getApprovedHours() {
+		return approvedHours;
+	}
+	public void setApprovedHours(float approvedHours) {
+		this.approvedHours = approvedHours;
+	}
 	public float getRequiredHours() {
 		return requiredHours;
 	}
-
 	public void setRequiredHours(float requiredHours) {
 		this.requiredHours = requiredHours;
 	}
+	
+	
 	
 }
