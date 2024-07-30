@@ -315,6 +315,7 @@ body {
 	overflow: hidden;
 	margin-bottom: 1.6rem;
 	height: 2rem;
+	box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .progress-bar {
@@ -337,6 +338,7 @@ body {
 
 .temp-class{
 	margin-bottom: 1.4rem;
+	font-weight: 500;
 }
 
 .submitted-text {
