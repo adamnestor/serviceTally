@@ -465,7 +465,6 @@ body {
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
 	padding: 1rem;
-	height: auto;
 }
 
 .item {
@@ -550,7 +549,6 @@ body {
 	grid-template-columns: 1fr;
 	gap: 20px;
 	padding: 20px;
-	height: auto;
 }
 
 .school-item {
@@ -635,9 +633,8 @@ body {
 .grid-entity-form {
 	display: grid;
 	grid-template-columns: 25% 1fr;
-	gap: 1rem;
 	margin: 0;
-	height: auto;
+	height: 100vh;
 }
 
 /*****************************/
