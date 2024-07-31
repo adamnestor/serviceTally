@@ -28,3 +28,11 @@ User authentication is built into the system, ensuring secure registration, logi
 ### Common
 - Register for a new Account
 - Login / Logout
+
+![drawSQL-image-export-2024-06-18 (1)](https://github.com/user-attachments/assets/9e9c5786-464c-4280-b3fb-6aadd8e3849b)
+
+![User Registration (3)](https://github.com/user-attachments/assets/4c8f8712-aad3-4da5-92fd-11e66806ad4c)
+
+
+
+
