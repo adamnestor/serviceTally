@@ -22,7 +22,7 @@ User authentication is built into the system, ensuring secure registration, logi
 - Edit School Profile & Requirements
 - Search Students by Name / Graduation Year
 - View a Student’s Service Events
-- Edit Service Event Approval Status (Submitted, Needs Attention, Approved)
+- Edit Service Event Approval Status (Submitted, Modify, Approved)
 - Edit Admin Profile and Upload Profile Photo
 
 ### Common
