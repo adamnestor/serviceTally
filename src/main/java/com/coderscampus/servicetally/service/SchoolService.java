@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.School;
-import com.coderscampus.servicetally.domain.Users;
 import com.coderscampus.servicetally.repository.SchoolRepository;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class SchoolService {
