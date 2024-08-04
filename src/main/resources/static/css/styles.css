@@ -408,7 +408,7 @@ body {
 }
 
 .footer-links a {
-	color: var(--secondary-color);
+	color: var(--background-color);
 	text-decoration: none;
 	font-size: 1.6rem;
 }
@@ -428,7 +428,7 @@ body {
 
 .footer-contact-links {
 	padding-left: 1rem;
-	color: var(--secondary-color);
+	color: var(--background-color);
 	text-decoration: none;
 	font-size: 1.6rem;
 }
@@ -436,7 +436,7 @@ body {
 .footer-contact .fa-envelope,
 .footer-contact .fa-linkedin,
 .footer-contact .fa-github {
-	color: var(--secondary-color);
+	color: var(--background-color);
 }
 
 /**************************/
