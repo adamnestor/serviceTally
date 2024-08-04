@@ -11,19 +11,20 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script src="https://kit.fontawesome.com/aaae10360c.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="index-page">
-	<header class="header">
-		<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}" />
-		<nav class="main-nav">
-			<ul class="main-nav-list">
-				<li><a class="nav-link border-btn sign-in-btn" th:href="@{/login}">Sign-In</a></li>
-				<li><a class="btn" th:href="@{/register}">Register</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
+<body>
+	<div class="background-container">
+		<header class="header">
+			<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}" />
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li><a class="nav-link border-btn sign-in-btn" th:href="@{/login}">Sign-In</a></li>
+					<li><a class="btn" th:href="@{/register}">Register</a></li>
+				</ul>
+			</nav>
+		</header>
 		<section class="section-hero">
 			<div class="hero">
 				<div class="hero-text-box">
@@ -42,8 +43,130 @@
 						th:src="@{/assets/foodbank teens.webp}" />
 				</div>
 			</div>
+			<div class="custom-shape-divider-bottom-1722801579">
+				<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+					preserveAspectRatio="none">
+					<path
+						d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+						class="shape-fill"></path>
+				</svg>
+			</div>
+		</section>
+	</div>
+	<main>
+		<section class="section-features">
+			<div class="features">
+				<h2 class="heading-secondary features-primary-text">Features</h2>
+				<div class="feature-cards">
+					<div class="feature-card">
+						<div class="icon-text-pair">
+							<i class="fa-solid fa-user-pen"></i>
+							<h3 class="feature-title">Easy Control</h3>
+						</div>
+						<p class="feature-description">Students can effortlessly post and manage their service hours,
+							ensuring they always have up-to-date information</p>
+					</div>
+					<div class="feature-card">
+						<div class="icon-text-pair">
+							<i class="fa-regular fa-square-check"></i>
+							<h3 class="feature-title">Efficient Approval</h3>
+						</div>
+						<p class="feature-description">Administrators can easily manage and approve service events with
+							a transparent workflow, including status updates like "Submitted", "Modify", and "Approved."
+						</p>
+					</div>
+					<div class="feature-card">
+						<div class="icon-text-pair">
+							<i class="fa-solid fa-magnifying-glass"></i>
+							<h3 class="feature-title">Advanced Search</h3>
+						</div>
+						<p class="feature-description">Administrators can search for service hours by student name,
+							school (if admin runs multiple schools), or the status of the service hours. Or, an overview
+							of a graduating class.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section-how-it-works">
+			<h2 class="heading-secondary how-it-works-primary-text"> How It Works</h2>
+			<p>Follow these simple steps to get started</p>
+			<!--Step One-->
+			<div class="step">
+				<div class="text">
+					<h3>Admin Sign-Up and Set-Up</h3>
+					<p>Admin creates an account and establishes at least one high school profile</p>
+				</div>
+				<div class="image">
+					<img class="step-img" alt="Screenshot of " th:src="@{/assets/step1.png}">
+				</div>
+			</div>
+			<!--Step Two-->
+			<div class="step">
+				<div class="image">
+					<img class="step-img" alt="Screenshot of " th:src="@{/assets/step2.png}">
+				</div>
+				<div class="text">
+					<h3>Student Registration and Participation</h3>
+					<p>Students sign up, select their high school, and begin logging service hours.</p>
+				</div>
+			</div>
+			<!--Step Three-->
+			<div class="step">
+				<div class="text">
+					<h3>Admin Review and Approval</h3>
+					<p>Admin reviews submitted hours and updates their status; either requesting further information or
+						approving the service hours.</p>
+				</div>
+				<div class="image">
+					<img class="step-img" alt="Screenshot of " th:src="@{/assets/step3.png}">
+				</div>
+			</div>
+			<!--Step Four-->
+			<div class="step">
+				<div class="image">
+					<img class="step-img" alt="Screenshot of " th:src="@{/assets/step4.png}">
+				</div>
+				<div class="text">
+					<h3>Ongoing Tracking and Reporting</h3>
+					<p>Students continue to add service events, monitor their progress, and view reports.</p>
+				</div>
+			</div>
+		</section>
+		<section class="cta-section">
+			<h2 class="cta-heading">What are you waiting for?</h2>
+			<a th:href="@{/register}" class="btn">Start Tracking Now!</a>
+			<p class="cta-text">If already registered, <a class="cta-link">Sign-In</a></p>
 		</section>
 	</main>
+	<footer class="footer-section">
+		<div class="footer-content">
+			<div class="footer-logo">
+				<img alt="ServiceTally Logo" th:src="@{/assets/logo-white.png}">
+			</div>
+			<div class="footer-about">
+				<h3>About the project</h3>
+				<p>ServiceTally was created as a final project to showcase my skills in web development and design</p>
+			</div>
+			<div class="footer-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="#features">Features</a></li>
+					<li><a href="#how-it-works">Features</a></li>
+					<li><a href="/register">Register</a></li>
+					<li><a href="/sign-in">Sign In</a></li>
+				</ul>
+			</div>
+			<div class="footer-contact">
+				<h3>Contact</h3>
+				<p>Email: <a>adam.nestor@gmail.com</a></p>
+				<p>LinkedIn: <a></a></p>
+				<p>GitHub</p>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 Built and Maintained by Adam Nestor. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>
