@@ -100,7 +100,7 @@ public class ServiceEventActivityController {
 				model.addAttribute("serviceEvent", filteredEvents);
 			}
 		}
-
+		
 		model.addAttribute("user", currentUserProfile);
 
 		return "dashboard";
