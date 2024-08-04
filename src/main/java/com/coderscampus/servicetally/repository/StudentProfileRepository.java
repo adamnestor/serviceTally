@@ -9,5 +9,5 @@ import com.coderscampus.servicetally.domain.StudentProfile;
 
 public interface StudentProfileRepository extends JpaRepository<StudentProfile, Integer> {
 
-	List<StudentProfile> findBySchoolIn(List<School> schools);
+	List<StudentProfile> findBySchoolInOrderByLastName(List<School> schools);
 }

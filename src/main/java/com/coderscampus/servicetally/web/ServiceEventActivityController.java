@@ -1,6 +1,7 @@
 package com.coderscampus.servicetally.web;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,7 +69,7 @@ public class ServiceEventActivityController {
 				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
 				model.addAttribute("serviceEvent", studentServiceEvents);
-				
+
 				int studentId = ((StudentProfile) currentUserProfile).getUserAccountId();
 				ServiceHoursDto serviceHoursDto = serviceHoursService.getServiceHoursProgress(studentId);
 				model.addAttribute("serviceHoursDto", serviceHoursDto);
@@ -76,12 +77,14 @@ public class ServiceEventActivityController {
 
 				// Create list of school ids managed by current admin profile
 				List<School> managedSchools = ((AdminProfile) currentUserProfile).getSchoolsManaged();
+				managedSchools.sort(Comparator.comparing(School::getSchoolName));
 				List<Integer> schoolIds = managedSchools.stream().map(School::getSchoolId).collect(Collectors.toList());
 				model.addAttribute("schools", managedSchools);
 
 				// Create a list of students who attend a school managed by the current admin
 				// profile
-				List<StudentProfile> studentsInManagedSchools = studentProfileService.findBySchoolIn(managedSchools);
+				List<StudentProfile> studentsInManagedSchools = studentProfileService
+						.findBySchoolInOrderByLastName(managedSchools);
 				model.addAttribute("students", studentsInManagedSchools);
 
 				// Define status options using enum
@@ -100,7 +103,7 @@ public class ServiceEventActivityController {
 				model.addAttribute("serviceEvent", filteredEvents);
 			}
 		}
-		
+
 		model.addAttribute("user", currentUserProfile);
 
 		return "dashboard";
