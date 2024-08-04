@@ -378,7 +378,7 @@ body {
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
-	padding: 2rem;
+	padding: 2rem 2rem 1rem 2rem;
 }
 
 .box {
@@ -415,7 +415,8 @@ body {
 	border-radius: 25px;
 	background-color: white;
 	padding: 2rem;
-	box-shadow: 0 0px 25px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0.15);
+	margin-top: 2rem;
 }
 
 .item-row {
@@ -629,8 +630,8 @@ body {
 }
 
 .status-submitted {
-	background-color: var(--text-color);
-	color: var(--background-color);
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
 .status-modify {
@@ -842,15 +843,15 @@ a.border-btn:active {
 
 .edit-btn,
 .update-status-btn {
-	background-color: var(--secondary-color);
-	color: var(--primary-color);
+	background-color: var(--text-color);
+	color: var(--background-color);
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .edit-btn:hover,
 .update-status-btn:hover {
-	background-color: #7ab9d4;
-	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+	background-color: #2f343a;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .delete-btn {
@@ -869,6 +870,8 @@ a.border-btn:active {
 
 .filter-btn {
 	background-color: var(--secondary-color);
+	border: solid 2px var(--background-color);
+	color: var(--primary-color);
 	padding: 0.8rem 3.2rem;
 	font-size: 1.8rem;
 	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
