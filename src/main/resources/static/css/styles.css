@@ -142,8 +142,10 @@ body {
 	margin-bottom: 4.8rem;
 }
 
-.hero-text-box {
-	background-color: var(--background-color);
+.hero-primary-text,
+.hero-description {
+	background-color: rgba(248, 249, 250, 0.8);
+
 }
 
 .hero-img-box {
@@ -155,6 +157,8 @@ body {
 	max-width: 100%;
 	justify-self: center;
 	border-radius: 74% 26% 67% 33% / 28% 73% 27% 72%;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
 }
 
 /**************************/
@@ -337,7 +341,7 @@ body {
 	z-index: 2;
 }
 
-.temp-class{
+.temp-class {
 	margin-bottom: 1.4rem;
 	font-weight: 500;
 }
@@ -580,14 +584,14 @@ body {
 	gap: 2rem;
 }
 
-.icon-text-pair{
+.icon-text-pair {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 	margin-bottom: 1rem;
 }
 
-.icon-text-pair:last-child{
+.icon-text-pair:last-child {
 	margin-bottom: 0;
 }
 
@@ -760,7 +764,7 @@ body {
 /**** Auth - Sign-In Links   ****/
 /**** Dashboard - Nav Links  ****/
 .nav-link:link,
-.nav-link:visited{
+.nav-link:visited {
 	display: inline-block;
 	text-decoration: none;
 	color: var(--background-color);
