@@ -271,7 +271,7 @@ body {
 }
 
 .step-img {
-	max-width: 100%;
+	max-width: 40rem;
 	height: auto;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -286,6 +286,7 @@ body {
 	padding: 4rem 2rem;
 	background-color: var(--background-color);
 	color: var(--text-color);
+	margin-bottom: 6.4rem;
 }
 
 .cta-heading {
