@@ -315,15 +315,24 @@ body {
 }
 
 /**** Progress Widget ****/
+.widget-heading {
+	padding-bottom: 2rem;
+}
+
+.student-school-name {
+	padding-bottom: 1.4rem;
+}
+
+
 .progress-box {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 2rem;
 }
 
-.progress-box .heading-secondary,
 .progress-text {
-	margin-bottom: 1.4rem;
+	margin-bottom: 1rem;
 	color: var(--background-color);
 }
 
@@ -357,7 +366,7 @@ body {
 }
 
 .temp-class {
-	margin-bottom: 1.4rem;
+	margin-bottom: 1rem;
 	font-weight: 500;
 }
 

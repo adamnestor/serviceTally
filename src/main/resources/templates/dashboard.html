@@ -112,8 +112,10 @@
 			}
 		</script>
 
+		<!--Progress Widget Student View-->
 		<div class="progress-box" sec:authorize="hasAuthority('Student')">
-			<h2 class="heading-secondary">My Progress</h2>
+			<h2 class="heading-secondary widget-heading">My Progress</h2>
+			<h4 class="student-school-name" th:text="${user.school.schoolName}"></h4>
 			<div class="temp-class">
 				
 				<div class="progress">
