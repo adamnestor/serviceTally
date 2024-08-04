@@ -193,7 +193,9 @@ body {
 }
 
 .features-primary-text {
-	font-size: 3rem;
+	font-size: 3.2rem;
+	font-weight: 600;
+	text-decoration: underline;
 	margin-bottom: 2rem;
 }
 
@@ -220,6 +222,61 @@ body {
 .feature-description {
 	font-size: 1.8rem;
 }
+
+/******************************/
+/* INDEX - HOW-TO SECTION     */
+/******************************/
+
+.section-how-it-works {
+	max-width: 120rem;
+	margin: 0 auto;
+	padding: 4rem;
+	text-align: center;
+	background-color: var(--background-color);
+}
+
+.section-how-it-works h2 {
+	font-size: 4.8rem;
+	font-weight: 600;
+	color: var(--primary-color);
+	margin-bottom: 2rem;
+}
+
+.section-how-it-works p {
+	font-size: 2rem;
+	color: var(--text-color);
+	margin-bottom: 4rem;
+}
+
+.step {
+	display: flex;
+	align-items: center;
+	margin-bottom: 4rem;
+	flex-wrap: wrap;
+}
+
+.step:nth-child(even) .text {
+	order: 2;
+}
+
+.step .text {
+	flex: 1;
+	padding: 2rem;
+}
+
+.step .image {
+	flex: 1;
+	padding: 2rem;
+	text-align: center;
+}
+
+.step-img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 
 /**************************/
 /* AUTHORIZATION FORMS    */
