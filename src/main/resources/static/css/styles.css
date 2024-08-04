@@ -176,6 +176,51 @@ body {
 	height: 13px;
 }
 
+/******************************/
+/* INDEX - FEATURES SECTION   */
+/******************************/
+
+.section-features {
+	margin-top: 6.8rem;
+	padding: 4rem;
+	background-color: var(--background-color);
+}
+
+.features {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.features-primary-text {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+
+.feature-cards {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.feature-card {
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	width: 30%;
+	margin: 1.5rem;
+	padding: 2rem;
+	text-align: center;
+}
+
+.feature-title {
+	font-size: 2.4rem;
+	margin-bottom: 1rem;
+}
+
+.feature-description {
+	font-size: 1.8rem;
+}
+
 /**************************/
 /* AUTHORIZATION FORMS    */
 /**************************/
