@@ -54,7 +54,7 @@
 		</section>
 	</div>
 	<main>
-		<section class="section-features">
+		<section class="section-features" id="features">
 			<div class="features">
 				<h2 class="heading-secondary features-primary-text">Features</h2>
 				<div class="feature-cards">
@@ -87,7 +87,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="section-how-it-works">
+		<section class="section-how-it-works" id="how-it-works">
 			<h2 class="heading-secondary how-it-works-primary-text"> How It Works</h2>
 			<p>Follow these simple steps to get started</p>
 			<!--Step One-->
@@ -151,16 +151,20 @@
 				<h3>Quick Links</h3>
 				<ul>
 					<li><a href="#features">Features</a></li>
-					<li><a href="#how-it-works">Features</a></li>
-					<li><a href="/register">Register</a></li>
-					<li><a href="/sign-in">Sign In</a></li>
+					<li><a href="#how-it-works">How It Works</a></li>
+					<li><a th:href="@{/register}">Register</a></li>
+					<li><a th:href="@{/login}">Sign In</a></li>
 				</ul>
 			</div>
 			<div class="footer-contact">
 				<h3>Contact</h3>
-				<p>Email: <a>adam.nestor@gmail.com</a></p>
-				<p>LinkedIn: <a></a></p>
-				<p>GitHub</p>
+				<p><i class="fa-regular fa-envelope"></i><a class="footer-contact-links"
+						href="mailto:adam.nestor@gmail.com">Email Me</a></p>
+				<p><i class="fa-brands fa-linkedin"></i><a class="footer-contact-links"
+						href="https://www.linkedin.com/in/adam-nestor" target="_blank">Adam Nestor</a></p>
+				<p><i class="fa-brands fa-github"></i><a class="footer-contact-links"
+						href="https://github.com/adam-nestor" target="_blank">adamnestor</a></p>
+				</p>
 			</div>
 			<div class="footer-bottom">
 				<p>&copy; 2024 Built and Maintained by Adam Nestor. All rights reserved.</p>
