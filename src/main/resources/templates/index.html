@@ -13,17 +13,17 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 
-<body class="index-page">
-	<header class="header">
-		<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}" />
-		<nav class="main-nav">
-			<ul class="main-nav-list">
-				<li><a class="nav-link border-btn sign-in-btn" th:href="@{/login}">Sign-In</a></li>
-				<li><a class="btn" th:href="@{/register}">Register</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
+<body>
+	<div class="background-container">
+		<header class="header">
+			<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}" />
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li><a class="nav-link border-btn sign-in-btn" th:href="@{/login}">Sign-In</a></li>
+					<li><a class="btn" th:href="@{/register}">Register</a></li>
+				</ul>
+			</nav>
+		</header>
 		<section class="section-hero">
 			<div class="hero">
 				<div class="hero-text-box">
@@ -51,6 +51,8 @@
 				</svg>
 			</div>
 		</section>
+	</div>
+	<main>
 		<section class="section-features">
 			<div class="features">
 				<h2 class="heading-secondary features-primary-text">Features</h2>

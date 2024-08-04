@@ -33,13 +33,6 @@ body {
 	font-size: 2.4rem;
 }
 
-.index-page {
-	background-image: url('/assets/index-background.svg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-
 .body--grid {
 	display: grid;
 	grid-template-areas: "nav nav" "side welcome" "side main";
@@ -121,10 +114,20 @@ body {
 /**************************/
 /* INDEX - HERO SECTION   */
 /**************************/
+.background-container {
+	background-image: url('/assets/index-background.svg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+}
 
 .section-hero {
 	padding: 4.2rem;
 	position: relative;
+	z-index: 1;
 }
 
 .hero {
