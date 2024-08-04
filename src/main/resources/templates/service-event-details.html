@@ -106,7 +106,7 @@
 				<div class="content">
 					<div class="icon-text-pair">
 						<i class="fa-regular fa-calendar"></i>
-						<p class="side-by-side event-details" th:text="${'Completed: ' + serviceDetails.dateOfService}">
+						<p class="side-by-side event-details" th:text="${'Completed: ' + #dates.format(serviceDetails.dateOfService, 'MM/dd/yyy')}">
 							Completed: 1/1/2024
 						</p>
 					</div>
