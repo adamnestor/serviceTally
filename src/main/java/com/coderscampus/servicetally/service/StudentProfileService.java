@@ -26,8 +26,8 @@ public class StudentProfileService {
 		return studentProfileRepo.save(studentProfile);
 	}
 
-	public List<StudentProfile> findBySchoolIn(List<School> schools) {
-		return studentProfileRepo.findBySchoolIn(schools);
+	public List<StudentProfile> findBySchoolInOrderByLastName(List<School> schools) {
+		return studentProfileRepo.findBySchoolInOrderByLastName(schools);
 	}
 
 }

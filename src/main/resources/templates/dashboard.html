@@ -79,7 +79,7 @@
 				<select class="select-box" name="userAccountId">
 					<option value="">Select Student</option>
 					<option th:each="student : ${students}" th:value="${student.userAccountId}"
-						th:text="${student.firstName + ' ' + student.lastName}"
+						th:text="${student.lastName + ', ' + student.firstName}"
 						th:selected="${student.userAccountId == studentIdFilter}"></option>
 				</select>
 			</div>
