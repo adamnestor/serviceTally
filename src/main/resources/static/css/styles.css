@@ -193,9 +193,9 @@ body {
 }
 
 .features-primary-text {
-	font-size: 3.2rem;
+	font-size: 4.8rem;
 	font-weight: 600;
-	text-decoration: underline;
+	color: var(--primary-color);
 	margin-bottom: 2rem;
 }
 
@@ -277,6 +277,114 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/**************************/
+/* INDEX - CTA SECTION    */
+/**************************/
+
+.cta-section {
+	text-align: center;
+	padding: 4rem 2rem;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+.cta-heading {
+	font-size: 3.6rem;
+	font-weight: 600;
+	margin-bottom: 2rem;
+	color: var(--primary-color);
+}
+
+.cta-text {
+	margin-top: 1.8rem;
+	font-size: 1.8rem;
+}
+
+.cta-link {
+	color: var(--accent-color);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.cta-link:hover {
+	text-decoration: underline;
+}
+
+/**************************/
+/* INDEX - CTA SECTION    */
+/**************************/
+
+.footer-section {
+	background-color: var(--primary-color);
+	color: var(--background-color);
+	padding: 4rem 2rem;
+	text-align: center;
+}
+
+.footer-content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	max-width: 120rem;
+	margin: 0 auto;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo img {
+	max-width: 150px;
+	margin-bottom: 1rem;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+	flex: 1;
+	min-width: 25rem;
+	margin-bottom: 2rem;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-content h3 {
+	font-size: 2.4rem;
+	margin-bottom: 1rem;
+	color: var(--secondary-color);
+}
+
+.footer-about p,
+.footer-contact p {
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+}
+
+.footer-bottom p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+}
 
 /**************************/
 /* AUTHORIZATION FORMS    */
@@ -837,6 +945,19 @@ body {
 
 .input-field:last-child {
 	margin-right: 0;
+}
+
+.row .fa-image {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fa-image {
+	font-size: 3.2rem;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	color: var(--primary-color);
 }
 
 /**********************/

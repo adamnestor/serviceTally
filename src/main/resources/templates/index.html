@@ -15,7 +15,7 @@
 
 <body class="index-page">
 	<header class="header">
-		<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}" />
+		<img class="img-logo" alt="ServiceTally Logo" th:src="@{/assets/logo-text-gray.png}"/>
 		<nav class="main-nav">
 			<ul class="main-nav-list">
 				<li><a class="nav-link border-btn sign-in-btn" th:href="@{/login}">Sign-In</a></li>
@@ -114,9 +114,42 @@
 					<p>Students continue to add service events, monitor their progress, and view reports.</p>
 				</div>
 			</div>
-
+		</section>
+		<section class="cta-section">
+			<h2 class="cta-heading">What are you waiting for?</h2>
+			<a th:href="@{/register}" class="btn">Start Tracking Now!</a>
+			<p class="cta-text">If already registered, <a class="cta-link">Sign-In</a></p>
 		</section>
 	</main>
+	<footer class="footer-section">
+		<div class="footer-content">
+			<div class="footer-logo">
+				<img alt="ServiceTally Logo" th:src="@{/assets/logo-white.png}">
+			</div>
+			<div class="footer-about">
+				<h3>About the project</h3>
+				<p>ServiceTally was created as a final project to showcase my skills in web development and design</p>
+			</div>
+			<div class="footer-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="#features">Features</a></li>
+					<li><a href="#how-it-works">Features</a></li>
+					<li><a href="/register">Register</a></li>
+					<li><a href="/sign-in">Sign In</a></li>
+				</ul>
+			</div>
+			<div class="footer-contact">
+				<h3>Contact</h3>
+				<p>Email: <a>adam.nestor@gmail.com</a></p>
+				<p>LinkedIn: <a></a></p>
+				<p>GitHub</p>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 Built and Maintained by Adam Nestor. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>
