@@ -52,7 +52,7 @@
 				<div class="row input-field">
 					<select class="input-field" id="schoolId" name="schoolId" th:field="*{schoolId}">
 						<option th:each="school : ${schools}" th:value="${school.schoolId}"
-							th:text="${school.schoolName}">
+							th:text="${school.schoolName + ' | ' + school.city + ', ' + school.state}">
 						</option>
 					</select>
 				</div>
