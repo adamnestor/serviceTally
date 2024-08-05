@@ -1,5 +1,6 @@
 package com.coderscampus.servicetally.web;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -55,6 +56,7 @@ public class StudentProfileController {
 				model.addAttribute("studentProfile", studentProfile);
 
 			List<School> schools = schoolService.getAllSchools();
+			schools.sort(Comparator.comparing(School::getSchoolName));
 			model.addAttribute("schools", schools);
 
 		}
