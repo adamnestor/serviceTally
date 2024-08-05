@@ -18,6 +18,7 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.CompletedStatus;
 import com.coderscampus.servicetally.domain.GraduationYearDto;
 import com.coderscampus.servicetally.domain.School;
+import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.service.GraduationClassService;
 import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
@@ -56,6 +57,7 @@ public class GraduationClassController {
 				// Add managed schools
 				List<School> managedSchools = ((AdminProfile) currentUserProfile).getSchoolsManaged();
 				managedSchools.sort(Comparator.comparing(School::getSchoolName));
+				List<Integer> schoolIds = managedSchools.stream().map(School::getSchoolId).collect(Collectors.toList());
 				model.addAttribute("schools", managedSchools);
 
 				// Add graduation years (distinct from student profiles)
@@ -67,12 +69,10 @@ public class GraduationClassController {
 				model.addAttribute("completedStatusOptions", statusOptions);
 
 				// Filter and get graduation class data
-				List<GraduationYearDto> filteredGraduationClass = graduationClassService.getGraduationClass(schoolIdFilter,
-						graduationYearFilter);
-				if (completedStatusFilter != null && !completedStatusFilter.isEmpty()) {
-					filteredGraduationClass = filteredGraduationClass.stream()
-							.filter(dto -> dto.getCompletedStatus().name().equalsIgnoreCase(completedStatusFilter))
-							.collect(Collectors.toList());
+				List<GraduationYearDto> filteredGraduationClass = null;
+				if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
+						&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
+					filteredGraduationClass = graduationClassService.getAllStudentsForSchools(schoolIds);
 				}
 
 				model.addAttribute("graduationClass", filteredGraduationClass);
