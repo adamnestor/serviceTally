@@ -73,10 +73,14 @@ public class GraduationClassController {
 				if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
 						&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
 					filteredGraduationClass = graduationClassService.getAllStudentsForSchools(schoolIds);
+				} else if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
+						&& (completedStatusFilter != null || !completedStatusFilter.isEmpty())) {
+					filteredGraduationClass = graduationClassService.getAllStudentsByCompletedStatus(completedStatusFilter, schoolIds);
 				} else {
-					filteredGraduationClass = graduationClassService.getAllStudentsFiltered(graduationYearFilter, schoolIdFilter, completedStatusFilter);
+					filteredGraduationClass = graduationClassService.getAllStudentsFiltered(graduationYearFilter,
+							schoolIdFilter, completedStatusFilter);
 				}
-				
+
 				model.addAttribute("graduationClass", filteredGraduationClass);
 			}
 		}

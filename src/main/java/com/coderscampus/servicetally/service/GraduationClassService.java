@@ -37,51 +37,82 @@ public class GraduationClassService {
 
 			CompletedStatus completedStatus = approvedHours > requiredHours ? CompletedStatus.COMPLETED
 					: CompletedStatus.INCOMPLETE;
-			
-			GraduationYearDto dto = new GraduationYearDto(userAccountId, profile.getFirstName(),
-					profile.getLastName(), profile.getGraduationYear(), completedStatus, approvedHours, requiredHours);
+
+			GraduationYearDto dto = new GraduationYearDto(userAccountId, profile.getFirstName(), profile.getLastName(),
+					profile.getGraduationYear(), completedStatus, approvedHours, requiredHours);
 			graduationYearDtoList.add(dto);
 		}
 		return graduationYearDtoList;
 	}
-	
-	public List<GraduationYearDto> getAllStudentsFiltered(String graduationYear, Integer schoolId, String completedStatus) {
-	    // Retrieve all student profiles based on filters
-	    List<StudentProfile> studentProfiles = new ArrayList<>();
 
-	    if (graduationYear != null && !graduationYear.isEmpty() && schoolId != null && completedStatus != null && !completedStatus.isEmpty()) {
-	        studentProfiles = studentProfileRepo.findBySchoolIdAndGraduationYear(schoolId, graduationYear);
-	    } else if (graduationYear != null && !graduationYear.isEmpty() && schoolId != null && (completedStatus == null || completedStatus.isEmpty())) {
-	        studentProfiles = studentProfileRepo.findBySchoolIdAndGraduationYear(schoolId, graduationYear);
-	    } else if (graduationYear != null && !graduationYear.isEmpty() && schoolId == null && completedStatus != null && !completedStatus.isEmpty()) {
-	    	studentProfiles = studentProfileRepo.getStudentsByGraduationYear(graduationYear);
-	    } else if (graduationYear != null && !graduationYear.isEmpty() && schoolId == null && (completedStatus == null || completedStatus.isEmpty())) {
-	    	studentProfiles = studentProfileRepo.getStudentsByGraduationYear(graduationYear);
-	    } else if (graduationYear == null || graduationYear.isEmpty() && schoolId != null && completedStatus != null && !completedStatus.isEmpty()) {
-	        studentProfiles = studentProfileRepo.getStudentsBySchoolId(schoolId);
-	    } else if (graduationYear == null || graduationYear.isEmpty() && schoolId != null && (completedStatus == null || completedStatus.isEmpty())) {
-	        studentProfiles = studentProfileRepo.getStudentsBySchoolId(schoolId);
-	    } 
+	public List<GraduationYearDto> getAllStudentsByCompletedStatus(String completedStatus, List<Integer> schoolIds) {
 
-	    List<GraduationYearDto> graduationYearDtoList = new ArrayList<>();
-	    for (StudentProfile profile : studentProfiles) {
-	        int userAccountId = profile.getUserAccountId();
-	        float approvedHours = serviceHoursService.getTotalApprovedServiceHours(userAccountId);
-	        float requiredHours = serviceHoursService.getRequiredServiceHours(userAccountId);
+		List<StudentProfile> studentProfiles = getStudentsBySchoolIds(schoolIds);
+		List<GraduationYearDto> graduationYearDtoList = new ArrayList<>();
 
-	        CompletedStatus profileCompletedStatus = approvedHours > requiredHours ? CompletedStatus.COMPLETED
-	                : CompletedStatus.INCOMPLETE;
+		for (StudentProfile profile : studentProfiles) {
+			int userAccountId = profile.getUserAccountId();
+			float approvedHours = serviceHoursService.getTotalApprovedServiceHours(userAccountId);
+			float requiredHours = serviceHoursService.getRequiredServiceHours(userAccountId);
 
-	        if (completedStatus == null || completedStatus.isEmpty() || completedStatus.equals(profileCompletedStatus.name())) {
-	            GraduationYearDto dto = new GraduationYearDto(userAccountId, profile.getFirstName(),
-	                    profile.getLastName(), profile.getGraduationYear(), profileCompletedStatus, approvedHours, requiredHours);
-	            graduationYearDtoList.add(dto);
-	        }
-	    }
+			CompletedStatus profileCompletedStatus = approvedHours > requiredHours ? CompletedStatus.COMPLETED
+					: CompletedStatus.INCOMPLETE;
 
-	    return graduationYearDtoList;
+			if (completedStatus.equals(profileCompletedStatus.name())) {
+				GraduationYearDto dto = new GraduationYearDto(userAccountId, profile.getFirstName(),
+						profile.getLastName(), profile.getGraduationYear(), profileCompletedStatus, approvedHours,
+						requiredHours);
+				graduationYearDtoList.add(dto);
+			}
+		}
+		return graduationYearDtoList;
 	}
 
+	public List<GraduationYearDto> getAllStudentsFiltered(String graduationYear, Integer schoolId,
+			String completedStatus) {
+		// Retrieve all student profiles based on filters
+		List<StudentProfile> studentProfiles = new ArrayList<>();
+
+		if (graduationYear != null && !graduationYear.isEmpty() && schoolId != null && completedStatus != null
+				&& !completedStatus.isEmpty()) {
+			studentProfiles = studentProfileRepo.findBySchoolIdAndGraduationYear(schoolId, graduationYear);
+		} else if (graduationYear != null && !graduationYear.isEmpty() && schoolId != null
+				&& (completedStatus == null || completedStatus.isEmpty())) {
+			studentProfiles = studentProfileRepo.findBySchoolIdAndGraduationYear(schoolId, graduationYear);
+		} else if (graduationYear != null && !graduationYear.isEmpty() && schoolId == null && completedStatus != null
+				&& !completedStatus.isEmpty()) {
+			studentProfiles = studentProfileRepo.getStudentsByGraduationYear(graduationYear);
+		} else if (graduationYear != null && !graduationYear.isEmpty() && schoolId == null
+				&& (completedStatus == null || completedStatus.isEmpty())) {
+			studentProfiles = studentProfileRepo.getStudentsByGraduationYear(graduationYear);
+		} else if (graduationYear == null || graduationYear.isEmpty() && schoolId != null && completedStatus != null
+				&& !completedStatus.isEmpty()) {
+			studentProfiles = studentProfileRepo.getStudentsBySchoolId(schoolId);
+		} else if (graduationYear == null || graduationYear.isEmpty() && schoolId != null
+				&& (completedStatus == null || completedStatus.isEmpty())) {
+			studentProfiles = studentProfileRepo.getStudentsBySchoolId(schoolId);
+		}
+
+		List<GraduationYearDto> graduationYearDtoList = new ArrayList<>();
+		for (StudentProfile profile : studentProfiles) {
+			int userAccountId = profile.getUserAccountId();
+			float approvedHours = serviceHoursService.getTotalApprovedServiceHours(userAccountId);
+			float requiredHours = serviceHoursService.getRequiredServiceHours(userAccountId);
+
+			CompletedStatus profileCompletedStatus = approvedHours > requiredHours ? CompletedStatus.COMPLETED
+					: CompletedStatus.INCOMPLETE;
+
+			if (completedStatus == null || completedStatus.isEmpty()
+					|| completedStatus.equals(profileCompletedStatus.name())) {
+				GraduationYearDto dto = new GraduationYearDto(userAccountId, profile.getFirstName(),
+						profile.getLastName(), profile.getGraduationYear(), profileCompletedStatus, approvedHours,
+						requiredHours);
+				graduationYearDtoList.add(dto);
+			}
+		}
+
+		return graduationYearDtoList;
+	}
 
 	public List<StudentProfile> getStudentsBySchoolIds(List<Integer> schoolIds) {
 		return studentProfileRepo.findAllBySchoolIds(schoolIds);
