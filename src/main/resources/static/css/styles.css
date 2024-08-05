@@ -1080,6 +1080,10 @@ body {
 	color: var(--accent-color);
 }
 
+.nav-link.active{
+	color: var(--accent-color);
+}
+
 .sign-in-btn:link,
 .sign-in-btn:visited {
 	color: var(--accent-color);

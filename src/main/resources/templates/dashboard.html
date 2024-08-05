@@ -29,7 +29,7 @@
 					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Admin')" class="nav-item">
-					<a class="nav-link" th:href="@{/dashboard/}">
+					<a class="nav-link active" th:href="@{/dashboard/}">
 						<i class="fa-solid fa-list-ul"></i>
 						<span>View Service Events</span>
 					</a>
@@ -48,7 +48,7 @@
 					</a>
 				</li>
 				<li sec:authorize="hasAuthority('Student')" class="nav-item">
-					<a class="nav-link" th:href="@{/dashboard/}">
+					<a class="nav-link active" th:href="@{/dashboard/}">
 						<i class="fa-solid fa-list-ul"></i>
 						<span>View Service Events</span>
 					</a>
