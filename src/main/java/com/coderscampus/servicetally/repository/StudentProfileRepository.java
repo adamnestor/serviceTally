@@ -15,11 +15,20 @@ public interface StudentProfileRepository extends JpaRepository<StudentProfile, 
 	List<StudentProfile> findBySchoolInOrderByLastName(List<School> schools);
 
 	@Query("SELECT sp FROM StudentProfile sp WHERE sp.school.id = :schoolId AND sp.graduationYear = :graduationYear")
-	List<StudentProfile> findBySchoolIdAndGraduationYear(@Param("schoolId") Integer schoolId, @Param("graduationYear") String graduationYear);
+	List<StudentProfile> findBySchoolIdAndGraduationYear(@Param("schoolId") Integer schoolId,
+			@Param("graduationYear") String graduationYear);
 
 	@Query("SELECT DISTINCT sp.graduationYear FROM StudentProfile sp")
 	List<String> findDistinctGraduationYears();
 
 	@Query("SELECT sp FROM StudentProfile sp WHERE sp.school.id IN :schoolIds")
 	List<StudentProfile> findAllBySchoolIds(List<Integer> schoolIds);
+
+	// Queries for filtering overview template
+
+	@Query("SELECT sp FROM StudentProfile sp WHERE sp.graduationYear = :graduationYear")
+	List<StudentProfile> getStudentsByGraduationYear(@Param("graduationYear") String graduationYear);
+
+	@Query("SELECT sp FROM StudentProfile sp WHERE sp.school.id = :schoolId")
+	List<StudentProfile> getStudentsBySchoolId(@Param("schoolId") Integer schoolId);
 }

@@ -73,8 +73,10 @@ public class GraduationClassController {
 				if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
 						&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
 					filteredGraduationClass = graduationClassService.getAllStudentsForSchools(schoolIds);
+				} else {
+					filteredGraduationClass = graduationClassService.getAllStudentsFiltered(graduationYearFilter, schoolIdFilter, completedStatusFilter);
 				}
-
+				
 				model.addAttribute("graduationClass", filteredGraduationClass);
 			}
 		}
