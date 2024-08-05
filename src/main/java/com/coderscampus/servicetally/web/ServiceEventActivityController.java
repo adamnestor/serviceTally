@@ -1,6 +1,7 @@
 package com.coderscampus.servicetally.web;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,6 +69,9 @@ public class ServiceEventActivityController {
 			if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Student"))) {
 				List<StudentServiceEventsDto> studentServiceEvents = serviceEventActivityService
 						.getStudentServiceEvents(((StudentProfile) currentUserProfile).getUserAccountId());
+				
+				studentServiceEvents.sort((event1, event2) -> Integer.compare(event2.getEventId(), event1.getEventId()));
+				
 				model.addAttribute("serviceEvent", studentServiceEvents);
 
 				int studentId = ((StudentProfile) currentUserProfile).getUserAccountId();
@@ -100,6 +104,7 @@ public class ServiceEventActivityController {
 					filteredEvents = serviceEventActivityService.getAllServiceEventsFiltered(studentIdFilter,
 							schoolIdFilter, statusFilter);
 				}
+				filteredEvents.sort((event1, event2) -> Integer.compare(event2.getEventId(), event1.getEventId()));
 				model.addAttribute("serviceEvent", filteredEvents);
 			}
 		}
