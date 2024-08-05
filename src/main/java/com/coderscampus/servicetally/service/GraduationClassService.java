@@ -3,6 +3,7 @@ package com.coderscampus.servicetally.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.coderscampus.servicetally.domain.CompletedStatus;
@@ -18,6 +19,7 @@ public class GraduationClassService {
 	private final StudentProfileRepository studentProfileRepo;
 	private final ServiceHoursService serviceHoursService;
 
+	@Autowired
 	public GraduationClassService(StudentProfileRepository studentProfileRepo,
 			ServiceEventActivityRepository serviceEventActivityRepo, UsersRepository usersRepo,
 			ServiceHoursService serviceHoursService) {

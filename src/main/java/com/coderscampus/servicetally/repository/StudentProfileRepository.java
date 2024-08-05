@@ -15,4 +15,7 @@ public interface StudentProfileRepository extends JpaRepository<StudentProfile, 
 
 	@Query("SELECT sp FROM StudentProfile sp WHERE sp.school.id = :schoolId AND sp.graduationYear = :graduationYear")
 	List<StudentProfile> findBySchoolIdAndGraduationYear(@Param("schoolId") Integer schoolId, @Param("graduationYear") String graduationYear);
+
+	@Query("SELECT DISTINCT sp.graduationYear FROM StudentProfile sp")
+	List<String> findDistinctGraduationYears();
 }
