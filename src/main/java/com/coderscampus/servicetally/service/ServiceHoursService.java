@@ -30,7 +30,8 @@ public class ServiceHoursService {
 				.orElseThrow(() -> new RuntimeException("Student not found"));
 		Users user = usersRepo.findById(studentProfile.getUserAccountId())
 				.orElseThrow(() -> new RuntimeException("User not found"));
-		return serviceEventActivityRepo.findTotalHoursByStudentId(user);
+		Integer totalHours = serviceEventActivityRepo.findTotalHoursByStudentId(user);
+		return (totalHours != null) ? totalHours.floatValue() : 0.0f;
 	}
 
 	public float getTotalApprovedServiceHours(int studentId) {

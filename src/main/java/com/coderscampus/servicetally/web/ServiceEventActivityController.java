@@ -74,8 +74,16 @@ public class ServiceEventActivityController {
 				model.addAttribute("serviceEvent", studentServiceEvents);
 
 				int studentId = ((StudentProfile) currentUserProfile).getUserAccountId();
-				ServiceHoursDto serviceHoursDto = serviceHoursService.getServiceHoursProgress(studentId);
-				model.addAttribute("serviceHoursDto", serviceHoursDto);
+				StudentProfile studentProfile = (StudentProfile) currentUserProfile;
+				
+				if (studentProfile.getSchool() != null) {
+					ServiceHoursDto serviceHoursDto = serviceHoursService.getServiceHoursProgress(studentId);
+					model.addAttribute("serviceHoursDto", serviceHoursDto);
+				} else {
+					ServiceHoursDto defaultServiceHoursDto = new ServiceHoursDto(0.0f, 0.0f, 0.0f);
+					model.addAttribute("serviceHoursDto", defaultServiceHoursDto);
+				}
+			
 			} else if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Admin"))) {
 
 				// Create list of school ids managed by current admin profile
