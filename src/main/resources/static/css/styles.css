@@ -568,6 +568,10 @@ body {
 	width: 100%;
 	font-size: 1.6rem;
 	font-weight: 600;
+	
+	border-radius: 20px;
+	width: 25rem;
+	height: 4.5rem;
 }
 
 .filter-btn-box {
