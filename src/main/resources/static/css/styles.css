@@ -568,6 +568,11 @@ body {
 	width: 100%;
 	font-size: 1.6rem;
 	font-weight: 600;
+	
+	border-radius: 20px;
+	width: 25rem;
+	height: 4.5rem;
+	border-color: var(--text-color);
 }
 
 .filter-btn-box {
@@ -1004,6 +1009,14 @@ body {
 .row {
 	display: flex;
 	justify-content: space-between;
+}
+
+.input-dropdown {
+	border-radius: 5px;
+	width: 60rem;
+	height: 6rem;
+	border-color: var(--primary-color);
+	font-size: 2.4rem;
 }
 
 .input-field {
