@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,12 +19,12 @@ import com.coderscampus.servicetally.domain.AdminProfile;
 import com.coderscampus.servicetally.domain.CompletedStatus;
 import com.coderscampus.servicetally.domain.GraduationYearDto;
 import com.coderscampus.servicetally.domain.School;
-import com.coderscampus.servicetally.domain.StudentProfile;
 import com.coderscampus.servicetally.service.GraduationClassService;
 import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
+@PreAuthorize("hasRole('Admin')")
 public class GraduationClassController {
 
 	private final UsersService usersService;
