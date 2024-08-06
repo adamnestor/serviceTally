@@ -24,7 +24,6 @@ import com.coderscampus.servicetally.service.StudentProfileService;
 import com.coderscampus.servicetally.service.UsersService;
 
 @Controller
-@PreAuthorize("hasRole('Admin')")
 public class GraduationClassController {
 
 	private final UsersService usersService;
@@ -39,6 +38,7 @@ public class GraduationClassController {
 	}
 
 	@GetMapping("/overview/")
+	@PreAuthorize("@usersTypeService.isAdmin()")
 	public String viewGraduationClass(@RequestParam(value = "schoolId", required = false) Integer schoolIdFilter,
 			@RequestParam(value = "graduationYear", required = false) String graduationYearFilter,
 			@RequestParam(value = "completedStatus", required = false) String completedStatusFilter, Model model) {
