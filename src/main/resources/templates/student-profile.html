@@ -49,8 +49,8 @@
 			<div class="row">
 				<input class="input-field" placeholder="Graduation Year" id="grad-year" th:field="*{graduationYear}"
 					name="grad-year" type="text" />
-				<div class="row input-field">
-					<select class="input-field" id="schoolId" name="schoolId" th:field="*{schoolId}">
+				<div class="row">
+					<select class="input-dropdown" id="schoolId" name="schoolId" th:field="*{schoolId}">
 						<option th:each="school : ${schools}" th:value="${school.schoolId}"
 							th:text="${school.schoolName + ' | ' + school.city + ', ' + school.state}">
 						</option>
