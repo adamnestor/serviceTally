@@ -115,9 +115,11 @@
 		<!--Progress Widget Student View-->
 		<div class="progress-box" sec:authorize="hasAuthority('Student')">
 			<h2 class="heading-secondary widget-heading">My Progress</h2>
-			<h4 class="student-school-name" th:text="${user.school.schoolName}"></h4>
+			<div th:if="${user.school}">
+				<h4 class="student-school-name" th:text="${user.school.schoolName}"></h4>
+			</div>
 			<div class="temp-class">
-				
+
 				<div class="progress">
 					<div th:style="'width:' + ${serviceHoursDto.submittedHours / serviceHoursDto.requiredHours * 100} + '%'"
 						class="progress-bar submitted-hours">
@@ -126,13 +128,13 @@
 						class="progress-bar approved-hours">
 					</div>
 				</div>
-				
-				<div class="progress-text required-text"
-					th:text="${'Required: ' + serviceHoursDto.requiredHours}"></div>
-				<div class="progress-text submitted-text"
-					th:text="${'Submitted: ' + serviceHoursDto.submittedHours}"></div>
-				<div class="progress-text approved-text"
-					th:text="${'Approved: ' + serviceHoursDto.approvedHours}"></div>
+
+				<div class="progress-text required-text" th:text="${'Required: ' + serviceHoursDto.requiredHours}">
+				</div>
+				<div class="progress-text submitted-text" th:text="${'Submitted: ' + serviceHoursDto.submittedHours}">
+				</div>
+				<div class="progress-text approved-text" th:text="${'Approved: ' + serviceHoursDto.approvedHours}">
+				</div>
 			</div>
 		</div>
 
