@@ -731,6 +731,13 @@ body {
 	justify-content: center;
 }
 
+/*used in js for completed status pill*/
+.item-info.service-completed-status {
+	flex: 0 0 250px;
+	display: flex;
+	justify-content: center;
+}
+
 .item-info.hours-required {
 	flex: 0 0 250px;
 	display: flex;
@@ -914,6 +921,15 @@ body {
 
 .status-approved {
 	background-color: #208637;
+}
+
+.status-completed {
+	background-color: #208637;
+}
+
+.status-incomplete {
+	background-color: var(--secondary-color);
+	color: var(--primary-color);
 }
 
 

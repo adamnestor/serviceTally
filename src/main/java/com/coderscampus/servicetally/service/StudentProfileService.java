@@ -30,4 +30,8 @@ public class StudentProfileService {
 		return studentProfileRepo.findBySchoolInOrderByLastName(schools);
 	}
 
+	public List<String> findDistinctGraduationYears() {
+		return studentProfileRepo.findDistinctGraduationYears();
+	}
+
 }
