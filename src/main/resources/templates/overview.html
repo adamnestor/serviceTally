@@ -59,8 +59,7 @@
 			<div class="select-container">
 				<select class="select-box" name="graduationYear">
 					<option value="">Select Graduation Year</option>
-					<option th:each="gradYear : ${graduationYears}" th:value="${gradYear}"
-						th:text="${gradYear}"
+					<option th:each="gradYear : ${graduationYears}" th:value="${gradYear}" th:text="${gradYear}"
 						th:selected="${gradYear == graduationYearFilter}"></option>
 				</select>
 			</div>
@@ -104,13 +103,18 @@
 	<main class="main-content">
 		<div class="list-box">
 			<th:block th:each="graduationClass : ${graduationClass}">
-				<a class="item-link">
-					<div class="item-row">
+
+
+				<a th:href="@{/dashboard/?userAccountId={id}&schoolId=&status= (id=${graduationClass.userAccountId})}"
+					class="item-link">
+					<div class="item-row"
+						onclick="window.location='/dashboard/?userAccountId={id}&schoolId=&status= (id=${graduationClass.userAccountId})'">
 						<div class="item-info service-user">
 							<label th:text="${graduationClass.firstName+' '+graduationClass.lastName}">Posted By</label>
 						</div>
 						<div class="item-info">
-							<label class="item-name" th:text="${graduationClass.approvedHours + ' Approved Hours'}">Approved Hours</label>
+							<label class="item-name"
+								th:text="${graduationClass.approvedHours + ' Approved Hours'}">Approved Hours</label>
 						</div>
 						<div class="item-info service-completed-status">
 							<label th:text="@{${graduationClass.completedStatus}}">Event Status</label>
