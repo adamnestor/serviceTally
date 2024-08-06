@@ -223,7 +223,7 @@ body {
 	font-weight: 600;
 	color: var(--background-color);
 	margin-bottom: 2rem;
-	
+
 }
 
 .feature-cards {
@@ -313,7 +313,7 @@ body {
 	max-width: 35rem;
 	height: auto;
 	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 /**************************/
@@ -568,7 +568,7 @@ body {
 	width: 100%;
 	font-size: 1.6rem;
 	font-weight: 600;
-	
+
 	border-radius: 20px;
 	width: 25rem;
 	height: 4.5rem;
@@ -1109,7 +1109,7 @@ body {
 	color: var(--accent-color);
 }
 
-.nav-link.active{
+.nav-link.active {
 	color: var(--accent-color);
 }
 
