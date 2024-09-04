@@ -98,9 +98,16 @@ public class GraduationClassService {
 			int userAccountId = profile.getUserAccountId();
 			float approvedHours = serviceHoursService.getTotalApprovedServiceHours(userAccountId);
 			float requiredHours = serviceHoursService.getRequiredServiceHours(userAccountId);
+			double epsilon = 1e-6;
 
-			CompletedStatus profileCompletedStatus = approvedHours >= requiredHours ? CompletedStatus.COMPLETED
-					: CompletedStatus.INCOMPLETE;
+			CompletedStatus profileCompletedStatus;
+			if(Math.abs(approvedHours - requiredHours) < epsilon) {
+				profileCompletedStatus = CompletedStatus.COMPLETED;
+			} else if (approvedHours > requiredHours) {
+				profileCompletedStatus = CompletedStatus.COMPLETED;
+			} else {
+				profileCompletedStatus = CompletedStatus.INCOMPLETE;
+			}
 
 			if (completedStatus == null || completedStatus.isEmpty()
 					|| completedStatus.equals(profileCompletedStatus.name())) {
