@@ -99,7 +99,7 @@ public class GraduationClassService {
 			float approvedHours = serviceHoursService.getTotalApprovedServiceHours(userAccountId);
 			float requiredHours = serviceHoursService.getRequiredServiceHours(userAccountId);
 
-			CompletedStatus profileCompletedStatus = approvedHours > requiredHours ? CompletedStatus.COMPLETED
+			CompletedStatus profileCompletedStatus = approvedHours >= requiredHours ? CompletedStatus.COMPLETED
 					: CompletedStatus.INCOMPLETE;
 
 			if (completedStatus == null || completedStatus.isEmpty()
