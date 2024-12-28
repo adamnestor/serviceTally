@@ -1,0 +1,73 @@
+/* Headings */
+.heading-primary {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+/* Text Styles */
+.small-text {
+  font-size: 1.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Display Text */
+.display-name {
+  padding-right: 2.4rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Description Text */
+.heading-description {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.description-content {
+  margin-top: 1.2rem;
+}
+
+/* Feature Text */
+.feature-title {
+  font-size: 2.4rem;
+}
+
+.feature-description {
+  font-size: 1.8rem;
+}
+
+/* Footer Text */
+.footer-content h3 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.footer-about p,
+.footer-contact p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.footer-links a,
+.footer-contact-links {
+  font-size: 1.6rem;
+}
+
+.footer-bottom p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,54 @@
+/* Status Pill Base */
+.status-pill {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-right: 0.8rem;
+  width: 50%;
+  text-align: center;
+}
+
+/* Submitted Status */
+.status-submitted {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Modify Status */
+.status-modify {
+  background-color: var(--highlight-color);
+  color: #343A40;
+}
+
+/* Approved Status */
+.status-approved {
+  background-color: #208637;
+}
+
+/* Completed Status */
+.status-completed {
+  background-color: #208637;
+}
+
+/* Incomplete Status */
+.status-incomplete {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Status Dropdown Container */
+.update-status-box form {
+  display: flex;
+  align-items: center;
+}
+
+.update-status-box .select-container {
+  margin-bottom: 0;
+}
+
+.status-dropdown {
+  margin-right: 2.4rem;
+}

@@ -1,0 +1,69 @@
+/* Main Footer */
+.footer-section {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Logo */
+.footer-logo img {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+/* Footer Sections */
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 25rem;
+  margin-bottom: 2rem;
+}
+
+/* Footer Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Contact */
+.footer-contact-links {
+  padding-left: 1rem;
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.footer-contact .fa-envelope,
+.footer-contact .fa-linkedin,
+.footer-contact .fa-github {
+  color: var(--background-color);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  padding-top: 2rem;
+}

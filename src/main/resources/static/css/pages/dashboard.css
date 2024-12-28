@@ -1,0 +1,63 @@
+/* Dashboard Main Content */
+.main-content {
+  grid-area: main;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.main-secondary-title {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Progress Widget Specific Styles */
+.temp-class {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Dashboard Navigation Specific */
+.nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--background-color);
+  font-weight: 500;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: var(--accent-color);
+}
+
+.nav-link.active {
+  color: var(--accent-color);
+}
+
+/* Event List Specific */
+.item-info.service-status {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.item-info.service-completed-status {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Update Status Box */
+.update-status-box {
+  display: flex;
+  align-items: center;
+}
+
+.status-dropdown {
+  margin-right: 2.4rem;
+}
