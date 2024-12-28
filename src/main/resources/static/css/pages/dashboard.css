@@ -1,4 +1,4 @@
-/* Dashboard Main Content */
+/* Main Content */
 .main-content {
   grid-area: main;
   padding-bottom: 2rem;
@@ -14,13 +14,85 @@
   margin-bottom: 1rem;
 }
 
-/* Progress Widget Specific Styles */
+/* Welcome Message */
+.welcome-message {
+  grid-area: welcome;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.welcome-message .box {
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  padding: 2rem;
+}
+
+.welcome-message h1 {
+  margin: 0;
+}
+
+/* Progress Widget Specific */
+.widget-heading {
+  padding-bottom: 2rem;
+}
+
+.student-school-name {
+  text-align: center;
+  padding-bottom: 1.4rem;
+}
+
 .temp-class {
   margin-bottom: 1rem;
   font-weight: 500;
 }
 
-/* Dashboard Navigation Specific */
+/* Progress Bar */
+.progress {
+  position: relative;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 13px;
+  overflow: hidden;
+  margin-bottom: 1.6rem;
+  height: 2rem;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  position: absolute;
+  height: 100%;
+  text-align: center;
+  line-height: 2rem;
+  transition: width 0.5s;
+}
+
+.progress .submitted-hours {
+  background-color: var(--secondary-color);
+  z-index: 1;
+}
+
+.progress .approved-hours {
+  background-color: var(--accent-color);
+  z-index: 2;
+}
+
+.progress-text {
+  margin-bottom: 1rem;
+  color: var(--background-color);
+}
+
+.submitted-text {
+  color: var(--secondary-color);
+}
+
+.approved-text {
+  color: var(--accent-color);
+}
+
+/* Navigation */
 .nav-link {
   display: inline-block;
   text-decoration: none;
@@ -39,25 +111,45 @@
   color: var(--accent-color);
 }
 
-/* Event List Specific */
-.item-info.service-status {
-  flex: 0 0 250px;
+/* Filter Section */
+.filter-btn-box {
   display: flex;
   justify-content: center;
+  gap: 2.4rem;
+  margin: 1rem 0;
 }
 
-.item-info.service-completed-status {
-  flex: 0 0 250px;
-  display: flex;
-  justify-content: center;
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: var(--spacing-xs);
+  }
 
-/* Update Status Box */
-.update-status-box {
-  display: flex;
-  align-items: center;
-}
+  .welcome-message {
+    padding: var(--spacing-xs);
+  }
 
-.status-dropdown {
-  margin-right: 2.4rem;
+  .welcome-message .box {
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    text-align: center;
+    padding: var(--spacing-xs) 0;
+  }
+
+  .filter-btn-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .temp-class {
+    text-align: center;
+  }
+
+  .progress {
+    margin-bottom: var(--spacing-sm);
+  }
 }

@@ -11,35 +11,31 @@
   text-align: center;
 }
 
-/* Submitted Status */
+/* Status Colors */
 .status-submitted {
   background-color: var(--secondary-color);
   color: var(--primary-color);
 }
 
-/* Modify Status */
 .status-modify {
   background-color: var(--highlight-color);
   color: #343A40;
 }
 
-/* Approved Status */
 .status-approved {
   background-color: #208637;
 }
 
-/* Completed Status */
 .status-completed {
   background-color: #208637;
 }
 
-/* Incomplete Status */
 .status-incomplete {
   background-color: var(--secondary-color);
   color: var(--primary-color);
 }
 
-/* Status Dropdown Container */
+/* Status Update Box */
 .update-status-box form {
   display: flex;
   align-items: center;
@@ -51,4 +47,28 @@
 
 .status-dropdown {
   margin-right: 2.4rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .status-pill {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .update-status-box form {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-xs);
+  }
+
+  .update-status-box .select-container {
+    width: 100%;
+  }
+
+  .status-dropdown {
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
 }

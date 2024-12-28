@@ -65,7 +65,12 @@
   text-align: left;
 }
 
-.item-info.service-status,
+.item-info.service-status {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
 .item-info.service-completed-status {
   flex: 0 0 250px;
   display: flex;
@@ -101,4 +106,43 @@
 
 .icon-text-pair:last-child {
   margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .feature-card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .item-row {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    text-align: center;
+  }
+
+  .item-info {
+    width: 100%;
+  }
+
+  .item-info.service-status,
+  .item-info.service-completed-status,
+  .item-info.hours-required {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .service-user,
+  .school-location,
+  .item-name {
+    text-align: center;
+  }
+
+  .create-new {
+    justify-content: center;
+  }
+
+  .icon-text-pair {
+    justify-content: center;
+  }
 }

@@ -79,3 +79,45 @@
 .welcome-message h1 {
   margin: 0;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header,
+  .navbar {
+    height: auto;
+    padding: var(--spacing-sm);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .navbar .img-logo {
+    padding-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .main-nav-list,
+  .navbar-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-box {
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .user-profile {
+    margin: 0;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .welcome-message {
+    padding: var(--spacing-xs);
+  }
+
+  .welcome-message .box {
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+}

@@ -50,6 +50,17 @@
   flex-direction: column;
 }
 
+/* Side by Side Layout */
+.side-by-side {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.side-by-side:last-child {
+  margin-right: 0;
+}
+
 /* Update Status Section */
 .update-status-box form {
   display: flex;
@@ -60,13 +71,66 @@
   margin-bottom: 0;
 }
 
-/* Side by Side Layout */
-.side-by-side {
-  display: flex;
-  align-items: center;
-  margin-right: 1rem;
+.status-dropdown {
+  margin-right: 2.4rem;
 }
 
-.side-by-side:last-child {
-  margin-right: 0;
+/* Action Buttons */
+.action-btns {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .school-grid-container {
+    padding: var(--spacing-sm);
+  }
+
+  .school-item {
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .school-item-row1,
+  .school-item-row2,
+  .school-item-row3 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .event-details {
+    text-align: center;
+  }
+
+  .description-content {
+    padding: var(--spacing-xs);
+  }
+
+  .side-by-side {
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .action-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .update-status-box form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .status-dropdown {
+    margin-right: 0;
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+  }
 }

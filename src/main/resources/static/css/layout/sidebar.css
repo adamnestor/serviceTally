@@ -84,33 +84,37 @@
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
-.progress-bar {
-  position: absolute;
-  height: 100%;
-  text-align: center;
-  line-height: 2rem;
-  transition: width 0.5s;
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    padding: var(--spacing-sm);
+  }
 
-.progress .submitted-hours {
-  background-color: var(--secondary-color);
-  z-index: 1;
-}
+  .side-column {
+    padding: var(--spacing-sm);
+    width: 100%;
+  }
 
-.progress .approved-hours {
-  background-color: var(--accent-color);
-  z-index: 2;
-}
+  .select-container {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
 
-.progress-text {
-  margin-bottom: 1rem;
-  color: var(--background-color);
-}
+  .select-box {
+    width: 100%;
+  }
 
-.submitted-text {
-  color: var(--secondary-color);
-}
+  .filter-btn-box {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
-.approved-text {
-  color: var(--accent-color);
+  .progress-box {
+    width: 100%;
+    max-width: 300px;
+    margin: var(--spacing-sm) auto;
+  }
 }
