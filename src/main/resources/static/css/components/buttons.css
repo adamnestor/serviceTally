@@ -125,6 +125,12 @@
   width: 50%;
 }
 
+/* Sign In Button */
+.sign-in-btn:link,
+.sign-in-btn:visited {
+  color: var(--accent-color);
+}
+
 /* Action Button Container */
 .action-btns {
   display: flex;
