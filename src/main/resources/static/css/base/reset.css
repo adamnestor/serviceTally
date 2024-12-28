@@ -1,0 +1,89 @@
+/* CSS Variables */
+:root {
+  /* Colors */
+  --primary-color: #002B5B;    /* Navy Blue */
+  --secondary-color: #87CEEB;  /* Sky Blue */
+  --accent-color: #28A745;     /* Green */
+  --background-color: #F8F9FA; /* Light Grey */
+  --text-color: #343A40;       /* Dark Grey */
+  --highlight-color: #FFA500;  /* Orange */
+
+  /* Spacing Variables for Responsive Design */
+  --spacing-xs: clamp(0.5rem, 1vw, 1rem);
+  --spacing-sm: clamp(1rem, 2vw, 2rem);
+  --spacing-md: clamp(2rem, 3vw, 3rem);
+  --spacing-lg: clamp(3rem, 4vw, 4rem);
+  --spacing-xl: clamp(4rem, 5vw, 6rem);
+
+  /* Container Widths */
+  --container-max-width: 140rem;
+  --form-max-width: 100rem;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;  /* Sets up 1rem = 10px */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-size: 2.4rem;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Basic Image Styles */
+.img-logo {
+  height: 5rem;
+}
+
+.rounded-circle {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 5rem;
+  width: 5rem;
+  margin-right: 2rem;
+}
+
+/* Common Layout Utilities */
+.center-items {
+  display: grid;
+  place-items: center;
+  padding-top: 6.4rem;
+}
+
+/* Responsive Base Styles */
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* 1rem = 9px */
+  }
+
+  .img-logo {
+    height: 4rem;
+  }
+
+  .rounded-circle {
+    height: 4rem;
+    width: 4rem;
+    margin-right: var(--spacing-sm);
+  }
+
+  .center-items {
+    padding-top: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 50%; /* 1rem = 8px */
+  }
+}

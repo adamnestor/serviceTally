@@ -1,0 +1,123 @@
+/* Main Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+/* Navigation Bar */
+.navbar {
+  grid-area: nav;
+  height: 9.6rem;
+  padding: 0 3.8rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.navbar .img-logo {
+  padding-right: 3rem;
+}
+
+/* Navigation Lists */
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-box {
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* Navigation Items */
+.nav-link {
+  padding-right: 2rem;
+}
+
+.navbar-nav li:last-child {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* User Profile Section */
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Welcome Message */
+.welcome-message {
+  grid-area: welcome;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+}
+
+.welcome-message .box {
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  padding: 2rem;
+}
+
+.welcome-message h1 {
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header,
+  .navbar {
+    height: auto;
+    padding: var(--spacing-sm);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .navbar .img-logo {
+    padding-right: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .main-nav-list,
+  .navbar-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-box {
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+  }
+
+  .user-profile {
+    margin: 0;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .welcome-message {
+    padding: var(--spacing-xs);
+  }
+
+  .welcome-message .box {
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+}

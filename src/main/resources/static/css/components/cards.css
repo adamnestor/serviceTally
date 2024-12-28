@@ -1,0 +1,148 @@
+/* Feature Cards */
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.15), 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  margin: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-card i {
+  font-size: 2.4rem;
+}
+
+/* List Box */
+.list-box {
+  border-radius: 25px;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 2rem;
+}
+
+/* Item Row */
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid var(--text-color);
+  margin-bottom: 10px;
+  border-radius: 25px;
+  font-size: 1.8rem;
+}
+
+.item-row:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Item Info */
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  text-align: left;
+  font-weight: bold;
+}
+
+.service-user {
+  text-align: left;
+}
+
+.school-location {
+  text-align: left;
+}
+
+.item-info.service-status {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.item-info.service-completed-status {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.item-info.hours-required {
+  flex: 0 0 250px;
+  display: flex;
+  justify-content: left;
+}
+
+/* Item Link */
+.item-link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Create New Section */
+.create-new {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+/* Icon Text Pair */
+.icon-text-pair {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-text-pair:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .feature-card {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .item-row {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    text-align: center;
+  }
+
+  .item-info {
+    width: 100%;
+  }
+
+  .item-info.service-status,
+  .item-info.service-completed-status,
+  .item-info.hours-required {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .service-user,
+  .school-location,
+  .item-name {
+    text-align: center;
+  }
+
+  .create-new {
+    justify-content: center;
+  }
+
+  .icon-text-pair {
+    justify-content: center;
+  }
+}

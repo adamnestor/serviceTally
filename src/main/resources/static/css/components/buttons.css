@@ -1,0 +1,179 @@
+/* Primary Button */
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #24963e;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Register Nav Button */
+.main-nav-list .btn:link,
+.main-nav-list .btn:visited {
+  padding: 1.2rem 2.4rem;
+}
+
+/* Back Button */
+.back-btn:link,
+.back-btn:visited {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: solid 2px var(--background-color);
+  padding: 1.6rem 3.6rem;
+  text-align: center;
+  width: 75%;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.back-btn:hover,
+.back-btn:active {
+  background-color: #7ab9d4;
+  box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Form Button */
+.formbtn {
+  padding: 1rem;
+  font-size: 2.4rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 150px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formbtn:hover {
+  background-color: #24963e;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Filter Button */
+.filter-btn {
+  background-color: var(--secondary-color);
+  border: solid 2px var(--background-color);
+  color: var(--primary-color);
+  padding: 0.8rem 3.2rem;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn:hover {
+  background-color: #7ab9d4;
+  box-shadow: 0 6px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Action Buttons */
+.edit-btn,
+.update-status-btn {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn:hover,
+.update-status-btn:hover {
+  background-color: #2f343a;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: transparent;
+  color: #DC143C;
+  box-shadow: inset 0 0 0 3px #DC143C;
+}
+
+.delete-btn:hover {
+  background-color: #DC143C;
+  color: #fff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline Button */
+.border-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.2rem 2.4rem;
+  box-shadow: inset 0 0 0 3px var(--accent-color);
+  border-radius: 150px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.border-btn:hover,
+.border-btn:active {
+  background-color: #24963e;
+  color: #fff;
+  box-shadow: inset 0 0 0 3px #24963e;
+}
+
+/* Sign In Button */
+.sign-in-btn:link,
+.sign-in-btn:visited {
+  color: var(--accent-color);
+}
+
+/* Entity Form Button */
+.entity-form .formbtn {
+  padding: 2rem 4rem;
+  width: 50%;
+}
+
+/* Action Button Container */
+.action-btns {
+  display: flex;
+  gap: 2rem;
+}
+
+.action-btns .formbtn {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .btn:link,
+  .btn:visited {
+    width: 100%;
+    text-align: center;
+    padding: 1.2rem 2.4rem;
+  }
+
+  .back-btn:link,
+  .back-btn:visited {
+    width: 90%;
+  }
+
+  .action-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-btns .formbtn {
+    width: 100%;
+  }
+
+  .entity-form .formbtn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

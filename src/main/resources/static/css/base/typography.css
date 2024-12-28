@@ -1,0 +1,132 @@
+/* Typography Scale */
+:root {
+  --h1-size: clamp(3.6rem, 5vw, 5.2rem);
+  --h2-size: clamp(2.8rem, 4vw, 3.6rem);
+  --h3-size: clamp(2.4rem, 3vw, 2.8rem);
+  --body-size: clamp(1.6rem, 2vw, 2.4rem);
+  --small-size: clamp(1.4rem, 1.5vw, 1.8rem);
+}
+
+/* Headings */
+.heading-primary {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+/* Text Styles */
+.small-text {
+  font-size: 1.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Display Text */
+.display-name {
+  padding-right: 2.4rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Description Text */
+.heading-description {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.description-content {
+  margin-top: 1.2rem;
+}
+
+/* Feature Text */
+.feature-title {
+  font-size: 2.4rem;
+}
+
+.feature-description {
+  font-size: 1.8rem;
+}
+
+/* Footer Text */
+.footer-content h3 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.footer-about p,
+.footer-contact p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.footer-links a,
+.footer-contact-links {
+  font-size: 1.6rem;
+}
+
+.footer-bottom p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Spacing */
+p:not(:last-child) {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Line Heights */
+p, .body-text {
+  line-height: 1.6;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .heading-primary {
+    font-size: var(--h1-size);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .heading-secondary {
+    font-size: var(--h2-size);
+    text-align: center;
+  }
+
+  .display-name {
+    padding-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .heading-description {
+    font-size: var(--h3-size);
+  }
+
+  .feature-title {
+    font-size: var(--h3-size);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .feature-description,
+  .small-text {
+    font-size: var(--small-size);
+  }
+}

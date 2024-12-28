@@ -1,0 +1,120 @@
+/* Main Sidebar */
+.sidebar {
+  grid-area: side;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Side Column */
+.side-column {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-column .img-logo {
+  margin-top: 2.4rem;
+}
+
+.side-column .back-btn {
+  margin-top: 2.4rem;
+}
+
+/* Select Containers */
+.select-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-width: 25rem;
+  height: 4rem;
+  margin-bottom: 2rem;
+}
+
+.select-box {
+  padding: 0 3rem 0 1.5rem;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 20px;
+  width: 25rem;
+  height: 4.5rem;
+  border-color: var(--text-color);
+}
+
+/* Filter Button Box */
+.filter-btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  margin: 1rem 0;
+}
+
+/* Progress Widget */
+.progress-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.widget-heading {
+  padding-bottom: 2rem;
+}
+
+.student-school-name {
+  text-align: center;
+  padding-bottom: 1.4rem;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 13px;
+  overflow: hidden;
+  margin-bottom: 1.6rem;
+  height: 2rem;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    padding: var(--spacing-sm);
+  }
+
+  .side-column {
+    padding: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .select-container {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .select-box {
+    width: 100%;
+  }
+
+  .filter-btn-box {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .progress-box {
+    width: 100%;
+    max-width: 300px;
+    margin: var(--spacing-sm) auto;
+  }
+}

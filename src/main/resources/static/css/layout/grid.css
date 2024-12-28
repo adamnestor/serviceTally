@@ -1,0 +1,142 @@
+/* Main Grid Layouts */
+.body--grid {
+  display: grid;
+  grid-template-areas: "nav nav" "side welcome" "side main";
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: auto auto 1fr;
+  margin: 0;
+  height: 100vh;
+}
+
+.grid-entity-form {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  margin: 0;
+  height: 100vh;
+}
+
+/* Grid Containers */
+.grid-container {
+  display: grid;
+  grid-template-rows: auto 0.8fr 0.6fr 0.6fr auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 1rem;
+}
+
+.school-grid-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Grid Items */
+.item {
+  padding: 20px;
+  border: 1px solid var(--text-color);
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-row1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.item-column1-row2 {
+  grid-column: 1;
+  grid-row: 2 / span 1;
+  display: flex;
+  align-items: center;
+}
+
+.item-column1-row3 {
+  grid-column: 1;
+  grid-row: 3 / span 3;
+  display: flex;
+  align-items: center;
+}
+
+.item-column2 {
+  grid-column: 2;
+  grid-row: 2 / span 4;
+}
+
+.item-row6 {
+  grid-column: 1 / span 2;
+  grid-row: 6;
+  display: flex;
+  align-items: center;
+}
+
+/* School Grid Items */
+.school-item {
+  padding: 20px;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.school-item-row1 {
+  grid-row: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.school-item-row2 {
+  grid-row: 2 / span 2;
+}
+
+.school-item-row3 {
+  grid-row: 4;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .body--grid {
+    grid-template-areas: 
+      "nav"
+      "welcome"
+      "side"
+      "main";
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .grid-entity-form {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .item-row1 {
+    grid-column: 1;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item-column1-row2,
+  .item-column1-row3,
+  .item-column2 {
+    grid-column: 1;
+  }
+
+  .item-row6 {
+    grid-column: 1;
+  }
+}
