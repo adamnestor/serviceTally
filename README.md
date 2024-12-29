@@ -98,6 +98,3 @@ src/
 
 ## Contributing
 This is a portfolio project demonstrating full-stack development capabilities. While it's not open for contributions, feel free to fork and use as reference.
-
-## License
-[Specify your license here]
