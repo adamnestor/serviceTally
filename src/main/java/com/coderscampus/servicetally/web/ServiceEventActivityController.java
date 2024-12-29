@@ -109,7 +109,7 @@ public class ServiceEventActivityController {
 					filteredEvents = serviceEventActivityService.getAllServiceEventsForSchools(schoolIds);
 				} else {
 					filteredEvents = serviceEventActivityService.getAllServiceEventsFiltered(studentIdFilter,
-							schoolIdFilter, statusFilter);
+							schoolIdFilter, statusFilter, schoolIds);
 				}
 				filteredEvents.sort((event1, event2) -> Integer.compare(event2.getEventId(), event1.getEventId()));
 				model.addAttribute("serviceEvent", filteredEvents);
