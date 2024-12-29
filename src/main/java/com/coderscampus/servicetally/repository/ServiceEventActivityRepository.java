@@ -73,6 +73,19 @@ public interface ServiceEventActivityRepository extends JpaRepository<ServiceEve
 			+ "JOIN student_profile sp ON u.user_id = sp.user_account_id " + "WHERE sea.status = :status "
 			+ "GROUP BY sea.event_id", nativeQuery = true)
 	List<IStudentServiceEvents> findServiceEventsByStatus(@Param("status") String status);
+	
+	@Query(value = "SELECT sea.event_id AS eventId, sea.service_title AS serviceTitle, " +
+		       "sea.city AS city, sea.state AS state, sea.status AS status, " +
+		       "sp.first_name AS firstName, sp.last_name AS lastName " +
+		       "FROM service_event_activity sea " +
+		       "JOIN users u ON sea.posted_by_id = u.user_id " +
+		       "JOIN student_profile sp ON u.user_id = sp.user_account_id " +
+		       "JOIN school s ON sp.school_id = s.school_id " +
+		       "WHERE s.school_id IN :schoolIds AND sea.status = :status " +
+		       "GROUP BY sea.event_id", nativeQuery = true)
+		List<IStudentServiceEvents> findServiceEventsBySchoolIdsAndStatus(
+		        @Param("schoolIds") List<Integer> schoolIds,
+		        @Param("status") String status);
 
 	// Queries for progress widget on student dashboard
 	@Query("SELECT SUM(sea.hoursServed) FROM ServiceEventActivity sea WHERE sea.postedById = :userId")

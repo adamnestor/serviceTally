@@ -56,7 +56,7 @@ public class ServiceEventActivityService {
 	}
 
 	public List<StudentServiceEventsDto> getAllServiceEventsFiltered(Integer studentId, Integer schoolId,
-			String status) {
+			String status, List<Integer> adminSchoolIds) {
 		List<IStudentServiceEvents> serviceEvents = new ArrayList<>();
 
 		System.out.println("Parameters: studentId=" + studentId + ", schoolId=" + schoolId + ", status=" + status);
@@ -75,7 +75,7 @@ public class ServiceEventActivityService {
 		} else if (studentId == null && schoolId != null && (status == null || status.isEmpty())) {
 			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolId(schoolId);
 		} else if (studentId == null && schoolId == null && status != null && !status.isEmpty()) {
-			serviceEvents = serviceEventActivityRepo.findServiceEventsByStatus(status);
+			serviceEvents = serviceEventActivityRepo.findServiceEventsBySchoolIdsAndStatus(adminSchoolIds, status);
 		} else {
 			System.out.println("All parameters are null, add default behavior here.");
 		}
