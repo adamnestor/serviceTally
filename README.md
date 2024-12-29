@@ -1,38 +1,103 @@
-# ServiceTally: Service Hour Tracking for Schools
+# Service Tally
 
-## Project Summary
+## Overview
+Service Tally is a web application designed to help schools track and manage student service hours. It provides a platform for students to submit service activities and for administrators to oversee and approve these submissions across multiple schools.
 
-This application is designed to streamline the tracking and approving of service hours within educational institutions. It caters to both students and administrators, providing distinct functionalities for each role. Students can post, view, and edit their service events, as well as check their requirement status and manage their profiles, including uploading profile photos. The application tracks the number of service hours students complete, ensuring they meet the requirements set by their respective schools.
+## Key Features
+- **Multi-Role Authentication**
+  - Secure user authentication for students and administrators
+  - Role-based access control
+  - Custom profile management for each user type
 
-Administrators can create and manage school profiles and service requirements, search for students by name or graduation year, and view and edit service events. They can update their own profiles, including uploading profile photos. A key feature of the application is the service event approval workflow, which allows administrators to change the status of service events to "Submitted," "Needs Attention," or "Approved." Each status change is logged in the system, providing a transparent history of the approval process.
+- **Student Features**
+  - Submit service event activities
+  - Track service hours progress
+  - Upload and manage profile photos
+  - View service history and status updates
 
-User authentication is built into the system, ensuring secure registration, login, and logout processes for both students and administrators. Each user is associated with a specific school, making the service events and requirements contextually relevant. This association ensures that each school has a tailored set of service requirements that students must fulfill, and these requirements can be updated as needed. The application's search and filter tools assist administrators in efficiently managing and reviewing student activities. Overall, this system provides a structured and transparent way to manage service events, ensuring students meet their service requirements and administrators can effectively oversee and approve these activities.
+- **Administrator Features**
+  - Manage multiple schools
+  - Review and approve student service submissions
+  - Filter and view service events by various criteria
+  - Track student progress toward service hour requirements
 
-## Requirements
+- **Data Management**
+  - Complex filtering and sorting capabilities
+  - School-specific service hour requirements
+  - Graduation year tracking
+  - Progress tracking and status updates
 
-### Student
-- Post new Service Event
-- View their Service Events
-- Edit Service Events
-- View Requirement Status
-- Edit Profile and Upload Profile Photo
+# Service Tally
 
-### Admin
-- Create School Profile & Requirements
-- Edit School Profile & Requirements
-- Search Students by Name / Graduation Year
-- View a Student’s Service Events
-- Edit Service Event Approval Status (Submitted, Modify, Approved)
-- Edit Admin Profile and Upload Profile Photo
+## Technology Stack
+- **Backend**
+  - Java 17
+  - Spring Boot
+  - Spring Security
+  - JPA/Hibernate
+  - MySQL Database
 
-### Common
-- Register for a new Account
-- Login / Logout
+- **Frontend**
+  - Thymeleaf templating engine
+  - Vanilla HTML and CSS
+  - Pure JavaScript (no frameworks)
+  - Custom responsive design without external libraries
 
-![drawSQL-image-export-2024-06-18 (1)](https://github.com/user-attachments/assets/9e9c5786-464c-4280-b3fb-6aadd8e3849b)
+## Technical Highlights
+- Implemented complex database relationships using JPA/Hibernate
+- Role-based security with Spring Security
+- Custom authentication success handler
+- File upload functionality for profile photos
+- Advanced filtering system for service events
+- DTO pattern for efficient data transfer
+- Custom query methods using Spring Data JPA
+- Hand-crafted responsive CSS without frameworks
+- Clean, semantic HTML structure
+- Vanilla JavaScript for enhanced functionality
 
-![User Registration (3)](https://github.com/user-attachments/assets/4c8f8712-aad3-4da5-92fd-11e66806ad4c)
+## Setup and Installation
+1. Clone the repository
+2. Configure MySQL database settings in `application.properties`
+3. Run `mvn clean install` to build the project
+4. Start the application using `mvn spring-boot:run`
+5. Access the application at `http://localhost:8080`
 
+### Database Configuration
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+```
 
+## Application Structure
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/coderscampus/servicetally/
+│   │       ├── config/        # Security and MVC configuration
+│   │       ├── controller/    # MVC controllers
+│   │       ├── domain/        # Entity classes and DTOs
+│   │       ├── repository/    # Data access layer
+│   │       ├── service/       # Business logic
+│   │       └── util/          # Utility classes
+│   └── resources/
+│       ├── static/           # CSS, JS, and other static files
+│       └── templates/        # Thymeleaf templates
+```
 
+## Future Improvements
+- Implement email notifications for status updates
+- Add reporting and analytics features
+- Enhance mobile responsiveness
+- Add batch processing for large datasets
+- Implement caching for improved performance
 
+## Screenshots
+[Include screenshots or link to demo video here]
+
+## Contributing
+This is a portfolio project demonstrating full-stack development capabilities. While it's not open for contributions, feel free to fork and use as reference.
+
+## License
+[Specify your license here]
