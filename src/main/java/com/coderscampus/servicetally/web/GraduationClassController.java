@@ -74,8 +74,9 @@ public class GraduationClassController {
 				if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
 						&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
 					filteredGraduationClass = graduationClassService.getAllStudentsForSchools(schoolIds);
-				} else if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
-						&& (completedStatusFilter != null || !completedStatusFilter.isEmpty())) {
+				} else if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) 
+						&& schoolIdFilter == null
+						&& (!completedStatusFilter.isEmpty() || completedStatusFilter != null)) {
 					filteredGraduationClass = graduationClassService.getAllStudentsByCompletedStatus(completedStatusFilter, schoolIds);
 				} else {
 					filteredGraduationClass = graduationClassService.getAllStudentsFiltered(graduationYearFilter,
