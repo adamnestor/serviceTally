@@ -125,4 +125,20 @@ public class GraduationClassService {
 		return studentProfileRepo.findAllBySchoolIds(schoolIds);
 	}
 
+	public List<GraduationYearDto> getFilteredGraduationClass(String graduationYearFilter, 
+			Integer schoolIdFilter, String completedStatusFilter, List<Integer> schoolIds) {
+			
+		if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) 
+				&& schoolIdFilter == null
+				&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
+			return getAllStudentsForSchools(schoolIds);
+		} else if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) 
+				&& schoolIdFilter == null
+				&& (!completedStatusFilter.isEmpty() || completedStatusFilter != null)) {
+			return getAllStudentsByCompletedStatus(completedStatusFilter, schoolIds);
+		} else {
+			return getAllStudentsFiltered(graduationYearFilter, schoolIdFilter, completedStatusFilter);
+		}
+	}
+
 }

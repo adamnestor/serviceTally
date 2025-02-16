@@ -69,26 +69,14 @@ public class GraduationClassController {
 				List<CompletedStatus> statusOptions = Arrays.asList(CompletedStatus.values());
 				model.addAttribute("completedStatusOptions", statusOptions);
 
-				// Filter and get graduation class data
-				List<GraduationYearDto> filteredGraduationClass = null;
-				if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) && schoolIdFilter == null
-						&& (completedStatusFilter == null || completedStatusFilter.isEmpty())) {
-					filteredGraduationClass = graduationClassService.getAllStudentsForSchools(schoolIds);
-				} else if ((graduationYearFilter == null || graduationYearFilter.isEmpty()) 
-						&& schoolIdFilter == null
-						&& (!completedStatusFilter.isEmpty() || completedStatusFilter != null)) {
-					filteredGraduationClass = graduationClassService.getAllStudentsByCompletedStatus(completedStatusFilter, schoolIds);
-				} else {
-					filteredGraduationClass = graduationClassService.getAllStudentsFiltered(graduationYearFilter,
-							schoolIdFilter, completedStatusFilter);
-				}
-
+				// Get filtered graduation class data
+				List<GraduationYearDto> filteredGraduationClass = graduationClassService
+					.getFilteredGraduationClass(graduationYearFilter, schoolIdFilter, completedStatusFilter, schoolIds);
 				model.addAttribute("graduationClass", filteredGraduationClass);
 			}
 		}
 
 		model.addAttribute("user", currentUserProfile);
-
 		return "overview";
 	}
 }
